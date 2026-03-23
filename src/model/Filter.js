@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -27,7 +27,7 @@ class Filter {
      * @param order {Number} The display order of this filter. Filters on BuiltByBit are displayed in ascending order of their order value. 
      * @param primary {Boolean} Whether or not BuiltByBit considers this a primary filter. Primary filters are displayed more prominently.
      * @param title {String} 
-     * @param type {String} Supported types:    'choice': a finite choice set (see `options`).    'text': user text input
+     * @param type {String} Supported types:    'radio': a finite choice set (see `choices`). You'll likely want to use the radio HTML tag.    'select': a finite choice set (see `choices`). You'll likely want to use the select HTML tag.  'text': user text input.
      */
     constructor(filterId, order, primary, title, type) { 
         
@@ -160,7 +160,7 @@ Filter.prototype['primary'] = undefined;
 Filter.prototype['title'] = undefined;
 
 /**
- * Supported types:    'choice': a finite choice set (see `options`).    'text': user text input
+ * Supported types:    'radio': a finite choice set (see `choices`). You'll likely want to use the radio HTML tag.    'select': a finite choice set (see `choices`). You'll likely want to use the select HTML tag.  'text': user text input.
  * @member {String} type
  */
 Filter.prototype['type'] = undefined;

@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AnalyticFiltersValue from './AnalyticFiltersValue';
 
 /**
  * The Analytic model module.
@@ -60,7 +61,10 @@ class Analytic {
                 obj['single'] = ApiClient.convertToType(data['single'], 'Boolean');
             }
             if (data.hasOwnProperty('filters')) {
-                obj['filters'] = ApiClient.convertToType(data['filters'], 'String');
+                obj['filters'] = ApiClient.convertToType(data['filters'], {'String': AnalyticFiltersValue});
+            }
+            if (data.hasOwnProperty('periods')) {
+                obj['periods'] = ApiClient.convertToType(data['periods'], ['String']);
             }
         }
         return obj;
@@ -80,9 +84,9 @@ class Analytic {
         if (data['desc'] && !(typeof data['desc'] === 'string' || data['desc'] instanceof String)) {
             throw new Error("Expected the field `desc` to be a primitive type in the JSON string but got " + data['desc']);
         }
-        // ensure the json data is a string
-        if (data['filters'] && !(typeof data['filters'] === 'string' || data['filters'] instanceof String)) {
-            throw new Error("Expected the field `filters` to be a primitive type in the JSON string but got " + data['filters']);
+        // ensure the json data is an array
+        if (!Array.isArray(data['periods'])) {
+            throw new Error("Expected the field `periods` to be an array in the JSON data but got " + data['periods']);
         }
 
         return true;
@@ -116,9 +120,14 @@ Analytic.prototype['graph'] = undefined;
 Analytic.prototype['single'] = undefined;
 
 /**
- * @member {String} filters
+ * @member {Object.<String, module:model/AnalyticFiltersValue>} filters
  */
 Analytic.prototype['filters'] = undefined;
+
+/**
+ * @member {Array.<String>} periods
+ */
+Analytic.prototype['periods'] = undefined;
 
 
 

@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -46,7 +46,8 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'token': {type: 'apiKey', 'in': 'header', name: 'Authorization'}
+            'token': {type: 'apiKey', 'in': 'header', name: 'Authorization'},
+            'oauth2': {type: 'oauth2'}
         }
 
         /**

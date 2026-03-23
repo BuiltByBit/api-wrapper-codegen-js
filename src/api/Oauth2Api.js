@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -45,8 +45,7 @@ export default class Oauth2Api {
 
     /**
      * Request an access token using an existing grant
-     * Supported grant types: authorization_code, refresh_token
-     * @param {String} authorization OAuth2 client credentials in the Basic authorization format.
+     * Supported grant types: `authorization_code`, and `refresh_token`.  Must authenticate via HTTP Basic Authentication, using your OAuth2 client credentials.
      * @param {String} grantType 
      * @param {Object} opts Optional parameters
      * @param {String} [code] Required if grant_type = `authorization_code`.
@@ -54,13 +53,9 @@ export default class Oauth2Api {
      * @param {module:api/Oauth2Api~getOauth2TokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetOauth2Token200Response}
      */
-    getOauth2Token(authorization, grantType, opts, callback) {
+    getOauth2Token(grantType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getOauth2Token");
-      }
       // verify the required parameter 'grantType' is set
       if (grantType === undefined || grantType === null) {
         throw new Error("Missing the required parameter 'grantType' when calling getOauth2Token");
@@ -71,7 +66,6 @@ export default class Oauth2Api {
       let queryParams = {
       };
       let headerParams = {
-        'Authorization': authorization
       };
       let formParams = {
         'grant_type': grantType,
@@ -79,7 +73,7 @@ export default class Oauth2Api {
         'refresh_token': opts['refreshToken']
       };
 
-      let authNames = [];
+      let authNames = ['token'];
       let contentTypes = ['application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = GetOauth2Token200Response;
@@ -100,6 +94,7 @@ export default class Oauth2Api {
 
     /**
      * Revoke an existing access or refresh token
+     * Must authenticate via HTTP Basic Authentication, using your OAuth2 client credentials.
      * @param {String} authorization OAuth2 client credentials in the Basic authorization format.
      * @param {String} token 
      * @param {Object} opts Optional parameters
@@ -131,7 +126,7 @@ export default class Oauth2Api {
         'token_hint': opts['tokenHint']
       };
 
-      let authNames = [];
+      let authNames = ['token'];
       let contentTypes = ['application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = GetOauth2TokenRevoke200Response;

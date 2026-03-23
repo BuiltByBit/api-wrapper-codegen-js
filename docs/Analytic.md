@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **desc** | **String** |  | [optional] 
 **graph** | **Boolean** | Whether or not this analytic can be requested via the /v2/analytics/graph endpoint. | [optional] 
 **single** | **Boolean** | Whether or not this analytic can be requested via the /v2/analytics/single endpoint. | [optional] 
-**filters** | **String** |  | [optional] 
+**filters** | [**{String: AnalyticFiltersValue}**](AnalyticFiltersValue.md) |  | [optional] 
+**periods** | **[String]** |  | [optional] 
 
 

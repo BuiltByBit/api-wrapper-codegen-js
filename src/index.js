@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import Addon from './model/Addon';
 import Analytic from './model/Analytic';
+import AnalyticFiltersValue from './model/AnalyticFiltersValue';
 import AnalyticGraphData from './model/AnalyticGraphData';
 import AnalyticGraphDataPeriod from './model/AnalyticGraphDataPeriod';
 import AnalyticGraphDataPoint from './model/AnalyticGraphDataPoint';
@@ -38,6 +39,9 @@ import GetResourcesDiscoverResources4XXResponseError from './model/GetResourcesD
 import GetV2Analytics200Response from './model/GetV2Analytics200Response';
 import GetV2Analytics200ResponseData from './model/GetV2Analytics200ResponseData';
 import GetV2AnalyticsGraph200Response from './model/GetV2AnalyticsGraph200Response';
+import GetV2AnalyticsSingle200Response from './model/GetV2AnalyticsSingle200Response';
+import GetV2AnalyticsSingle200ResponseData from './model/GetV2AnalyticsSingle200ResponseData';
+import GetV2AnalyticsSingle200ResponseDataPeriod from './model/GetV2AnalyticsSingle200ResponseDataPeriod';
 import GetV2Events200Response from './model/GetV2Events200Response';
 import GetV2Events200ResponseData from './model/GetV2Events200ResponseData';
 import GetV2ResourcesDiscoverCartView200Response from './model/GetV2ResourcesDiscoverCartView200Response';
@@ -70,13 +74,14 @@ import SaleEvent from './model/SaleEvent';
 import SaleEventEntry from './model/SaleEventEntry';
 import Update from './model/Update';
 import Version from './model/Version';
-import DefaultApi from './api/DefaultApi';
-import DiscoveryApi from './api/DiscoveryApi';
+import GlobalApi from './api/GlobalApi';
 import Oauth2Api from './api/Oauth2Api';
+import ResourcesCreatorApi from './api/ResourcesCreatorApi';
+import ResourcesDiscoveryApi from './api/ResourcesDiscoveryApi';
 
 
 /**
-* All operations not tagged &#39;free&#39; require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions..<br>
+* All operations not tagged &#39;free&#39; require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -124,6 +129,12 @@ export {
      * @property {module:model/Analytic}
      */
     Analytic,
+
+    /**
+     * The AnalyticFiltersValue model constructor.
+     * @property {module:model/AnalyticFiltersValue}
+     */
+    AnalyticFiltersValue,
 
     /**
      * The AnalyticGraphData model constructor.
@@ -262,6 +273,24 @@ export {
      * @property {module:model/GetV2AnalyticsGraph200Response}
      */
     GetV2AnalyticsGraph200Response,
+
+    /**
+     * The GetV2AnalyticsSingle200Response model constructor.
+     * @property {module:model/GetV2AnalyticsSingle200Response}
+     */
+    GetV2AnalyticsSingle200Response,
+
+    /**
+     * The GetV2AnalyticsSingle200ResponseData model constructor.
+     * @property {module:model/GetV2AnalyticsSingle200ResponseData}
+     */
+    GetV2AnalyticsSingle200ResponseData,
+
+    /**
+     * The GetV2AnalyticsSingle200ResponseDataPeriod model constructor.
+     * @property {module:model/GetV2AnalyticsSingle200ResponseDataPeriod}
+     */
+    GetV2AnalyticsSingle200ResponseDataPeriod,
 
     /**
      * The GetV2Events200Response model constructor.
@@ -456,20 +485,26 @@ export {
     Version,
 
     /**
-    * The DefaultApi service constructor.
-    * @property {module:api/DefaultApi}
+    * The GlobalApi service constructor.
+    * @property {module:api/GlobalApi}
     */
-    DefaultApi,
-
-    /**
-    * The DiscoveryApi service constructor.
-    * @property {module:api/DiscoveryApi}
-    */
-    DiscoveryApi,
+    GlobalApi,
 
     /**
     * The Oauth2Api service constructor.
     * @property {module:api/Oauth2Api}
     */
-    Oauth2Api
+    Oauth2Api,
+
+    /**
+    * The ResourcesCreatorApi service constructor.
+    * @property {module:api/ResourcesCreatorApi}
+    */
+    ResourcesCreatorApi,
+
+    /**
+    * The ResourcesDiscoveryApi service constructor.
+    * @property {module:api/ResourcesDiscoveryApi}
+    */
+    ResourcesDiscoveryApi
 };

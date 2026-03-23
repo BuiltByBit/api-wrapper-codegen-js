@@ -11,25 +11,30 @@ Method | HTTP request | Description
 
 ## getOauth2Token
 
-> GetOauth2Token200Response getOauth2Token(authorization, grantType, opts)
+> GetOauth2Token200Response getOauth2Token(grantType, opts)
 
 Request an access token using an existing grant
 
-Supported grant types: authorization_code, refresh_token
+Supported grant types: &#x60;authorization_code&#x60;, and &#x60;refresh_token&#x60;.  Must authenticate via HTTP Basic Authentication, using your OAuth2 client credentials.
 
 ### Example
 
 ```javascript
 import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
 
 let apiInstance = new BuiltByBitApi.Oauth2Api();
-let authorization = "authorization_example"; // String | OAuth2 client credentials in the Basic authorization format.
 let grantType = "grantType_example"; // String | 
 let opts = {
   'code': "code_example", // String | Required if grant_type = `authorization_code`.
   'refreshToken': "refreshToken_example" // String | Required if grant_type = `refresh_token`.
 };
-apiInstance.getOauth2Token(authorization, grantType, opts, (error, data, response) => {
+apiInstance.getOauth2Token(grantType, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -43,7 +48,6 @@ apiInstance.getOauth2Token(authorization, grantType, opts, (error, data, respons
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| OAuth2 client credentials in the Basic authorization format. | 
  **grantType** | **String**|  | 
  **code** | **String**| Required if grant_type &#x3D; &#x60;authorization_code&#x60;. | [optional] 
  **refreshToken** | **String**| Required if grant_type &#x3D; &#x60;refresh_token&#x60;. | [optional] 
@@ -54,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[token](../README.md#token)
 
 ### HTTP request headers
 
@@ -68,10 +72,18 @@ No authorization required
 
 Revoke an existing access or refresh token
 
+Must authenticate via HTTP Basic Authentication, using your OAuth2 client credentials.
+
 ### Example
 
 ```javascript
 import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
 
 let apiInstance = new BuiltByBitApi.Oauth2Api();
 let authorization = "authorization_example"; // String | OAuth2 client credentials in the Basic authorization format.
@@ -103,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[token](../README.md#token)
 
 ### HTTP request headers
 

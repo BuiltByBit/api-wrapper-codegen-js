@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**analytics** | [**Analytic**](Analytic.md) |  | [optional] 
+**analytics** | [**{String: Analytic}**](Analytic.md) |  | [optional] 
 
 

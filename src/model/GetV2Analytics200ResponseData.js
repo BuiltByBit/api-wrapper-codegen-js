@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -49,7 +49,7 @@ class GetV2Analytics200ResponseData {
             obj = obj || new GetV2Analytics200ResponseData();
 
             if (data.hasOwnProperty('analytics')) {
-                obj['analytics'] = Analytic.constructFromObject(data['analytics']);
+                obj['analytics'] = ApiClient.convertToType(data['analytics'], {'String': Analytic});
             }
         }
         return obj;
@@ -61,10 +61,6 @@ class GetV2Analytics200ResponseData {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetV2Analytics200ResponseData</code>.
      */
     static validateJSON(data) {
-        // validate the optional field `analytics`
-        if (data['analytics']) { // data not null
-          Analytic.validateJSON(data['analytics']);
-        }
 
         return true;
     }
@@ -75,7 +71,7 @@ class GetV2Analytics200ResponseData {
 
 
 /**
- * @member {module:model/Analytic} analytics
+ * @member {Object.<String, module:model/Analytic>} analytics
  */
 GetV2Analytics200ResponseData.prototype['analytics'] = undefined;
 
