@@ -53,8 +53,8 @@ class Review {
             if (data.hasOwnProperty('resource_id')) {
                 obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'String');
             }
-            if (data.hasOwnProperty('written_by_id')) {
-                obj['written_by_id'] = ApiClient.convertToType(data['written_by_id'], 'String');
+            if (data.hasOwnProperty('reviewer_id')) {
+                obj['reviewer_id'] = ApiClient.convertToType(data['reviewer_id'], 'String');
             }
         }
         return obj;
@@ -75,8 +75,8 @@ class Review {
             throw new Error("Expected the field `resource_id` to be a primitive type in the JSON string but got " + data['resource_id']);
         }
         // ensure the json data is a string
-        if (data['written_by_id'] && !(typeof data['written_by_id'] === 'string' || data['written_by_id'] instanceof String)) {
-            throw new Error("Expected the field `written_by_id` to be a primitive type in the JSON string but got " + data['written_by_id']);
+        if (data['reviewer_id'] && !(typeof data['reviewer_id'] === 'string' || data['reviewer_id'] instanceof String)) {
+            throw new Error("Expected the field `reviewer_id` to be a primitive type in the JSON string but got " + data['reviewer_id']);
         }
 
         return true;
@@ -98,9 +98,9 @@ Review.prototype['review_id'] = undefined;
 Review.prototype['resource_id'] = undefined;
 
 /**
- * @member {String} written_by_id
+ * @member {String} reviewer_id
  */
-Review.prototype['written_by_id'] = undefined;
+Review.prototype['reviewer_id'] = undefined;
 
 
 

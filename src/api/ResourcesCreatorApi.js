@@ -13,6 +13,15 @@
 
 
 import ApiClient from "../ApiClient";
+import GetV2ResourcesCreatorAddons200Response from '../model/GetV2ResourcesCreatorAddons200Response';
+import GetV2ResourcesCreatorBundles200Response from '../model/GetV2ResourcesCreatorBundles200Response';
+import GetV2ResourcesCreatorLicenses200Response from '../model/GetV2ResourcesCreatorLicenses200Response';
+import GetV2ResourcesCreatorPurchases200Response from '../model/GetV2ResourcesCreatorPurchases200Response';
+import GetV2ResourcesCreatorResources200Response from '../model/GetV2ResourcesCreatorResources200Response';
+import GetV2ResourcesCreatorReviews200Response from '../model/GetV2ResourcesCreatorReviews200Response';
+import GetV2ResourcesCreatorSaleEvents200Response from '../model/GetV2ResourcesCreatorSaleEvents200Response';
+import GetV2ResourcesCreatorUpdates200Response from '../model/GetV2ResourcesCreatorUpdates200Response';
+import GetV2ResourcesCreatorVersions200Response from '../model/GetV2ResourcesCreatorVersions200Response';
 import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdateRequest from '../model/PostV2ResourcesCreatorUpdateRequest';
 
@@ -34,6 +43,358 @@ export default class ResourcesCreatorApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorAddons operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorAddonsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorAddons200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources' addons
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorAddonsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorAddons200Response}
+     */
+    getV2ResourcesCreatorAddons(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorAddons200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/addons', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorBundles operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorBundles200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your bundles
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorBundles200Response}
+     */
+    getV2ResourcesCreatorBundles(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorBundles200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/bundles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorLicenses operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorLicensesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorLicenses200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources' licenses
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorLicensesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorLicenses200Response}
+     */
+    getV2ResourcesCreatorLicenses(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorLicenses200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/licenses', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorPurchases operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorPurchasesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorPurchases200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources' purchases
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorPurchasesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorPurchases200Response}
+     */
+    getV2ResourcesCreatorPurchases(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorPurchases200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/purchases', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorResources operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorResourcesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorResources200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorResourcesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorResources200Response}
+     */
+    getV2ResourcesCreatorResources(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorResources200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/resources', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorReviews operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorReviewsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorReviews200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources' reviews
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorReviewsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorReviews200Response}
+     */
+    getV2ResourcesCreatorReviews(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorReviews200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/reviews', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorSaleEvents operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorSaleEvents200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your sale events
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorSaleEvents200Response}
+     */
+    getV2ResourcesCreatorSaleEvents(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorSaleEvents200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/sale-events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorUpdates operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorUpdatesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorUpdates200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resource's updates
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorUpdatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorUpdates200Response}
+     */
+    getV2ResourcesCreatorUpdates(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorUpdates200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/updates', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorVersions operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorVersionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorVersions200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your resources' versions
+     * @param {Object} opts Optional parameters
+     * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorVersionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorVersions200Response}
+     */
+    getV2ResourcesCreatorVersions(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'resource_ids': opts['resourceIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorVersions200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/versions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the postV2ResourcesCreatorUpdate operation.

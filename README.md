@@ -136,6 +136,16 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.GlobalApi* | [**postV2EventsComplete**](docs/GlobalApi.md#postV2EventsComplete) | **POST** /v2/events/complete | Mark events as complete
 *BuiltByBitApi.Oauth2Api* | [**getOauth2Token**](docs/Oauth2Api.md#getOauth2Token) | **POST** /oauth2/token | Request an access token using an existing grant
 *BuiltByBitApi.Oauth2Api* | [**getOauth2TokenRevoke**](docs/Oauth2Api.md#getOauth2TokenRevoke) | **POST** /oauth2/token/revoke | Revoke an existing access or refresh token
+*BuiltByBitApi.ResourcesBuyerApi* | [**getV2ResourcesBuyerLatest**](docs/ResourcesBuyerApi.md#getV2ResourcesBuyerLatest) | **GET** /v2/resources/buyer/latest | Fetches the latest versions &amp; license information
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorAddons**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorAddons) | **GET** /v2/resources/creator/addons | Fetch a list of your resources&#39; addons
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorBundles**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorBundles) | **GET** /v2/resources/creator/bundles | Fetch a list of your bundles
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorLicenses**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorLicenses) | **GET** /v2/resources/creator/licenses | Fetch a list of your resources&#39; licenses
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorPurchases**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorPurchases) | **GET** /v2/resources/creator/purchases | Fetch a list of your resources&#39; purchases
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorResources**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorResources) | **GET** /v2/resources/creator/resources | Fetch a list of your resources
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorReviews**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorReviews) | **GET** /v2/resources/creator/reviews | Fetch a list of your resources&#39; reviews
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorSaleEvents**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorSaleEvents) | **GET** /v2/resources/creator/sale-events | Fetch a list of your sale events
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorUpdates**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorUpdates) | **GET** /v2/resources/creator/updates | Fetch a list of your resource&#39;s updates
+*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorVersions**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorVersions) | **GET** /v2/resources/creator/versions | Fetch a list of your resources&#39; versions
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverCategories**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverCategories) | **GET** /v2/resources/discover/categories | Fetch a list of categories
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverResources**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
@@ -156,6 +166,7 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.AnalyticGraphData](docs/AnalyticGraphData.md)
  - [BuiltByBitApi.AnalyticGraphDataPeriod](docs/AnalyticGraphDataPeriod.md)
  - [BuiltByBitApi.AnalyticGraphDataPoint](docs/AnalyticGraphDataPoint.md)
+ - [BuiltByBitApi.Bundle](docs/Bundle.md)
  - [BuiltByBitApi.CartItem](docs/CartItem.md)
  - [BuiltByBitApi.CartItemDiscountsInner](docs/CartItemDiscountsInner.md)
  - [BuiltByBitApi.CartSummary](docs/CartSummary.md)
@@ -181,6 +192,26 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.GetV2AnalyticsSingle200ResponseDataPeriod](docs/GetV2AnalyticsSingle200ResponseDataPeriod.md)
  - [BuiltByBitApi.GetV2Events200Response](docs/GetV2Events200Response.md)
  - [BuiltByBitApi.GetV2Events200ResponseData](docs/GetV2Events200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesBuyerLatest200Response](docs/GetV2ResourcesBuyerLatest200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesBuyerLatest200ResponseData](docs/GetV2ResourcesBuyerLatest200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorAddons200Response](docs/GetV2ResourcesCreatorAddons200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorAddons200ResponseData](docs/GetV2ResourcesCreatorAddons200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorBundles200Response](docs/GetV2ResourcesCreatorBundles200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorBundles200ResponseData](docs/GetV2ResourcesCreatorBundles200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorLicenses200Response](docs/GetV2ResourcesCreatorLicenses200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorLicenses200ResponseData](docs/GetV2ResourcesCreatorLicenses200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorPurchases200Response](docs/GetV2ResourcesCreatorPurchases200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorPurchases200ResponseData](docs/GetV2ResourcesCreatorPurchases200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorResources200Response](docs/GetV2ResourcesCreatorResources200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorResources200ResponseData](docs/GetV2ResourcesCreatorResources200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorReviews200Response](docs/GetV2ResourcesCreatorReviews200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorReviews200ResponseData](docs/GetV2ResourcesCreatorReviews200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorSaleEvents200Response](docs/GetV2ResourcesCreatorSaleEvents200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorSaleEvents200ResponseData](docs/GetV2ResourcesCreatorSaleEvents200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorUpdates200Response](docs/GetV2ResourcesCreatorUpdates200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorUpdates200ResponseData](docs/GetV2ResourcesCreatorUpdates200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorVersions200Response](docs/GetV2ResourcesCreatorVersions200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorVersions200ResponseData](docs/GetV2ResourcesCreatorVersions200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverCartView200Response](docs/GetV2ResourcesDiscoverCartView200Response.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverCartView200ResponseData](docs/GetV2ResourcesDiscoverCartView200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverLicenses200Response](docs/GetV2ResourcesDiscoverLicenses200Response.md)
@@ -205,6 +236,8 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartCouponRemoveRequest](docs/PostV2ResourcesDiscoverCartCouponRemoveRequest.md)
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartRemove200Response](docs/PostV2ResourcesDiscoverCartRemove200Response.md)
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartRemoveRequest](docs/PostV2ResourcesDiscoverCartRemoveRequest.md)
+ - [BuiltByBitApi.Price](docs/Price.md)
+ - [BuiltByBitApi.Purchase](docs/Purchase.md)
  - [BuiltByBitApi.Resource](docs/Resource.md)
  - [BuiltByBitApi.Review](docs/Review.md)
  - [BuiltByBitApi.SaleEvent](docs/SaleEvent.md)

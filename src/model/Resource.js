@@ -16,6 +16,7 @@ import Addon from './Addon';
 import Category from './Category';
 import Description from './Description';
 import Member from './Member';
+import Price from './Price';
 import Review from './Review';
 import SaleEventEntry from './SaleEventEntry';
 import Version from './Version';
@@ -76,29 +77,14 @@ class Resource {
             if (data.hasOwnProperty('last_updated_at')) {
                 obj['last_updated_at'] = ApiClient.convertToType(data['last_updated_at'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
-            }
             if (data.hasOwnProperty('purchases')) {
                 obj['purchases'] = ApiClient.convertToType(data['purchases'], 'Number');
             }
             if (data.hasOwnProperty('downloads')) {
                 obj['downloads'] = ApiClient.convertToType(data['downloads'], 'Number');
             }
-            if (data.hasOwnProperty('list_price')) {
-                obj['list_price'] = ApiClient.convertToType(data['list_price'], 'Number');
-            }
             if (data.hasOwnProperty('cover_image_url')) {
                 obj['cover_image_url'] = ApiClient.convertToType(data['cover_image_url'], 'String');
-            }
-            if (data.hasOwnProperty('final_price')) {
-                obj['final_price'] = ApiClient.convertToType(data['final_price'], 'Number');
-            }
-            if (data.hasOwnProperty('final_price_formatted')) {
-                obj['final_price_formatted'] = ApiClient.convertToType(data['final_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('list_price_formatted')) {
-                obj['list_price_formatted'] = ApiClient.convertToType(data['list_price_formatted'], 'String');
             }
             if (data.hasOwnProperty('carousel_image_urls')) {
                 obj['carousel_image_urls'] = ApiClient.convertToType(data['carousel_image_urls'], ['String']);
@@ -108,6 +94,12 @@ class Resource {
             }
             if (data.hasOwnProperty('review_average')) {
                 obj['review_average'] = ApiClient.convertToType(data['review_average'], 'Number');
+            }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
             }
             if (data.hasOwnProperty('SaleEventEntry')) {
                 obj['SaleEventEntry'] = SaleEventEntry.constructFromObject(data['SaleEventEntry']);
@@ -156,24 +148,20 @@ class Resource {
             throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
         }
         // ensure the json data is a string
-        if (data['currency'] && !(typeof data['currency'] === 'string' || data['currency'] instanceof String)) {
-            throw new Error("Expected the field `currency` to be a primitive type in the JSON string but got " + data['currency']);
-        }
-        // ensure the json data is a string
         if (data['cover_image_url'] && !(typeof data['cover_image_url'] === 'string' || data['cover_image_url'] instanceof String)) {
             throw new Error("Expected the field `cover_image_url` to be a primitive type in the JSON string but got " + data['cover_image_url']);
-        }
-        // ensure the json data is a string
-        if (data['final_price_formatted'] && !(typeof data['final_price_formatted'] === 'string' || data['final_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `final_price_formatted` to be a primitive type in the JSON string but got " + data['final_price_formatted']);
-        }
-        // ensure the json data is a string
-        if (data['list_price_formatted'] && !(typeof data['list_price_formatted'] === 'string' || data['list_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `list_price_formatted` to be a primitive type in the JSON string but got " + data['list_price_formatted']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['carousel_image_urls'])) {
             throw new Error("Expected the field `carousel_image_urls` to be an array in the JSON data but got " + data['carousel_image_urls']);
+        }
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
+        }
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
         // validate the optional field `SaleEventEntry`
         if (data['SaleEventEntry']) { // data not null
@@ -254,11 +242,6 @@ Resource.prototype['published_at'] = undefined;
 Resource.prototype['last_updated_at'] = undefined;
 
 /**
- * @member {String} currency
- */
-Resource.prototype['currency'] = undefined;
-
-/**
  * @member {Number} purchases
  */
 Resource.prototype['purchases'] = undefined;
@@ -269,29 +252,9 @@ Resource.prototype['purchases'] = undefined;
 Resource.prototype['downloads'] = undefined;
 
 /**
- * @member {Number} list_price
- */
-Resource.prototype['list_price'] = undefined;
-
-/**
  * @member {String} cover_image_url
  */
 Resource.prototype['cover_image_url'] = undefined;
-
-/**
- * @member {Number} final_price
- */
-Resource.prototype['final_price'] = undefined;
-
-/**
- * @member {String} final_price_formatted
- */
-Resource.prototype['final_price_formatted'] = undefined;
-
-/**
- * @member {String} list_price_formatted
- */
-Resource.prototype['list_price_formatted'] = undefined;
 
 /**
  * @member {Array.<String>} carousel_image_urls
@@ -307,6 +270,16 @@ Resource.prototype['review_count'] = undefined;
  * @member {Number} review_average
  */
 Resource.prototype['review_average'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+Resource.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+Resource.prototype['FinalPrice'] = undefined;
 
 /**
  * @member {module:model/SaleEventEntry} SaleEventEntry

@@ -9,13 +9,10 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
-**listPrice** | **Number** |  | [optional] 
-**listPriceFormatted** | **String** |  | [optional] 
-**finalPrice** | **Number** |  | [optional] 
-**finalPriceFormatted** | **String** |  | [optional] 
-**priceCurrency** | **String** |  | [optional] 
 **displayOrder** | **Number** |  | [optional] 
 **_default** | **Boolean** |  | [optional] 
+**listPrice** | [**Price**](Price.md) |  | [optional] 
+**finalPrice** | [**Price**](Price.md) |  | [optional] 
 
 
 

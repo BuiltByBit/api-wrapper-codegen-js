@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Price from './Price';
 
 /**
  * The Addon model module.
@@ -62,26 +63,17 @@ class Addon {
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('list_price')) {
-                obj['list_price'] = ApiClient.convertToType(data['list_price'], 'Number');
-            }
-            if (data.hasOwnProperty('list_price_formatted')) {
-                obj['list_price_formatted'] = ApiClient.convertToType(data['list_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('final_price')) {
-                obj['final_price'] = ApiClient.convertToType(data['final_price'], 'Number');
-            }
-            if (data.hasOwnProperty('final_price_formatted')) {
-                obj['final_price_formatted'] = ApiClient.convertToType(data['final_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('price_currency')) {
-                obj['price_currency'] = ApiClient.convertToType(data['price_currency'], 'String');
-            }
             if (data.hasOwnProperty('display_order')) {
                 obj['display_order'] = ApiClient.convertToType(data['display_order'], 'Number');
             }
             if (data.hasOwnProperty('default')) {
                 obj['default'] = ApiClient.convertToType(data['default'], 'Boolean');
+            }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
             }
         }
         return obj;
@@ -109,17 +101,13 @@ class Addon {
         if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
             throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
         }
-        // ensure the json data is a string
-        if (data['list_price_formatted'] && !(typeof data['list_price_formatted'] === 'string' || data['list_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `list_price_formatted` to be a primitive type in the JSON string but got " + data['list_price_formatted']);
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
         }
-        // ensure the json data is a string
-        if (data['final_price_formatted'] && !(typeof data['final_price_formatted'] === 'string' || data['final_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `final_price_formatted` to be a primitive type in the JSON string but got " + data['final_price_formatted']);
-        }
-        // ensure the json data is a string
-        if (data['price_currency'] && !(typeof data['price_currency'] === 'string' || data['price_currency'] instanceof String)) {
-            throw new Error("Expected the field `price_currency` to be a primitive type in the JSON string but got " + data['price_currency']);
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
 
         return true;
@@ -156,31 +144,6 @@ Addon.prototype['type'] = undefined;
 Addon.prototype['state'] = undefined;
 
 /**
- * @member {Number} list_price
- */
-Addon.prototype['list_price'] = undefined;
-
-/**
- * @member {String} list_price_formatted
- */
-Addon.prototype['list_price_formatted'] = undefined;
-
-/**
- * @member {Number} final_price
- */
-Addon.prototype['final_price'] = undefined;
-
-/**
- * @member {String} final_price_formatted
- */
-Addon.prototype['final_price_formatted'] = undefined;
-
-/**
- * @member {String} price_currency
- */
-Addon.prototype['price_currency'] = undefined;
-
-/**
  * @member {Number} display_order
  */
 Addon.prototype['display_order'] = undefined;
@@ -189,6 +152,16 @@ Addon.prototype['display_order'] = undefined;
  * @member {Boolean} default
  */
 Addon.prototype['default'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+Addon.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+Addon.prototype['FinalPrice'] = undefined;
 
 
 
