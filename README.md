@@ -111,7 +111,7 @@ token.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //token.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new BuiltByBitApi.GlobalApi()
+var api = new BuiltByBitApi.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -119,7 +119,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getV2Analytics(callback);
+api.getV2Health(callback);
 
 ```
 
@@ -129,6 +129,9 @@ All URIs are relative to *https://api.builtbybit.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BuiltByBitApi.DefaultApi* | [**getV2Health**](docs/DefaultApi.md#getV2Health) | **GET** /v2/health | Retrieve a health status
+*BuiltByBitApi.DefaultApi* | [**getV2ResourcesCreatorCoupons**](docs/DefaultApi.md#getV2ResourcesCreatorCoupons) | **GET** /v2/resources/creator/coupons | Fetch a list of your coupons
+*BuiltByBitApi.DefaultApi* | [**getV2ResourcesCreatorStores**](docs/DefaultApi.md#getV2ResourcesCreatorStores) | **GET** /v2/resources/creator/stores | Fetch a list of your stores
 *BuiltByBitApi.GlobalApi* | [**getV2Analytics**](docs/GlobalApi.md#getV2Analytics) | **GET** /v2/analytics | Fetch a list of analytics definitions
 *BuiltByBitApi.GlobalApi* | [**getV2AnalyticsGraph**](docs/GlobalApi.md#getV2AnalyticsGraph) | **GET** /v2/analytics/graph | Fetch analytics graph data
 *BuiltByBitApi.GlobalApi* | [**getV2AnalyticsSingle**](docs/GlobalApi.md#getV2AnalyticsSingle) | **GET** /v2/analytics/single | Fetch a single analytics value
@@ -171,7 +174,7 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.CartItemDiscountsInner](docs/CartItemDiscountsInner.md)
  - [BuiltByBitApi.CartSummary](docs/CartSummary.md)
  - [BuiltByBitApi.Category](docs/Category.md)
- - [BuiltByBitApi.Description](docs/Description.md)
+ - [BuiltByBitApi.Coupon](docs/Coupon.md)
  - [BuiltByBitApi.Event](docs/Event.md)
  - [BuiltByBitApi.Filter](docs/Filter.md)
  - [BuiltByBitApi.FilterChoice](docs/FilterChoice.md)
@@ -192,12 +195,15 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.GetV2AnalyticsSingle200ResponseDataPeriod](docs/GetV2AnalyticsSingle200ResponseDataPeriod.md)
  - [BuiltByBitApi.GetV2Events200Response](docs/GetV2Events200Response.md)
  - [BuiltByBitApi.GetV2Events200ResponseData](docs/GetV2Events200ResponseData.md)
+ - [BuiltByBitApi.GetV2Health200Response](docs/GetV2Health200Response.md)
  - [BuiltByBitApi.GetV2ResourcesBuyerLatest200Response](docs/GetV2ResourcesBuyerLatest200Response.md)
  - [BuiltByBitApi.GetV2ResourcesBuyerLatest200ResponseData](docs/GetV2ResourcesBuyerLatest200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorAddons200Response](docs/GetV2ResourcesCreatorAddons200Response.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorAddons200ResponseData](docs/GetV2ResourcesCreatorAddons200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorBundles200Response](docs/GetV2ResourcesCreatorBundles200Response.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorBundles200ResponseData](docs/GetV2ResourcesCreatorBundles200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorCoupons200Response](docs/GetV2ResourcesCreatorCoupons200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorCoupons200ResponseData](docs/GetV2ResourcesCreatorCoupons200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorLicenses200Response](docs/GetV2ResourcesCreatorLicenses200Response.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorLicenses200ResponseData](docs/GetV2ResourcesCreatorLicenses200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorPurchases200Response](docs/GetV2ResourcesCreatorPurchases200Response.md)
@@ -208,6 +214,8 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.GetV2ResourcesCreatorReviews200ResponseData](docs/GetV2ResourcesCreatorReviews200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorSaleEvents200Response](docs/GetV2ResourcesCreatorSaleEvents200Response.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorSaleEvents200ResponseData](docs/GetV2ResourcesCreatorSaleEvents200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorStores200Response](docs/GetV2ResourcesCreatorStores200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesCreatorStores200ResponseData](docs/GetV2ResourcesCreatorStores200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorUpdates200Response](docs/GetV2ResourcesCreatorUpdates200Response.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorUpdates200ResponseData](docs/GetV2ResourcesCreatorUpdates200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesCreatorVersions200Response](docs/GetV2ResourcesCreatorVersions200Response.md)
@@ -240,8 +248,10 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.Purchase](docs/Purchase.md)
  - [BuiltByBitApi.Resource](docs/Resource.md)
  - [BuiltByBitApi.Review](docs/Review.md)
+ - [BuiltByBitApi.RichText](docs/RichText.md)
  - [BuiltByBitApi.SaleEvent](docs/SaleEvent.md)
  - [BuiltByBitApi.SaleEventEntry](docs/SaleEventEntry.md)
+ - [BuiltByBitApi.Store](docs/Store.md)
  - [BuiltByBitApi.Update](docs/Update.md)
  - [BuiltByBitApi.Version](docs/Version.md)
 

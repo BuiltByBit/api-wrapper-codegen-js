@@ -24,7 +24,7 @@ import CartItem from './model/CartItem';
 import CartItemDiscountsInner from './model/CartItemDiscountsInner';
 import CartSummary from './model/CartSummary';
 import Category from './model/Category';
-import Description from './model/Description';
+import Coupon from './model/Coupon';
 import Event from './model/Event';
 import Filter from './model/Filter';
 import FilterChoice from './model/FilterChoice';
@@ -45,12 +45,15 @@ import GetV2AnalyticsSingle200ResponseData from './model/GetV2AnalyticsSingle200
 import GetV2AnalyticsSingle200ResponseDataPeriod from './model/GetV2AnalyticsSingle200ResponseDataPeriod';
 import GetV2Events200Response from './model/GetV2Events200Response';
 import GetV2Events200ResponseData from './model/GetV2Events200ResponseData';
+import GetV2Health200Response from './model/GetV2Health200Response';
 import GetV2ResourcesBuyerLatest200Response from './model/GetV2ResourcesBuyerLatest200Response';
 import GetV2ResourcesBuyerLatest200ResponseData from './model/GetV2ResourcesBuyerLatest200ResponseData';
 import GetV2ResourcesCreatorAddons200Response from './model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorAddons200ResponseData from './model/GetV2ResourcesCreatorAddons200ResponseData';
 import GetV2ResourcesCreatorBundles200Response from './model/GetV2ResourcesCreatorBundles200Response';
 import GetV2ResourcesCreatorBundles200ResponseData from './model/GetV2ResourcesCreatorBundles200ResponseData';
+import GetV2ResourcesCreatorCoupons200Response from './model/GetV2ResourcesCreatorCoupons200Response';
+import GetV2ResourcesCreatorCoupons200ResponseData from './model/GetV2ResourcesCreatorCoupons200ResponseData';
 import GetV2ResourcesCreatorLicenses200Response from './model/GetV2ResourcesCreatorLicenses200Response';
 import GetV2ResourcesCreatorLicenses200ResponseData from './model/GetV2ResourcesCreatorLicenses200ResponseData';
 import GetV2ResourcesCreatorPurchases200Response from './model/GetV2ResourcesCreatorPurchases200Response';
@@ -61,6 +64,8 @@ import GetV2ResourcesCreatorReviews200Response from './model/GetV2ResourcesCreat
 import GetV2ResourcesCreatorReviews200ResponseData from './model/GetV2ResourcesCreatorReviews200ResponseData';
 import GetV2ResourcesCreatorSaleEvents200Response from './model/GetV2ResourcesCreatorSaleEvents200Response';
 import GetV2ResourcesCreatorSaleEvents200ResponseData from './model/GetV2ResourcesCreatorSaleEvents200ResponseData';
+import GetV2ResourcesCreatorStores200Response from './model/GetV2ResourcesCreatorStores200Response';
+import GetV2ResourcesCreatorStores200ResponseData from './model/GetV2ResourcesCreatorStores200ResponseData';
 import GetV2ResourcesCreatorUpdates200Response from './model/GetV2ResourcesCreatorUpdates200Response';
 import GetV2ResourcesCreatorUpdates200ResponseData from './model/GetV2ResourcesCreatorUpdates200ResponseData';
 import GetV2ResourcesCreatorVersions200Response from './model/GetV2ResourcesCreatorVersions200Response';
@@ -93,10 +98,13 @@ import Price from './model/Price';
 import Purchase from './model/Purchase';
 import Resource from './model/Resource';
 import Review from './model/Review';
+import RichText from './model/RichText';
 import SaleEvent from './model/SaleEvent';
 import SaleEventEntry from './model/SaleEventEntry';
+import Store from './model/Store';
 import Update from './model/Update';
 import Version from './model/Version';
+import DefaultApi from './api/DefaultApi';
 import GlobalApi from './api/GlobalApi';
 import Oauth2Api from './api/Oauth2Api';
 import ResourcesBuyerApi from './api/ResourcesBuyerApi';
@@ -209,10 +217,10 @@ export {
     Category,
 
     /**
-     * The Description model constructor.
-     * @property {module:model/Description}
+     * The Coupon model constructor.
+     * @property {module:model/Coupon}
      */
-    Description,
+    Coupon,
 
     /**
      * The Event model constructor.
@@ -335,6 +343,12 @@ export {
     GetV2Events200ResponseData,
 
     /**
+     * The GetV2Health200Response model constructor.
+     * @property {module:model/GetV2Health200Response}
+     */
+    GetV2Health200Response,
+
+    /**
      * The GetV2ResourcesBuyerLatest200Response model constructor.
      * @property {module:model/GetV2ResourcesBuyerLatest200Response}
      */
@@ -369,6 +383,18 @@ export {
      * @property {module:model/GetV2ResourcesCreatorBundles200ResponseData}
      */
     GetV2ResourcesCreatorBundles200ResponseData,
+
+    /**
+     * The GetV2ResourcesCreatorCoupons200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorCoupons200Response}
+     */
+    GetV2ResourcesCreatorCoupons200Response,
+
+    /**
+     * The GetV2ResourcesCreatorCoupons200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorCoupons200ResponseData}
+     */
+    GetV2ResourcesCreatorCoupons200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorLicenses200Response model constructor.
@@ -429,6 +455,18 @@ export {
      * @property {module:model/GetV2ResourcesCreatorSaleEvents200ResponseData}
      */
     GetV2ResourcesCreatorSaleEvents200ResponseData,
+
+    /**
+     * The GetV2ResourcesCreatorStores200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorStores200Response}
+     */
+    GetV2ResourcesCreatorStores200Response,
+
+    /**
+     * The GetV2ResourcesCreatorStores200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorStores200ResponseData}
+     */
+    GetV2ResourcesCreatorStores200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorUpdates200Response model constructor.
@@ -623,6 +661,12 @@ export {
     Review,
 
     /**
+     * The RichText model constructor.
+     * @property {module:model/RichText}
+     */
+    RichText,
+
+    /**
      * The SaleEvent model constructor.
      * @property {module:model/SaleEvent}
      */
@@ -635,6 +679,12 @@ export {
     SaleEventEntry,
 
     /**
+     * The Store model constructor.
+     * @property {module:model/Store}
+     */
+    Store,
+
+    /**
      * The Update model constructor.
      * @property {module:model/Update}
      */
@@ -645,6 +695,12 @@ export {
      * @property {module:model/Version}
      */
     Version,
+
+    /**
+    * The DefaultApi service constructor.
+    * @property {module:api/DefaultApi}
+    */
+    DefaultApi,
 
     /**
     * The GlobalApi service constructor.

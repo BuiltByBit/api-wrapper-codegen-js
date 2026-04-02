@@ -1,6 +1,6 @@
 /**
  * BuiltByBit API
- * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.
+ * All operations not tagged 'free' require an active [Ultimate](https://builtbybit.com/account/ultimate) subscription or invite-only permissions.    V2 documentation: https://builtbybit.com/wiki/api-v2/ \\  OAuth2 documentation: https://builtbybit.com/wiki/oauth2/
  *
  * The version of the OpenAPI document: v2
  * 
@@ -13,13 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
-import GetV2Analytics200Response from '../model/GetV2Analytics200Response';
-import GetV2AnalyticsGraph200Response from '../model/GetV2AnalyticsGraph200Response';
-import GetV2Events200Response from '../model/GetV2Events200Response';
-import PostV2EventsComplete200Response from '../model/PostV2EventsComplete200Response';
-import PostV2EventsCompleteRequest from '../model/PostV2EventsCompleteRequest';
-import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
-import PostV2ResourcesCreatorUpdateRequest from '../model/PostV2ResourcesCreatorUpdateRequest';
+import GetV2Health200Response from '../model/GetV2Health200Response';
+import GetV2ResourcesCreatorCoupons200Response from '../model/GetV2ResourcesCreatorCoupons200Response';
+import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
 
 /**
 * Default service.
@@ -41,19 +37,19 @@ export default class DefaultApi {
 
 
     /**
-     * Callback function to receive the result of the getV2Analytics operation.
-     * @callback module:api/DefaultApi~getV2AnalyticsCallback
+     * Callback function to receive the result of the getV2Health operation.
+     * @callback module:api/DefaultApi~getV2HealthCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2Analytics200Response} data The data returned by the service call.
+     * @param {module:model/GetV2Health200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Fetch a list of analytics definitions
-     * @param {module:api/DefaultApi~getV2AnalyticsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2Analytics200Response}
+     * Retrieve a health status
+     * @param {module:api/DefaultApi~getV2HealthCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2Health200Response}
      */
-    getV2Analytics(callback) {
+    getV2Health(callback) {
       let postBody = null;
 
       let pathParams = {
@@ -65,81 +61,31 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['token'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetV2Analytics200Response;
+      let returnType = GetV2Health200Response;
       return this.apiClient.callApi(
-        '/v2/analytics', 'GET',
+        '/v2/health', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getV2AnalyticsGraph operation.
-     * @callback module:api/DefaultApi~getV2AnalyticsGraphCallback
+     * Callback function to receive the result of the getV2ResourcesCreatorCoupons operation.
+     * @callback module:api/DefaultApi~getV2ResourcesCreatorCouponsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2AnalyticsGraph200Response} data The data returned by the service call.
+     * @param {module:model/GetV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Fetch analytics graph data
-     * @param {Object} opts Optional parameters
-     * @param {Array} [analytics] 
-     * @param {String} [period] 
-     * @param {String} [grouping] 
-     * @param {String} [filters] 
-     * @param {String} [startDate] Only respected when 'period' = 'custom_range'.
-     * @param {String} [endDate] Only respected when 'period' = 'custom_range'.
-     * @param {module:api/DefaultApi~getV2AnalyticsGraphCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2AnalyticsGraph200Response}
+     * Fetch a list of your coupons
+     * @param {module:api/DefaultApi~getV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorCoupons200Response}
      */
-    getV2AnalyticsGraph(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'analytics': opts['analytics'],
-        'period': opts['period'],
-        'grouping': opts['grouping'],
-        'filters': opts['filters'],
-        'start_date': opts['startDate'],
-        'end_date': opts['endDate']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2AnalyticsGraph200Response;
-      return this.apiClient.callApi(
-        '/v2/analytics/graph', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2Events operation.
-     * @callback module:api/DefaultApi~getV2EventsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2Events200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of pending events
-     * @param {module:api/DefaultApi~getV2EventsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2Events200Response}
-     */
-    getV2Events(callback) {
+    getV2ResourcesCreatorCoupons(callback) {
       let postBody = null;
 
       let pathParams = {
@@ -151,35 +97,32 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['token'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetV2Events200Response;
+      let returnType = GetV2ResourcesCreatorCoupons200Response;
       return this.apiClient.callApi(
-        '/v2/events', 'GET',
+        '/v2/resources/creator/coupons', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the postV2EventsComplete operation.
-     * @callback module:api/DefaultApi~postV2EventsCompleteCallback
+     * Callback function to receive the result of the getV2ResourcesCreatorStores operation.
+     * @callback module:api/DefaultApi~getV2ResourcesCreatorStoresCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/PostV2EventsComplete200Response} data The data returned by the service call.
+     * @param {module:model/GetV2ResourcesCreatorStores200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Mark events as complete
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2EventsCompleteRequest} [postV2EventsCompleteRequest] 
-     * @param {module:api/DefaultApi~postV2EventsCompleteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2EventsComplete200Response}
+     * Fetch a list of your stores
+     * @param {module:api/DefaultApi~getV2ResourcesCreatorStoresCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorStores200Response}
      */
-    postV2EventsComplete(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2EventsCompleteRequest'];
+    getV2ResourcesCreatorStores(callback) {
+      let postBody = null;
 
       let pathParams = {
       };
@@ -190,52 +133,12 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
-      let contentTypes = ['application/json'];
+      let authNames = ['token'];
+      let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = PostV2EventsComplete200Response;
+      let returnType = GetV2ResourcesCreatorStores200Response;
       return this.apiClient.callApi(
-        '/v2/events/complete', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postV2ResourcesCreatorUpdate operation.
-     * @callback module:api/DefaultApi~postV2ResourcesCreatorUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostV2ResourcesCreatorUpdate200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Post a resource update
-     * Creates a new version for the resource and optionally posts a public update message. The uploaded file must be encoded using base64 as part of the JSON request body shown below.    The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2ResourcesCreatorUpdateRequest} [postV2ResourcesCreatorUpdateRequest] 
-     * @param {module:api/DefaultApi~postV2ResourcesCreatorUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2ResourcesCreatorUpdate200Response}
-     */
-    postV2ResourcesCreatorUpdate(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2ResourcesCreatorUpdateRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = PostV2ResourcesCreatorUpdate200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/update', 'POST',
+        '/v2/resources/creator/stores', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Resource from './Resource';
 
 /**
  * The Version model module.
@@ -21,6 +22,7 @@ import ApiClient from '../ApiClient';
 class Version {
     /**
      * Constructs a new <code>Version</code>.
+     * Supported &#39;with&#39; hints: - &#39;Resource&#39;: the resource this version relates to
      * @alias module:model/Version
      */
     constructor() { 
@@ -48,10 +50,28 @@ class Version {
             obj = obj || new Version();
 
             if (data.hasOwnProperty('version_id')) {
-                obj['version_id'] = ApiClient.convertToType(data['version_id'], 'String');
+                obj['version_id'] = ApiClient.convertToType(data['version_id'], 'Number');
+            }
+            if (data.hasOwnProperty('version_string')) {
+                obj['version_string'] = ApiClient.convertToType(data['version_string'], 'String');
             }
             if (data.hasOwnProperty('resource_id')) {
-                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'String');
+                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
+            }
+            if (data.hasOwnProperty('download_count')) {
+                obj['download_count'] = ApiClient.convertToType(data['download_count'], 'Number');
+            }
+            if (data.hasOwnProperty('review_count')) {
+                obj['review_count'] = ApiClient.convertToType(data['review_count'], 'Number');
+            }
+            if (data.hasOwnProperty('review_average')) {
+                obj['review_average'] = ApiClient.convertToType(data['review_average'], 'Number');
+            }
+            if (data.hasOwnProperty('Resource')) {
+                obj['Resource'] = Resource.constructFromObject(data['Resource']);
             }
         }
         return obj;
@@ -64,12 +84,12 @@ class Version {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['version_id'] && !(typeof data['version_id'] === 'string' || data['version_id'] instanceof String)) {
-            throw new Error("Expected the field `version_id` to be a primitive type in the JSON string but got " + data['version_id']);
+        if (data['version_string'] && !(typeof data['version_string'] === 'string' || data['version_string'] instanceof String)) {
+            throw new Error("Expected the field `version_string` to be a primitive type in the JSON string but got " + data['version_string']);
         }
-        // ensure the json data is a string
-        if (data['resource_id'] && !(typeof data['resource_id'] === 'string' || data['resource_id'] instanceof String)) {
-            throw new Error("Expected the field `resource_id` to be a primitive type in the JSON string but got " + data['resource_id']);
+        // validate the optional field `Resource`
+        if (data['Resource']) { // data not null
+          Resource.validateJSON(data['Resource']);
         }
 
         return true;
@@ -81,14 +101,44 @@ class Version {
 
 
 /**
- * @member {String} version_id
+ * @member {Number} version_id
  */
 Version.prototype['version_id'] = undefined;
 
 /**
- * @member {String} resource_id
+ * @member {String} version_string
+ */
+Version.prototype['version_string'] = undefined;
+
+/**
+ * @member {Number} resource_id
  */
 Version.prototype['resource_id'] = undefined;
+
+/**
+ * @member {Number} created_at
+ */
+Version.prototype['created_at'] = undefined;
+
+/**
+ * @member {Number} download_count
+ */
+Version.prototype['download_count'] = undefined;
+
+/**
+ * @member {Number} review_count
+ */
+Version.prototype['review_count'] = undefined;
+
+/**
+ * @member {Number} review_average
+ */
+Version.prototype['review_average'] = undefined;
+
+/**
+ * @member {module:model/Resource} Resource
+ */
+Version.prototype['Resource'] = undefined;
 
 
 

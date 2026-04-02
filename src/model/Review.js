@@ -12,6 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import Member from './Member';
+import Resource from './Resource';
+import Version from './Version';
 
 /**
  * The Review model module.
@@ -21,6 +24,7 @@ import ApiClient from '../ApiClient';
 class Review {
     /**
      * Constructs a new <code>Review</code>.
+     * Supported &#39;with&#39; hints: - &#39;Resource&#39;: the resource this review relates to - &#39;Version&#39;: the version this review relates to - &#39;Reviewer&#39;: the member who gave this review
      * @alias module:model/Review
      */
     constructor() { 
@@ -48,13 +52,37 @@ class Review {
             obj = obj || new Review();
 
             if (data.hasOwnProperty('review_id')) {
-                obj['review_id'] = ApiClient.convertToType(data['review_id'], 'String');
+                obj['review_id'] = ApiClient.convertToType(data['review_id'], 'Number');
             }
             if (data.hasOwnProperty('resource_id')) {
-                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'String');
+                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'Number');
             }
             if (data.hasOwnProperty('reviewer_id')) {
-                obj['reviewer_id'] = ApiClient.convertToType(data['reviewer_id'], 'String');
+                obj['reviewer_id'] = ApiClient.convertToType(data['reviewer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('version_id')) {
+                obj['version_id'] = ApiClient.convertToType(data['version_id'], 'Number');
+            }
+            if (data.hasOwnProperty('stars')) {
+                obj['stars'] = ApiClient.convertToType(data['stars'], 'Number');
+            }
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
+            }
+            if (data.hasOwnProperty('response')) {
+                obj['response'] = ApiClient.convertToType(data['response'], 'String');
+            }
+            if (data.hasOwnProperty('Resource')) {
+                obj['Resource'] = Resource.constructFromObject(data['Resource']);
+            }
+            if (data.hasOwnProperty('Version')) {
+                obj['Version'] = Version.constructFromObject(data['Version']);
+            }
+            if (data.hasOwnProperty('Reviewer')) {
+                obj['Reviewer'] = Member.constructFromObject(data['Reviewer']);
             }
         }
         return obj;
@@ -67,16 +95,24 @@ class Review {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['review_id'] && !(typeof data['review_id'] === 'string' || data['review_id'] instanceof String)) {
-            throw new Error("Expected the field `review_id` to be a primitive type in the JSON string but got " + data['review_id']);
+        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
+            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
         // ensure the json data is a string
-        if (data['resource_id'] && !(typeof data['resource_id'] === 'string' || data['resource_id'] instanceof String)) {
-            throw new Error("Expected the field `resource_id` to be a primitive type in the JSON string but got " + data['resource_id']);
+        if (data['response'] && !(typeof data['response'] === 'string' || data['response'] instanceof String)) {
+            throw new Error("Expected the field `response` to be a primitive type in the JSON string but got " + data['response']);
         }
-        // ensure the json data is a string
-        if (data['reviewer_id'] && !(typeof data['reviewer_id'] === 'string' || data['reviewer_id'] instanceof String)) {
-            throw new Error("Expected the field `reviewer_id` to be a primitive type in the JSON string but got " + data['reviewer_id']);
+        // validate the optional field `Resource`
+        if (data['Resource']) { // data not null
+          Resource.validateJSON(data['Resource']);
+        }
+        // validate the optional field `Version`
+        if (data['Version']) { // data not null
+          Version.validateJSON(data['Version']);
+        }
+        // validate the optional field `Reviewer`
+        if (data['Reviewer']) { // data not null
+          Member.validateJSON(data['Reviewer']);
         }
 
         return true;
@@ -88,19 +124,59 @@ class Review {
 
 
 /**
- * @member {String} review_id
+ * @member {Number} review_id
  */
 Review.prototype['review_id'] = undefined;
 
 /**
- * @member {String} resource_id
+ * @member {Number} resource_id
  */
 Review.prototype['resource_id'] = undefined;
 
 /**
- * @member {String} reviewer_id
+ * @member {Number} reviewer_id
  */
 Review.prototype['reviewer_id'] = undefined;
+
+/**
+ * @member {Number} version_id
+ */
+Review.prototype['version_id'] = undefined;
+
+/**
+ * @member {Number} stars
+ */
+Review.prototype['stars'] = undefined;
+
+/**
+ * @member {String} message
+ */
+Review.prototype['message'] = undefined;
+
+/**
+ * @member {Number} created_at
+ */
+Review.prototype['created_at'] = undefined;
+
+/**
+ * @member {String} response
+ */
+Review.prototype['response'] = undefined;
+
+/**
+ * @member {module:model/Resource} Resource
+ */
+Review.prototype['Resource'] = undefined;
+
+/**
+ * @member {module:model/Version} Version
+ */
+Review.prototype['Version'] = undefined;
+
+/**
+ * @member {module:model/Member} Reviewer
+ */
+Review.prototype['Reviewer'] = undefined;
 
 
 

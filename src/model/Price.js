@@ -89,11 +89,13 @@ class Price {
 Price.prototype['value'] = undefined;
 
 /**
+ * The currency code (ISO 4217) of the currency.
  * @member {String} currency
  */
 Price.prototype['currency'] = undefined;
 
 /**
+ * A formatted version of the value, including any prefix/postfix currency symbols.
  * @member {String} formatted
  */
 Price.prototype['formatted'] = undefined;

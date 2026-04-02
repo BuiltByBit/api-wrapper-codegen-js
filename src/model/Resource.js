@@ -14,10 +14,10 @@
 import ApiClient from '../ApiClient';
 import Addon from './Addon';
 import Category from './Category';
-import Description from './Description';
 import Member from './Member';
 import Price from './Price';
 import Review from './Review';
+import RichText from './RichText';
 import SaleEventEntry from './SaleEventEntry';
 import Version from './Version';
 
@@ -29,7 +29,7 @@ import Version from './Version';
 class Resource {
     /**
      * Constructs a new <code>Resource</code>.
-     * Supported &#39;with&#39; values: - &#39;Creator&#39;: the resource creator/owner - &#39;Category&#39;: the resource category  - &#39;Description&#39;: the resource description (rendered HTML and BBCode) - &#39;LatestReviews&#39;: list of the 10 latest reviews - &#39;Filter values&#39;: filter values set by the creator
+     * Supported &#39;with&#39; hints: - &#39;Creator&#39;: the resource creator/owner - &#39;Category&#39;: the resource category  - &#39;Description&#39;: the resource description (rendered HTML and BBCode) - &#39;LatestReviews&#39;: list of the 10 latest reviews - &#39;Filter values&#39;: filter values set by the creator
      * @alias module:model/Resource
      */
     constructor() { 
@@ -117,7 +117,7 @@ class Resource {
                 obj['LatestReviews'] = ApiClient.convertToType(data['LatestReviews'], [Review]);
             }
             if (data.hasOwnProperty('Description')) {
-                obj['Description'] = Description.constructFromObject(data['Description']);
+                obj['Description'] = RichText.constructFromObject(data['Description']);
             }
             if (data.hasOwnProperty('Category')) {
                 obj['Category'] = Category.constructFromObject(data['Category']);
@@ -191,7 +191,7 @@ class Resource {
         }
         // validate the optional field `Description`
         if (data['Description']) { // data not null
-          Description.validateJSON(data['Description']);
+          RichText.validateJSON(data['Description']);
         }
         // validate the optional field `Category`
         if (data['Category']) { // data not null
@@ -307,7 +307,7 @@ Resource.prototype['LatestUpdate'] = undefined;
 Resource.prototype['LatestReviews'] = undefined;
 
 /**
- * @member {module:model/Description} Description
+ * @member {module:model/RichText} Description
  */
 Resource.prototype['Description'] = undefined;
 

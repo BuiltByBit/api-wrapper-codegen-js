@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import Resource from './Resource';
+import RichText from './RichText';
 
 /**
  * The Update model module.
@@ -21,6 +23,7 @@ import ApiClient from '../ApiClient';
 class Update {
     /**
      * Constructs a new <code>Update</code>.
+     * Supported &#39;with&#39; hints: - &#39;Resource&#39;: the resource this update relates to - &#39;Description&#39;: the rendered description of the update
      * @alias module:model/Update
      */
     constructor() { 
@@ -48,10 +51,22 @@ class Update {
             obj = obj || new Update();
 
             if (data.hasOwnProperty('update_id')) {
-                obj['update_id'] = ApiClient.convertToType(data['update_id'], 'String');
+                obj['update_id'] = ApiClient.convertToType(data['update_id'], 'Number');
             }
             if (data.hasOwnProperty('resource_id')) {
-                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'String');
+                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
+            }
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('Description')) {
+                obj['Description'] = RichText.constructFromObject(data['Description']);
+            }
+            if (data.hasOwnProperty('Resource')) {
+                obj['Resource'] = Resource.constructFromObject(data['Resource']);
             }
         }
         return obj;
@@ -64,12 +79,16 @@ class Update {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['update_id'] && !(typeof data['update_id'] === 'string' || data['update_id'] instanceof String)) {
-            throw new Error("Expected the field `update_id` to be a primitive type in the JSON string but got " + data['update_id']);
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
         }
-        // ensure the json data is a string
-        if (data['resource_id'] && !(typeof data['resource_id'] === 'string' || data['resource_id'] instanceof String)) {
-            throw new Error("Expected the field `resource_id` to be a primitive type in the JSON string but got " + data['resource_id']);
+        // validate the optional field `Description`
+        if (data['Description']) { // data not null
+          RichText.validateJSON(data['Description']);
+        }
+        // validate the optional field `Resource`
+        if (data['Resource']) { // data not null
+          Resource.validateJSON(data['Resource']);
         }
 
         return true;
@@ -81,14 +100,34 @@ class Update {
 
 
 /**
- * @member {String} update_id
+ * @member {Number} update_id
  */
 Update.prototype['update_id'] = undefined;
 
 /**
- * @member {String} resource_id
+ * @member {Number} resource_id
  */
 Update.prototype['resource_id'] = undefined;
+
+/**
+ * @member {Number} created_at
+ */
+Update.prototype['created_at'] = undefined;
+
+/**
+ * @member {String} title
+ */
+Update.prototype['title'] = undefined;
+
+/**
+ * @member {module:model/RichText} Description
+ */
+Update.prototype['Description'] = undefined;
+
+/**
+ * @member {module:model/Resource} Resource
+ */
+Update.prototype['Resource'] = undefined;
 
 
 

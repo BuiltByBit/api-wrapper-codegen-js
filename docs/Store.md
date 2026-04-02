@@ -1,14 +1,14 @@
-# BuiltByBitApi.Bundle
+# BuiltByBitApi.Store
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bundleId** | **Number** |  | [optional] 
+**storeId** | **Number** |  | [optional] 
 **userId** | **Number** |  | [optional] 
-**title** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
-**discount** | **Number** |  | [optional] 
+**name** | **String** |  | [optional] 
+**summary** | **String** |  | [optional] 
+**isDefault** | **Boolean** |  | [optional] 
 **createdAt** | **Number** |  | [optional] 
 
 

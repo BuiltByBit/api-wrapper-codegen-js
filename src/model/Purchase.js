@@ -12,6 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import Addon from './Addon';
+import Member from './Member';
+import Price from './Price';
+import Resource from './Resource';
 
 /**
  * The Purchase model module.
@@ -21,6 +25,7 @@ import ApiClient from '../ApiClient';
 class Purchase {
     /**
      * Constructs a new <code>Purchase</code>.
+     * Supported &#39;with&#39; hints: - &#39;Buyer&#39;: the buyer of the purchase - &#39;Seller&#39;: the seller of the purchase - &#39;Resource&#39;: the resource purchased, if content_type &#x3D; &#39;resource&#39; - &#39;Addon&#39;: the addon purchased, if content_type &#x3D; &#39;addon&#39;
      * @alias module:model/Purchase
      */
     constructor() { 
@@ -47,8 +52,65 @@ class Purchase {
         if (data) {
             obj = obj || new Purchase();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('purchase_id')) {
+                obj['purchase_id'] = ApiClient.convertToType(data['purchase_id'], 'Number');
+            }
+            if (data.hasOwnProperty('content_type')) {
+                obj['content_type'] = ApiClient.convertToType(data['content_type'], 'String');
+            }
+            if (data.hasOwnProperty('content_id')) {
+                obj['content_id'] = ApiClient.convertToType(data['content_id'], 'Number');
+            }
+            if (data.hasOwnProperty('buyer_id')) {
+                obj['buyer_id'] = ApiClient.convertToType(data['buyer_id'], 'Number');
+            }
+            if (data.hasOwnProperty('seller_id')) {
+                obj['seller_id'] = ApiClient.convertToType(data['seller_id'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
+            }
+            if (data.hasOwnProperty('validated_at')) {
+                obj['validated_at'] = ApiClient.convertToType(data['validated_at'], 'Number');
+            }
+            if (data.hasOwnProperty('bundle_id')) {
+                obj['bundle_id'] = ApiClient.convertToType(data['bundle_id'], 'Number');
+            }
+            if (data.hasOwnProperty('sale_event_id')) {
+                obj['sale_event_id'] = ApiClient.convertToType(data['sale_event_id'], 'Number');
+            }
+            if (data.hasOwnProperty('external_tid')) {
+                obj['external_tid'] = ApiClient.convertToType(data['external_tid'], 'String');
+            }
+            if (data.hasOwnProperty('gateway')) {
+                obj['gateway'] = ApiClient.convertToType(data['gateway'], 'String');
+            }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
+            }
+            if (data.hasOwnProperty('PlatformFee')) {
+                obj['PlatformFee'] = Price.constructFromObject(data['PlatformFee']);
+            }
+            if (data.hasOwnProperty('AdFeePayment')) {
+                obj['AdFeePayment'] = Price.constructFromObject(data['AdFeePayment']);
+            }
+            if (data.hasOwnProperty('AdFeeCredit')) {
+                obj['AdFeeCredit'] = Price.constructFromObject(data['AdFeeCredit']);
+            }
+            if (data.hasOwnProperty('Resource')) {
+                obj['Resource'] = Resource.constructFromObject(data['Resource']);
+            }
+            if (data.hasOwnProperty('Addon')) {
+                obj['Addon'] = Addon.constructFromObject(data['Addon']);
+            }
+            if (data.hasOwnProperty('Buyer')) {
+                obj['Buyer'] = Member.constructFromObject(data['Buyer']);
+            }
+            if (data.hasOwnProperty('Seller')) {
+                obj['Seller'] = Member.constructFromObject(data['Seller']);
             }
         }
         return obj;
@@ -61,8 +123,52 @@ class Purchase {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        if (data['content_type'] && !(typeof data['content_type'] === 'string' || data['content_type'] instanceof String)) {
+            throw new Error("Expected the field `content_type` to be a primitive type in the JSON string but got " + data['content_type']);
+        }
+        // ensure the json data is a string
+        if (data['external_tid'] && !(typeof data['external_tid'] === 'string' || data['external_tid'] instanceof String)) {
+            throw new Error("Expected the field `external_tid` to be a primitive type in the JSON string but got " + data['external_tid']);
+        }
+        // ensure the json data is a string
+        if (data['gateway'] && !(typeof data['gateway'] === 'string' || data['gateway'] instanceof String)) {
+            throw new Error("Expected the field `gateway` to be a primitive type in the JSON string but got " + data['gateway']);
+        }
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
+        }
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
+        }
+        // validate the optional field `PlatformFee`
+        if (data['PlatformFee']) { // data not null
+          Price.validateJSON(data['PlatformFee']);
+        }
+        // validate the optional field `AdFeePayment`
+        if (data['AdFeePayment']) { // data not null
+          Price.validateJSON(data['AdFeePayment']);
+        }
+        // validate the optional field `AdFeeCredit`
+        if (data['AdFeeCredit']) { // data not null
+          Price.validateJSON(data['AdFeeCredit']);
+        }
+        // validate the optional field `Resource`
+        if (data['Resource']) { // data not null
+          Resource.validateJSON(data['Resource']);
+        }
+        // validate the optional field `Addon`
+        if (data['Addon']) { // data not null
+          Addon.validateJSON(data['Addon']);
+        }
+        // validate the optional field `Buyer`
+        if (data['Buyer']) { // data not null
+          Member.validateJSON(data['Buyer']);
+        }
+        // validate the optional field `Seller`
+        if (data['Seller']) { // data not null
+          Member.validateJSON(data['Seller']);
         }
 
         return true;
@@ -74,9 +180,104 @@ class Purchase {
 
 
 /**
- * @member {String} id
+ * @member {Number} purchase_id
  */
-Purchase.prototype['id'] = undefined;
+Purchase.prototype['purchase_id'] = undefined;
+
+/**
+ * @member {String} content_type
+ */
+Purchase.prototype['content_type'] = undefined;
+
+/**
+ * @member {Number} content_id
+ */
+Purchase.prototype['content_id'] = undefined;
+
+/**
+ * @member {Number} buyer_id
+ */
+Purchase.prototype['buyer_id'] = undefined;
+
+/**
+ * @member {Number} seller_id
+ */
+Purchase.prototype['seller_id'] = undefined;
+
+/**
+ * @member {Number} created_at
+ */
+Purchase.prototype['created_at'] = undefined;
+
+/**
+ * @member {Number} validated_at
+ */
+Purchase.prototype['validated_at'] = undefined;
+
+/**
+ * @member {Number} bundle_id
+ */
+Purchase.prototype['bundle_id'] = undefined;
+
+/**
+ * @member {Number} sale_event_id
+ */
+Purchase.prototype['sale_event_id'] = undefined;
+
+/**
+ * @member {String} external_tid
+ */
+Purchase.prototype['external_tid'] = undefined;
+
+/**
+ * @member {String} gateway
+ */
+Purchase.prototype['gateway'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+Purchase.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+Purchase.prototype['FinalPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} PlatformFee
+ */
+Purchase.prototype['PlatformFee'] = undefined;
+
+/**
+ * @member {module:model/Price} AdFeePayment
+ */
+Purchase.prototype['AdFeePayment'] = undefined;
+
+/**
+ * @member {module:model/Price} AdFeeCredit
+ */
+Purchase.prototype['AdFeeCredit'] = undefined;
+
+/**
+ * @member {module:model/Resource} Resource
+ */
+Purchase.prototype['Resource'] = undefined;
+
+/**
+ * @member {module:model/Addon} Addon
+ */
+Purchase.prototype['Addon'] = undefined;
+
+/**
+ * @member {module:model/Member} Buyer
+ */
+Purchase.prototype['Buyer'] = undefined;
+
+/**
+ * @member {module:model/Member} Seller
+ */
+Purchase.prototype['Seller'] = undefined;
 
 
 

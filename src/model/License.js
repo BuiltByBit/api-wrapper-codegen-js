@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Member from './Member';
 import Resource from './Resource';
 
 /**
@@ -22,6 +23,7 @@ import Resource from './Resource';
 class License {
     /**
      * Constructs a new <code>License</code>.
+     * Supported &#39;with&#39; hints: - &#39;Resource&#39;: the resource this license is for, if content_type &#x3D; &#39;resource&#39; - &#39;Buyer&#39;: the buyer this license is for
      * @alias module:model/License
      * @param contentType {String} 
      * @param contentId {Number} 
@@ -58,6 +60,9 @@ class License {
             if (data.hasOwnProperty('content_id')) {
                 obj['content_id'] = ApiClient.convertToType(data['content_id'], 'Number');
             }
+            if (data.hasOwnProperty('buyer_id')) {
+                obj['buyer_id'] = ApiClient.convertToType(data['buyer_id'], 'Number');
+            }
             if (data.hasOwnProperty('permanent')) {
                 obj['permanent'] = ApiClient.convertToType(data['permanent'], 'Boolean');
             }
@@ -72,6 +77,9 @@ class License {
             }
             if (data.hasOwnProperty('Resource')) {
                 obj['Resource'] = Resource.constructFromObject(data['Resource']);
+            }
+            if (data.hasOwnProperty('Buyer')) {
+                obj['Buyer'] = Member.constructFromObject(data['Buyer']);
             }
         }
         return obj;
@@ -97,6 +105,10 @@ class License {
         if (data['Resource']) { // data not null
           Resource.validateJSON(data['Resource']);
         }
+        // validate the optional field `Buyer`
+        if (data['Buyer']) { // data not null
+          Member.validateJSON(data['Buyer']);
+        }
 
         return true;
     }
@@ -115,6 +127,11 @@ License.prototype['content_type'] = undefined;
  * @member {Number} content_id
  */
 License.prototype['content_id'] = undefined;
+
+/**
+ * @member {Number} buyer_id
+ */
+License.prototype['buyer_id'] = undefined;
 
 /**
  * Whether or not this license is permanent.
@@ -144,6 +161,11 @@ License.prototype['end_date'] = undefined;
  * @member {module:model/Resource} Resource
  */
 License.prototype['Resource'] = undefined;
+
+/**
+ * @member {module:model/Member} Buyer
+ */
+License.prototype['Buyer'] = undefined;
 
 
 

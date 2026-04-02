@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **latestVersion** | [**Version**](Version.md) |  | [optional] 
 **latestUpdate** | [**Version**](Version.md) |  | [optional] 
 **latestReviews** | [**[Review]**](Review.md) |  | [optional] 
-**description** | [**Description**](Description.md) |  | [optional] 
+**description** | [**RichText**](RichText.md) |  | [optional] 
 **category** | [**Category**](Category.md) |  | [optional] 
 **addons** | **{String: [Addon]}** |  | [optional] 
 

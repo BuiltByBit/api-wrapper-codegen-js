@@ -47,8 +47,23 @@ class Bundle {
         if (data) {
             obj = obj || new Bundle();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('bundle_id')) {
+                obj['bundle_id'] = ApiClient.convertToType(data['bundle_id'], 'Number');
+            }
+            if (data.hasOwnProperty('user_id')) {
+                obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
+            }
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('discount')) {
+                obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
             }
         }
         return obj;
@@ -61,8 +76,12 @@ class Bundle {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
         }
 
         return true;
@@ -74,9 +93,34 @@ class Bundle {
 
 
 /**
- * @member {String} id
+ * @member {Number} bundle_id
  */
-Bundle.prototype['id'] = undefined;
+Bundle.prototype['bundle_id'] = undefined;
+
+/**
+ * @member {Number} user_id
+ */
+Bundle.prototype['user_id'] = undefined;
+
+/**
+ * @member {String} title
+ */
+Bundle.prototype['title'] = undefined;
+
+/**
+ * @member {String} description
+ */
+Bundle.prototype['description'] = undefined;
+
+/**
+ * @member {Number} discount
+ */
+Bundle.prototype['discount'] = undefined;
+
+/**
+ * @member {Number} created_at
+ */
+Bundle.prototype['created_at'] = undefined;
 
 
 
