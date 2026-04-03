@@ -15,11 +15,13 @@
 import ApiClient from "../ApiClient";
 import GetV2ResourcesCreatorAddons200Response from '../model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorBundles200Response from '../model/GetV2ResourcesCreatorBundles200Response';
+import GetV2ResourcesCreatorCoupons200Response from '../model/GetV2ResourcesCreatorCoupons200Response';
 import GetV2ResourcesCreatorLicenses200Response from '../model/GetV2ResourcesCreatorLicenses200Response';
 import GetV2ResourcesCreatorPurchases200Response from '../model/GetV2ResourcesCreatorPurchases200Response';
 import GetV2ResourcesCreatorResources200Response from '../model/GetV2ResourcesCreatorResources200Response';
 import GetV2ResourcesCreatorReviews200Response from '../model/GetV2ResourcesCreatorReviews200Response';
 import GetV2ResourcesCreatorSaleEvents200Response from '../model/GetV2ResourcesCreatorSaleEvents200Response';
+import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
 import GetV2ResourcesCreatorUpdates200Response from '../model/GetV2ResourcesCreatorUpdates200Response';
 import GetV2ResourcesCreatorVersions200Response from '../model/GetV2ResourcesCreatorVersions200Response';
 import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
@@ -115,6 +117,42 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorBundles200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/bundles', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorCoupons operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your coupons
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorCoupons200Response}
+     */
+    getV2ResourcesCreatorCoupons(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorCoupons200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/coupons', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -315,6 +353,42 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorSaleEvents200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/sale-events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesCreatorStores operation.
+     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorStoresCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesCreatorStores200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a list of your stores
+     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorStoresCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorStores200Response}
+     */
+    getV2ResourcesCreatorStores(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesCreatorStores200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/stores', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **ts** | **Number** |  | [optional] 
 **days** | **Number** |  | [optional] 
 **values** | **{String: Number}** |  | [optional] 
-**averages** | **{String: Number}** |  | [optional] 
 
 

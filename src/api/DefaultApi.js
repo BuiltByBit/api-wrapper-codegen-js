@@ -13,9 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
-import GetV2Health200Response from '../model/GetV2Health200Response';
-import GetV2ResourcesCreatorCoupons200Response from '../model/GetV2ResourcesCreatorCoupons200Response';
-import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
+import GetV2ResourcesCreatorBatch200Response from '../model/GetV2ResourcesCreatorBatch200Response';
+import PostV2ResourcesCreatorBatch200Response from '../model/PostV2ResourcesCreatorBatch200Response';
+import PostV2ResourcesCreatorBatchRequest from '../model/PostV2ResourcesCreatorBatchRequest';
 
 /**
 * Default service.
@@ -37,24 +37,28 @@ export default class DefaultApi {
 
 
     /**
-     * Callback function to receive the result of the getV2Health operation.
-     * @callback module:api/DefaultApi~getV2HealthCallback
+     * Callback function to receive the result of the getV2ResourcesCreatorBatch operation.
+     * @callback module:api/DefaultApi~getV2ResourcesCreatorBatchCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2Health200Response} data The data returned by the service call.
+     * @param {module:model/GetV2ResourcesCreatorBatch200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Retrieve a health status
-     * @param {module:api/DefaultApi~getV2HealthCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2Health200Response}
+     * Fetch a list of your batches edits
+     * @param {Object} opts Optional parameters
+     * @param {Array} [batchIds] A comma-separated list of batch IDs to filter on. No filter is applied if empty.
+     * @param {module:api/DefaultApi~getV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesCreatorBatch200Response}
      */
-    getV2Health(callback) {
+    getV2ResourcesCreatorBatch(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'batch_ids': opts['batchIds']
       };
       let headerParams = {
       };
@@ -64,29 +68,33 @@ export default class DefaultApi {
       let authNames = ['token'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetV2Health200Response;
+      let returnType = GetV2ResourcesCreatorBatch200Response;
       return this.apiClient.callApi(
-        '/v2/health', 'GET',
+        '/v2/resources/creator/batch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getV2ResourcesCreatorCoupons operation.
-     * @callback module:api/DefaultApi~getV2ResourcesCreatorCouponsCallback
+     * Callback function to receive the result of the postV2ResourcesCreatorBatch operation.
+     * @callback module:api/DefaultApi~postV2ResourcesCreatorBatchCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
+     * @param {module:model/PostV2ResourcesCreatorBatch200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Fetch a list of your coupons
-     * @param {module:api/DefaultApi~getV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorCoupons200Response}
+     * Submit a new batch edit
+     * Batch edits will be processed in the background meaning a successful call to this endpoint does not guarantee that the edits have been completed. You will instead receive an identifier to a batch edit which you can then use to fetch the status of via the below endpoint. This is not an atomic operation meaning some resources may be edited successfully and others may not be due to an error. You may only batch edit resources you own currently.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostV2ResourcesCreatorBatchRequest} [postV2ResourcesCreatorBatchRequest] 
+     * @param {module:api/DefaultApi~postV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostV2ResourcesCreatorBatch200Response}
      */
-    getV2ResourcesCreatorCoupons(callback) {
-      let postBody = null;
+    postV2ResourcesCreatorBatch(opts, callback) {
+      opts = opts || {};
+      let postBody = opts['postV2ResourcesCreatorBatchRequest'];
 
       let pathParams = {
       };
@@ -97,48 +105,12 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = ['token'];
-      let contentTypes = [];
+      let authNames = [];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorCoupons200Response;
+      let returnType = PostV2ResourcesCreatorBatch200Response;
       return this.apiClient.callApi(
-        '/v2/resources/creator/coupons', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorStores operation.
-     * @callback module:api/DefaultApi~getV2ResourcesCreatorStoresCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorStores200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your stores
-     * @param {module:api/DefaultApi~getV2ResourcesCreatorStoresCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorStores200Response}
-     */
-    getV2ResourcesCreatorStores(callback) {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorStores200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/stores', 'GET',
+        '/v2/resources/creator/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -62,9 +62,6 @@ class AnalyticGraphDataPoint {
             if (data.hasOwnProperty('values')) {
                 obj['values'] = ApiClient.convertToType(data['values'], {'String': 'Number'});
             }
-            if (data.hasOwnProperty('averages')) {
-                obj['averages'] = ApiClient.convertToType(data['averages'], {'String': 'Number'});
-            }
         }
         return obj;
     }
@@ -112,11 +109,6 @@ AnalyticGraphDataPoint.prototype['days'] = undefined;
  * @member {Object.<String, Number>} values
  */
 AnalyticGraphDataPoint.prototype['values'] = undefined;
-
-/**
- * @member {Object.<String, Number>} averages
- */
-AnalyticGraphDataPoint.prototype['averages'] = undefined;
 
 
 

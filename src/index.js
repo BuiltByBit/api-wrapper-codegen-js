@@ -19,6 +19,7 @@ import AnalyticFiltersValue from './model/AnalyticFiltersValue';
 import AnalyticGraphData from './model/AnalyticGraphData';
 import AnalyticGraphDataPeriod from './model/AnalyticGraphDataPeriod';
 import AnalyticGraphDataPoint from './model/AnalyticGraphDataPoint';
+import Batch from './model/Batch';
 import Bundle from './model/Bundle';
 import CartItem from './model/CartItem';
 import CartItemDiscountsInner from './model/CartItemDiscountsInner';
@@ -50,6 +51,8 @@ import GetV2ResourcesBuyerLatest200Response from './model/GetV2ResourcesBuyerLat
 import GetV2ResourcesBuyerLatest200ResponseData from './model/GetV2ResourcesBuyerLatest200ResponseData';
 import GetV2ResourcesCreatorAddons200Response from './model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorAddons200ResponseData from './model/GetV2ResourcesCreatorAddons200ResponseData';
+import GetV2ResourcesCreatorBatch200Response from './model/GetV2ResourcesCreatorBatch200Response';
+import GetV2ResourcesCreatorBatch200ResponseData from './model/GetV2ResourcesCreatorBatch200ResponseData';
 import GetV2ResourcesCreatorBundles200Response from './model/GetV2ResourcesCreatorBundles200Response';
 import GetV2ResourcesCreatorBundles200ResponseData from './model/GetV2ResourcesCreatorBundles200ResponseData';
 import GetV2ResourcesCreatorCoupons200Response from './model/GetV2ResourcesCreatorCoupons200Response';
@@ -79,6 +82,10 @@ import ListStats from './model/ListStats';
 import Member from './model/Member';
 import PostV2EventsComplete200Response from './model/PostV2EventsComplete200Response';
 import PostV2EventsCompleteRequest from './model/PostV2EventsCompleteRequest';
+import PostV2ResourcesCreatorBatch200Response from './model/PostV2ResourcesCreatorBatch200Response';
+import PostV2ResourcesCreatorBatch200ResponseData from './model/PostV2ResourcesCreatorBatch200ResponseData';
+import PostV2ResourcesCreatorBatchRequest from './model/PostV2ResourcesCreatorBatchRequest';
+import PostV2ResourcesCreatorBatchRequestChangesInner from './model/PostV2ResourcesCreatorBatchRequestChangesInner';
 import PostV2ResourcesCreatorUpdate200Response from './model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdate200ResponseData from './model/PostV2ResourcesCreatorUpdate200ResponseData';
 import PostV2ResourcesCreatorUpdateRequest from './model/PostV2ResourcesCreatorUpdateRequest';
@@ -104,8 +111,10 @@ import SaleEventEntry from './model/SaleEventEntry';
 import Store from './model/Store';
 import Update from './model/Update';
 import Version from './model/Version';
+import AnalyticsApi from './api/AnalyticsApi';
 import DefaultApi from './api/DefaultApi';
-import GlobalApi from './api/GlobalApi';
+import EventsApi from './api/EventsApi';
+import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
 import ResourcesBuyerApi from './api/ResourcesBuyerApi';
 import ResourcesCreatorApi from './api/ResourcesCreatorApi';
@@ -185,6 +194,12 @@ export {
      * @property {module:model/AnalyticGraphDataPoint}
      */
     AnalyticGraphDataPoint,
+
+    /**
+     * The Batch model constructor.
+     * @property {module:model/Batch}
+     */
+    Batch,
 
     /**
      * The Bundle model constructor.
@@ -373,6 +388,18 @@ export {
     GetV2ResourcesCreatorAddons200ResponseData,
 
     /**
+     * The GetV2ResourcesCreatorBatch200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorBatch200Response}
+     */
+    GetV2ResourcesCreatorBatch200Response,
+
+    /**
+     * The GetV2ResourcesCreatorBatch200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorBatch200ResponseData}
+     */
+    GetV2ResourcesCreatorBatch200ResponseData,
+
+    /**
      * The GetV2ResourcesCreatorBundles200Response model constructor.
      * @property {module:model/GetV2ResourcesCreatorBundles200Response}
      */
@@ -547,6 +574,30 @@ export {
     PostV2EventsCompleteRequest,
 
     /**
+     * The PostV2ResourcesCreatorBatch200Response model constructor.
+     * @property {module:model/PostV2ResourcesCreatorBatch200Response}
+     */
+    PostV2ResourcesCreatorBatch200Response,
+
+    /**
+     * The PostV2ResourcesCreatorBatch200ResponseData model constructor.
+     * @property {module:model/PostV2ResourcesCreatorBatch200ResponseData}
+     */
+    PostV2ResourcesCreatorBatch200ResponseData,
+
+    /**
+     * The PostV2ResourcesCreatorBatchRequest model constructor.
+     * @property {module:model/PostV2ResourcesCreatorBatchRequest}
+     */
+    PostV2ResourcesCreatorBatchRequest,
+
+    /**
+     * The PostV2ResourcesCreatorBatchRequestChangesInner model constructor.
+     * @property {module:model/PostV2ResourcesCreatorBatchRequestChangesInner}
+     */
+    PostV2ResourcesCreatorBatchRequestChangesInner,
+
+    /**
      * The PostV2ResourcesCreatorUpdate200Response model constructor.
      * @property {module:model/PostV2ResourcesCreatorUpdate200Response}
      */
@@ -697,16 +748,28 @@ export {
     Version,
 
     /**
+    * The AnalyticsApi service constructor.
+    * @property {module:api/AnalyticsApi}
+    */
+    AnalyticsApi,
+
+    /**
     * The DefaultApi service constructor.
     * @property {module:api/DefaultApi}
     */
     DefaultApi,
 
     /**
-    * The GlobalApi service constructor.
-    * @property {module:api/GlobalApi}
+    * The EventsApi service constructor.
+    * @property {module:api/EventsApi}
     */
-    GlobalApi,
+    EventsApi,
+
+    /**
+    * The HealthApi service constructor.
+    * @property {module:api/HealthApi}
+    */
+    HealthApi,
 
     /**
     * The Oauth2Api service constructor.
