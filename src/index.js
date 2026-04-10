@@ -86,6 +86,9 @@ import PostV2ResourcesCreatorBatch200Response from './model/PostV2ResourcesCreat
 import PostV2ResourcesCreatorBatch200ResponseData from './model/PostV2ResourcesCreatorBatch200ResponseData';
 import PostV2ResourcesCreatorBatchRequest from './model/PostV2ResourcesCreatorBatchRequest';
 import PostV2ResourcesCreatorBatchRequestChangesInner from './model/PostV2ResourcesCreatorBatchRequestChangesInner';
+import PostV2ResourcesCreatorCoupons200Response from './model/PostV2ResourcesCreatorCoupons200Response';
+import PostV2ResourcesCreatorCoupons200ResponseData from './model/PostV2ResourcesCreatorCoupons200ResponseData';
+import PostV2ResourcesCreatorCouponsRequest from './model/PostV2ResourcesCreatorCouponsRequest';
 import PostV2ResourcesCreatorUpdate200Response from './model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdate200ResponseData from './model/PostV2ResourcesCreatorUpdate200ResponseData';
 import PostV2ResourcesCreatorUpdateRequest from './model/PostV2ResourcesCreatorUpdateRequest';
@@ -596,6 +599,24 @@ export {
      * @property {module:model/PostV2ResourcesCreatorBatchRequestChangesInner}
      */
     PostV2ResourcesCreatorBatchRequestChangesInner,
+
+    /**
+     * The PostV2ResourcesCreatorCoupons200Response model constructor.
+     * @property {module:model/PostV2ResourcesCreatorCoupons200Response}
+     */
+    PostV2ResourcesCreatorCoupons200Response,
+
+    /**
+     * The PostV2ResourcesCreatorCoupons200ResponseData model constructor.
+     * @property {module:model/PostV2ResourcesCreatorCoupons200ResponseData}
+     */
+    PostV2ResourcesCreatorCoupons200ResponseData,
+
+    /**
+     * The PostV2ResourcesCreatorCouponsRequest model constructor.
+     * @property {module:model/PostV2ResourcesCreatorCouponsRequest}
+     */
+    PostV2ResourcesCreatorCouponsRequest,
 
     /**
      * The PostV2ResourcesCreatorUpdate200Response model constructor.

@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorStores**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorStores) | **GET** /v2/resources/creator/stores | Fetch a list of your stores
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorUpdates**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorUpdates) | **GET** /v2/resources/creator/updates | Fetch a list of your resource&#39;s updates
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorVersions**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorVersions) | **GET** /v2/resources/creator/versions | Fetch a list of your resources&#39; versions
+*BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorCoupons**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorCoupons) | **POST** /v2/resources/creator/coupons | Create a new coupon
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverCategories**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverCategories) | **GET** /v2/resources/discover/categories | Fetch a list of categories
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverResources**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
@@ -238,6 +239,9 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.PostV2ResourcesCreatorBatch200ResponseData](docs/PostV2ResourcesCreatorBatch200ResponseData.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorBatchRequest](docs/PostV2ResourcesCreatorBatchRequest.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorBatchRequestChangesInner](docs/PostV2ResourcesCreatorBatchRequestChangesInner.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorCoupons200Response](docs/PostV2ResourcesCreatorCoupons200Response.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorCoupons200ResponseData](docs/PostV2ResourcesCreatorCoupons200ResponseData.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorCouponsRequest](docs/PostV2ResourcesCreatorCouponsRequest.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorUpdate200Response](docs/PostV2ResourcesCreatorUpdate200Response.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorUpdate200ResponseData](docs/PostV2ResourcesCreatorUpdate200ResponseData.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorUpdateRequest](docs/PostV2ResourcesCreatorUpdateRequest.md)

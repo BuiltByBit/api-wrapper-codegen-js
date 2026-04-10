@@ -24,6 +24,8 @@ import GetV2ResourcesCreatorSaleEvents200Response from '../model/GetV2ResourcesC
 import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
 import GetV2ResourcesCreatorUpdates200Response from '../model/GetV2ResourcesCreatorUpdates200Response';
 import GetV2ResourcesCreatorVersions200Response from '../model/GetV2ResourcesCreatorVersions200Response';
+import PostV2ResourcesCreatorCoupons200Response from '../model/PostV2ResourcesCreatorCoupons200Response';
+import PostV2ResourcesCreatorCouponsRequest from '../model/PostV2ResourcesCreatorCouponsRequest';
 import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdateRequest from '../model/PostV2ResourcesCreatorUpdateRequest';
 
@@ -469,6 +471,46 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorVersions200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/versions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postV2ResourcesCreatorCoupons operation.
+     * @callback module:api/ResourcesCreatorApi~postV2ResourcesCreatorCouponsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a new coupon
+     * This endpoint is currently limited to percent-based coupons with a maximum discount of 50%.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostV2ResourcesCreatorCouponsRequest} [postV2ResourcesCreatorCouponsRequest] 
+     * @param {module:api/ResourcesCreatorApi~postV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostV2ResourcesCreatorCoupons200Response}
+     */
+    postV2ResourcesCreatorCoupons(opts, callback) {
+      opts = opts || {};
+      let postBody = opts['postV2ResourcesCreatorCouponsRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = PostV2ResourcesCreatorCoupons200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/coupons', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

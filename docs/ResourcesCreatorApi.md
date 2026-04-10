@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getV2ResourcesCreatorStores**](ResourcesCreatorApi.md#getV2ResourcesCreatorStores) | **GET** /v2/resources/creator/stores | Fetch a list of your stores
 [**getV2ResourcesCreatorUpdates**](ResourcesCreatorApi.md#getV2ResourcesCreatorUpdates) | **GET** /v2/resources/creator/updates | Fetch a list of your resource&#39;s updates
 [**getV2ResourcesCreatorVersions**](ResourcesCreatorApi.md#getV2ResourcesCreatorVersions) | **GET** /v2/resources/creator/versions | Fetch a list of your resources&#39; versions
+[**postV2ResourcesCreatorCoupons**](ResourcesCreatorApi.md#postV2ResourcesCreatorCoupons) | **POST** /v2/resources/creator/coupons | Create a new coupon
 [**postV2ResourcesCreatorUpdate**](ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
 
 
@@ -551,6 +552,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postV2ResourcesCreatorCoupons
+
+> PostV2ResourcesCreatorCoupons200Response postV2ResourcesCreatorCoupons(opts)
+
+Create a new coupon
+
+This endpoint is currently limited to percent-based coupons with a maximum discount of 50%.
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
+
+let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
+let opts = {
+  'postV2ResourcesCreatorCouponsRequest': new BuiltByBitApi.PostV2ResourcesCreatorCouponsRequest() // PostV2ResourcesCreatorCouponsRequest | 
+};
+apiInstance.postV2ResourcesCreatorCoupons(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postV2ResourcesCreatorCouponsRequest** | [**PostV2ResourcesCreatorCouponsRequest**](PostV2ResourcesCreatorCouponsRequest.md)|  | [optional] 
+
+### Return type
+
+[**PostV2ResourcesCreatorCoupons200Response**](PostV2ResourcesCreatorCoupons200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
