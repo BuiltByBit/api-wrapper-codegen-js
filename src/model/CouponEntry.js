@@ -13,22 +13,23 @@
 
 import ApiClient from '../ApiClient';
 import Addon from './Addon';
+import Bundle from './Bundle';
+import Coupon from './Coupon';
 import Resource from './Resource';
-import SaleEvent from './SaleEvent';
 
 /**
- * The SaleEventEntry model module.
- * @module model/SaleEventEntry
+ * The CouponEntry model module.
+ * @module model/CouponEntry
  * @version v2
  */
-class SaleEventEntry {
+class CouponEntry {
     /**
-     * Constructs a new <code>SaleEventEntry</code>.
-     * @alias module:model/SaleEventEntry
+     * Constructs a new <code>CouponEntry</code>.
+     * @alias module:model/CouponEntry
      */
     constructor() { 
         
-        SaleEventEntry.initialize(this);
+        CouponEntry.initialize(this);
     }
 
     /**
@@ -40,21 +41,21 @@ class SaleEventEntry {
     }
 
     /**
-     * Constructs a <code>SaleEventEntry</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>CouponEntry</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SaleEventEntry} obj Optional instance to populate.
-     * @return {module:model/SaleEventEntry} The populated <code>SaleEventEntry</code> instance.
+     * @param {module:model/CouponEntry} obj Optional instance to populate.
+     * @return {module:model/CouponEntry} The populated <code>CouponEntry</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SaleEventEntry();
+            obj = obj || new CouponEntry();
 
             if (data.hasOwnProperty('entry_id')) {
                 obj['entry_id'] = ApiClient.convertToType(data['entry_id'], 'Number');
             }
-            if (data.hasOwnProperty('event_id')) {
-                obj['event_id'] = ApiClient.convertToType(data['event_id'], 'Number');
+            if (data.hasOwnProperty('coupon_id')) {
+                obj['coupon_id'] = ApiClient.convertToType(data['coupon_id'], 'Number');
             }
             if (data.hasOwnProperty('content_type')) {
                 obj['content_type'] = ApiClient.convertToType(data['content_type'], 'String');
@@ -62,11 +63,8 @@ class SaleEventEntry {
             if (data.hasOwnProperty('content_id')) {
                 obj['content_id'] = ApiClient.convertToType(data['content_id'], 'Number');
             }
-            if (data.hasOwnProperty('discount')) {
-                obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
-            }
-            if (data.hasOwnProperty('SaleEvent')) {
-                obj['SaleEvent'] = SaleEvent.constructFromObject(data['SaleEvent']);
+            if (data.hasOwnProperty('Coupon')) {
+                obj['Coupon'] = Coupon.constructFromObject(data['Coupon']);
             }
             if (data.hasOwnProperty('Resource')) {
                 obj['Resource'] = Resource.constructFromObject(data['Resource']);
@@ -74,23 +72,26 @@ class SaleEventEntry {
             if (data.hasOwnProperty('Addon')) {
                 obj['Addon'] = Addon.constructFromObject(data['Addon']);
             }
+            if (data.hasOwnProperty('Bundle')) {
+                obj['Bundle'] = Bundle.constructFromObject(data['Bundle']);
+            }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>SaleEventEntry</code>.
+     * Validates the JSON data with respect to <code>CouponEntry</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SaleEventEntry</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CouponEntry</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
         if (data['content_type'] && !(typeof data['content_type'] === 'string' || data['content_type'] instanceof String)) {
             throw new Error("Expected the field `content_type` to be a primitive type in the JSON string but got " + data['content_type']);
         }
-        // validate the optional field `SaleEvent`
-        if (data['SaleEvent']) { // data not null
-          SaleEvent.validateJSON(data['SaleEvent']);
+        // validate the optional field `Coupon`
+        if (data['Coupon']) { // data not null
+          Coupon.validateJSON(data['Coupon']);
         }
         // validate the optional field `Resource`
         if (data['Resource']) { // data not null
@@ -99,6 +100,10 @@ class SaleEventEntry {
         // validate the optional field `Addon`
         if (data['Addon']) { // data not null
           Addon.validateJSON(data['Addon']);
+        }
+        // validate the optional field `Bundle`
+        if (data['Bundle']) { // data not null
+          Bundle.validateJSON(data['Bundle']);
         }
 
         return true;
@@ -112,47 +117,47 @@ class SaleEventEntry {
 /**
  * @member {Number} entry_id
  */
-SaleEventEntry.prototype['entry_id'] = undefined;
+CouponEntry.prototype['entry_id'] = undefined;
 
 /**
- * @member {Number} event_id
+ * @member {Number} coupon_id
  */
-SaleEventEntry.prototype['event_id'] = undefined;
+CouponEntry.prototype['coupon_id'] = undefined;
 
 /**
  * @member {String} content_type
  */
-SaleEventEntry.prototype['content_type'] = undefined;
+CouponEntry.prototype['content_type'] = undefined;
 
 /**
  * @member {Number} content_id
  */
-SaleEventEntry.prototype['content_id'] = undefined;
+CouponEntry.prototype['content_id'] = undefined;
 
 /**
- * @member {Number} discount
+ * @member {module:model/Coupon} Coupon
  */
-SaleEventEntry.prototype['discount'] = undefined;
-
-/**
- * @member {module:model/SaleEvent} SaleEvent
- */
-SaleEventEntry.prototype['SaleEvent'] = undefined;
+CouponEntry.prototype['Coupon'] = undefined;
 
 /**
  * @member {module:model/Resource} Resource
  */
-SaleEventEntry.prototype['Resource'] = undefined;
+CouponEntry.prototype['Resource'] = undefined;
 
 /**
  * @member {module:model/Addon} Addon
  */
-SaleEventEntry.prototype['Addon'] = undefined;
+CouponEntry.prototype['Addon'] = undefined;
+
+/**
+ * @member {module:model/Bundle} Bundle
+ */
+CouponEntry.prototype['Bundle'] = undefined;
 
 
 
 
 
 
-export default SaleEventEntry;
+export default CouponEntry;
 

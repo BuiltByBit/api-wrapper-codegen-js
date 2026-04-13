@@ -13,22 +13,22 @@
 
 import ApiClient from '../ApiClient';
 import Addon from './Addon';
+import Price from './Price';
 import Resource from './Resource';
-import SaleEvent from './SaleEvent';
 
 /**
- * The SaleEventEntry model module.
- * @module model/SaleEventEntry
+ * The BundleEntry model module.
+ * @module model/BundleEntry
  * @version v2
  */
-class SaleEventEntry {
+class BundleEntry {
     /**
-     * Constructs a new <code>SaleEventEntry</code>.
-     * @alias module:model/SaleEventEntry
+     * Constructs a new <code>BundleEntry</code>.
+     * @alias module:model/BundleEntry
      */
     constructor() { 
         
-        SaleEventEntry.initialize(this);
+        BundleEntry.initialize(this);
     }
 
     /**
@@ -40,21 +40,21 @@ class SaleEventEntry {
     }
 
     /**
-     * Constructs a <code>SaleEventEntry</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>BundleEntry</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SaleEventEntry} obj Optional instance to populate.
-     * @return {module:model/SaleEventEntry} The populated <code>SaleEventEntry</code> instance.
+     * @param {module:model/BundleEntry} obj Optional instance to populate.
+     * @return {module:model/BundleEntry} The populated <code>BundleEntry</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SaleEventEntry();
+            obj = obj || new BundleEntry();
 
             if (data.hasOwnProperty('entry_id')) {
                 obj['entry_id'] = ApiClient.convertToType(data['entry_id'], 'Number');
             }
-            if (data.hasOwnProperty('event_id')) {
-                obj['event_id'] = ApiClient.convertToType(data['event_id'], 'Number');
+            if (data.hasOwnProperty('bundle_id')) {
+                obj['bundle_id'] = ApiClient.convertToType(data['bundle_id'], 'Number');
             }
             if (data.hasOwnProperty('content_type')) {
                 obj['content_type'] = ApiClient.convertToType(data['content_type'], 'String');
@@ -62,11 +62,17 @@ class SaleEventEntry {
             if (data.hasOwnProperty('content_id')) {
                 obj['content_id'] = ApiClient.convertToType(data['content_id'], 'Number');
             }
-            if (data.hasOwnProperty('discount')) {
-                obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
             }
-            if (data.hasOwnProperty('SaleEvent')) {
-                obj['SaleEvent'] = SaleEvent.constructFromObject(data['SaleEvent']);
+            if (data.hasOwnProperty('accepted_at')) {
+                obj['accepted_at'] = ApiClient.convertToType(data['accepted_at'], 'Number');
+            }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
             }
             if (data.hasOwnProperty('Resource')) {
                 obj['Resource'] = Resource.constructFromObject(data['Resource']);
@@ -79,18 +85,22 @@ class SaleEventEntry {
     }
 
     /**
-     * Validates the JSON data with respect to <code>SaleEventEntry</code>.
+     * Validates the JSON data with respect to <code>BundleEntry</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SaleEventEntry</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BundleEntry</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
         if (data['content_type'] && !(typeof data['content_type'] === 'string' || data['content_type'] instanceof String)) {
             throw new Error("Expected the field `content_type` to be a primitive type in the JSON string but got " + data['content_type']);
         }
-        // validate the optional field `SaleEvent`
-        if (data['SaleEvent']) { // data not null
-          SaleEvent.validateJSON(data['SaleEvent']);
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
+        }
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
         // validate the optional field `Resource`
         if (data['Resource']) { // data not null
@@ -112,47 +122,57 @@ class SaleEventEntry {
 /**
  * @member {Number} entry_id
  */
-SaleEventEntry.prototype['entry_id'] = undefined;
+BundleEntry.prototype['entry_id'] = undefined;
 
 /**
- * @member {Number} event_id
+ * @member {Number} bundle_id
  */
-SaleEventEntry.prototype['event_id'] = undefined;
+BundleEntry.prototype['bundle_id'] = undefined;
 
 /**
  * @member {String} content_type
  */
-SaleEventEntry.prototype['content_type'] = undefined;
+BundleEntry.prototype['content_type'] = undefined;
 
 /**
  * @member {Number} content_id
  */
-SaleEventEntry.prototype['content_id'] = undefined;
+BundleEntry.prototype['content_id'] = undefined;
 
 /**
- * @member {Number} discount
+ * @member {Number} created_at
  */
-SaleEventEntry.prototype['discount'] = undefined;
+BundleEntry.prototype['created_at'] = undefined;
 
 /**
- * @member {module:model/SaleEvent} SaleEvent
+ * @member {Number} accepted_at
  */
-SaleEventEntry.prototype['SaleEvent'] = undefined;
+BundleEntry.prototype['accepted_at'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+BundleEntry.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+BundleEntry.prototype['FinalPrice'] = undefined;
 
 /**
  * @member {module:model/Resource} Resource
  */
-SaleEventEntry.prototype['Resource'] = undefined;
+BundleEntry.prototype['Resource'] = undefined;
 
 /**
  * @member {module:model/Addon} Addon
  */
-SaleEventEntry.prototype['Addon'] = undefined;
+BundleEntry.prototype['Addon'] = undefined;
 
 
 
 
 
 
-export default SaleEventEntry;
+export default BundleEntry;
 

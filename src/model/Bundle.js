@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Price from './Price';
 
 /**
  * The Bundle model module.
@@ -65,6 +66,12 @@ class Bundle {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Number');
             }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
+            }
         }
         return obj;
     }
@@ -82,6 +89,14 @@ class Bundle {
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
+        }
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
 
         return true;
@@ -121,6 +136,16 @@ Bundle.prototype['discount'] = undefined;
  * @member {Number} created_at
  */
 Bundle.prototype['created_at'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+Bundle.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+Bundle.prototype['FinalPrice'] = undefined;
 
 
 

@@ -21,11 +21,13 @@ import AnalyticGraphDataPeriod from './model/AnalyticGraphDataPeriod';
 import AnalyticGraphDataPoint from './model/AnalyticGraphDataPoint';
 import Batch from './model/Batch';
 import Bundle from './model/Bundle';
+import BundleEntry from './model/BundleEntry';
 import CartItem from './model/CartItem';
 import CartItemDiscountsInner from './model/CartItemDiscountsInner';
 import CartSummary from './model/CartSummary';
 import Category from './model/Category';
 import Coupon from './model/Coupon';
+import CouponEntry from './model/CouponEntry';
 import Event from './model/Event';
 import Filter from './model/Filter';
 import FilterChoice from './model/FilterChoice';
@@ -55,8 +57,12 @@ import GetV2ResourcesCreatorBatch200Response from './model/GetV2ResourcesCreator
 import GetV2ResourcesCreatorBatch200ResponseData from './model/GetV2ResourcesCreatorBatch200ResponseData';
 import GetV2ResourcesCreatorBundles200Response from './model/GetV2ResourcesCreatorBundles200Response';
 import GetV2ResourcesCreatorBundles200ResponseData from './model/GetV2ResourcesCreatorBundles200ResponseData';
+import GetV2ResourcesCreatorBundlesEntries200Response from './model/GetV2ResourcesCreatorBundlesEntries200Response';
+import GetV2ResourcesCreatorBundlesEntries200ResponseData from './model/GetV2ResourcesCreatorBundlesEntries200ResponseData';
 import GetV2ResourcesCreatorCoupons200Response from './model/GetV2ResourcesCreatorCoupons200Response';
 import GetV2ResourcesCreatorCoupons200ResponseData from './model/GetV2ResourcesCreatorCoupons200ResponseData';
+import GetV2ResourcesCreatorCouponsEntries200Response from './model/GetV2ResourcesCreatorCouponsEntries200Response';
+import GetV2ResourcesCreatorCouponsEntries200ResponseData from './model/GetV2ResourcesCreatorCouponsEntries200ResponseData';
 import GetV2ResourcesCreatorLicenses200Response from './model/GetV2ResourcesCreatorLicenses200Response';
 import GetV2ResourcesCreatorLicenses200ResponseData from './model/GetV2ResourcesCreatorLicenses200ResponseData';
 import GetV2ResourcesCreatorPurchases200Response from './model/GetV2ResourcesCreatorPurchases200Response';
@@ -67,6 +73,8 @@ import GetV2ResourcesCreatorReviews200Response from './model/GetV2ResourcesCreat
 import GetV2ResourcesCreatorReviews200ResponseData from './model/GetV2ResourcesCreatorReviews200ResponseData';
 import GetV2ResourcesCreatorSaleEvents200Response from './model/GetV2ResourcesCreatorSaleEvents200Response';
 import GetV2ResourcesCreatorSaleEvents200ResponseData from './model/GetV2ResourcesCreatorSaleEvents200ResponseData';
+import GetV2ResourcesCreatorSaleEventsEntries200Response from './model/GetV2ResourcesCreatorSaleEventsEntries200Response';
+import GetV2ResourcesCreatorSaleEventsEntries200ResponseData from './model/GetV2ResourcesCreatorSaleEventsEntries200ResponseData';
 import GetV2ResourcesCreatorStores200Response from './model/GetV2ResourcesCreatorStores200Response';
 import GetV2ResourcesCreatorStores200ResponseData from './model/GetV2ResourcesCreatorStores200ResponseData';
 import GetV2ResourcesCreatorUpdates200Response from './model/GetV2ResourcesCreatorUpdates200Response';
@@ -115,7 +123,6 @@ import Store from './model/Store';
 import Update from './model/Update';
 import Version from './model/Version';
 import AnalyticsApi from './api/AnalyticsApi';
-import DefaultApi from './api/DefaultApi';
 import EventsApi from './api/EventsApi';
 import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
@@ -211,6 +218,12 @@ export {
     Bundle,
 
     /**
+     * The BundleEntry model constructor.
+     * @property {module:model/BundleEntry}
+     */
+    BundleEntry,
+
+    /**
      * The CartItem model constructor.
      * @property {module:model/CartItem}
      */
@@ -239,6 +252,12 @@ export {
      * @property {module:model/Coupon}
      */
     Coupon,
+
+    /**
+     * The CouponEntry model constructor.
+     * @property {module:model/CouponEntry}
+     */
+    CouponEntry,
 
     /**
      * The Event model constructor.
@@ -415,6 +434,18 @@ export {
     GetV2ResourcesCreatorBundles200ResponseData,
 
     /**
+     * The GetV2ResourcesCreatorBundlesEntries200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorBundlesEntries200Response}
+     */
+    GetV2ResourcesCreatorBundlesEntries200Response,
+
+    /**
+     * The GetV2ResourcesCreatorBundlesEntries200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorBundlesEntries200ResponseData}
+     */
+    GetV2ResourcesCreatorBundlesEntries200ResponseData,
+
+    /**
      * The GetV2ResourcesCreatorCoupons200Response model constructor.
      * @property {module:model/GetV2ResourcesCreatorCoupons200Response}
      */
@@ -425,6 +456,18 @@ export {
      * @property {module:model/GetV2ResourcesCreatorCoupons200ResponseData}
      */
     GetV2ResourcesCreatorCoupons200ResponseData,
+
+    /**
+     * The GetV2ResourcesCreatorCouponsEntries200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorCouponsEntries200Response}
+     */
+    GetV2ResourcesCreatorCouponsEntries200Response,
+
+    /**
+     * The GetV2ResourcesCreatorCouponsEntries200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorCouponsEntries200ResponseData}
+     */
+    GetV2ResourcesCreatorCouponsEntries200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorLicenses200Response model constructor.
@@ -485,6 +528,18 @@ export {
      * @property {module:model/GetV2ResourcesCreatorSaleEvents200ResponseData}
      */
     GetV2ResourcesCreatorSaleEvents200ResponseData,
+
+    /**
+     * The GetV2ResourcesCreatorSaleEventsEntries200Response model constructor.
+     * @property {module:model/GetV2ResourcesCreatorSaleEventsEntries200Response}
+     */
+    GetV2ResourcesCreatorSaleEventsEntries200Response,
+
+    /**
+     * The GetV2ResourcesCreatorSaleEventsEntries200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesCreatorSaleEventsEntries200ResponseData}
+     */
+    GetV2ResourcesCreatorSaleEventsEntries200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorStores200Response model constructor.
@@ -773,12 +828,6 @@ export {
     * @property {module:api/AnalyticsApi}
     */
     AnalyticsApi,
-
-    /**
-    * The DefaultApi service constructor.
-    * @property {module:api/DefaultApi}
-    */
-    DefaultApi,
 
     /**
     * The EventsApi service constructor.

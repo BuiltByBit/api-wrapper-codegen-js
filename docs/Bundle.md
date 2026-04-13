@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **discount** | **Number** |  | [optional] 
 **createdAt** | **Number** |  | [optional] 
+**listPrice** | [**Price**](Price.md) |  | [optional] 
+**finalPrice** | [**Price**](Price.md) |  | [optional] 
 
 
