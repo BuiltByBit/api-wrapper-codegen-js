@@ -156,6 +156,13 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorBatch**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorBatch) | **POST** /v2/resources/creator/batch | Submit a new batch edit
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorCoupons**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorCoupons) | **POST** /v2/resources/creator/coupons | Create a new coupon
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
+*BuiltByBitApi.ResourcesCreatorBundlesApi* | [**getV2ResourcesCreatorBundles**](docs/ResourcesCreatorBundlesApi.md#getV2ResourcesCreatorBundles) | **GET** /v2/resources/creator/bundles | Fetch a list of your bundles
+*BuiltByBitApi.ResourcesCreatorBundlesApi* | [**getV2ResourcesCreatorBundlesEntries**](docs/ResourcesCreatorBundlesApi.md#getV2ResourcesCreatorBundlesEntries) | **GET** /v2/resources/creator/bundles/entries | Fetch a list of your bundle entries
+*BuiltByBitApi.ResourcesCreatorCouponsApi* | [**getV2ResourcesCreatorCoupons**](docs/ResourcesCreatorCouponsApi.md#getV2ResourcesCreatorCoupons) | **GET** /v2/resources/creator/coupons | Fetch a list of your coupons
+*BuiltByBitApi.ResourcesCreatorCouponsApi* | [**getV2ResourcesCreatorCouponsEntries**](docs/ResourcesCreatorCouponsApi.md#getV2ResourcesCreatorCouponsEntries) | **GET** /v2/resources/creator/coupons/entries | Fetch a list of your coupon entries
+*BuiltByBitApi.ResourcesCreatorCouponsApi* | [**postV2ResourcesCreatorCoupons**](docs/ResourcesCreatorCouponsApi.md#postV2ResourcesCreatorCoupons) | **POST** /v2/resources/creator/coupons | Create a new coupon
+*BuiltByBitApi.ResourcesCreatorSaleEventsApi* | [**getV2ResourcesCreatorSaleEvents**](docs/ResourcesCreatorSaleEventsApi.md#getV2ResourcesCreatorSaleEvents) | **GET** /v2/resources/creator/sale-events | Fetch a list of your sale events
+*BuiltByBitApi.ResourcesCreatorSaleEventsApi* | [**getV2ResourcesCreatorSaleEventsEntries**](docs/ResourcesCreatorSaleEventsApi.md#getV2ResourcesCreatorSaleEventsEntries) | **GET** /v2/resources/creator/sale-events/entries | Fetch a list of your sale event entries
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverCategories**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverCategories) | **GET** /v2/resources/discover/categories | Fetch a list of categories
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getResourcesDiscoverResources**](docs/ResourcesDiscoveryApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
 *BuiltByBitApi.ResourcesDiscoveryApi* | [**getV2ResourcesDiscoverCartView**](docs/ResourcesDiscoveryApi.md#getV2ResourcesDiscoverCartView) | **GET** /v2/resources/discover/cart/view | View the user&#39;s cart items
@@ -179,7 +186,6 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.Bundle](docs/Bundle.md)
  - [BuiltByBitApi.BundleEntry](docs/BundleEntry.md)
  - [BuiltByBitApi.CartItem](docs/CartItem.md)
- - [BuiltByBitApi.CartItemDiscountsInner](docs/CartItemDiscountsInner.md)
  - [BuiltByBitApi.CartSummary](docs/CartSummary.md)
  - [BuiltByBitApi.Category](docs/Category.md)
  - [BuiltByBitApi.Coupon](docs/Coupon.md)

@@ -23,7 +23,6 @@ import Batch from './model/Batch';
 import Bundle from './model/Bundle';
 import BundleEntry from './model/BundleEntry';
 import CartItem from './model/CartItem';
-import CartItemDiscountsInner from './model/CartItemDiscountsInner';
 import CartSummary from './model/CartSummary';
 import Category from './model/Category';
 import Coupon from './model/Coupon';
@@ -128,6 +127,9 @@ import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
 import ResourcesBuyerApi from './api/ResourcesBuyerApi';
 import ResourcesCreatorApi from './api/ResourcesCreatorApi';
+import ResourcesCreatorBundlesApi from './api/ResourcesCreatorBundlesApi';
+import ResourcesCreatorCouponsApi from './api/ResourcesCreatorCouponsApi';
+import ResourcesCreatorSaleEventsApi from './api/ResourcesCreatorSaleEventsApi';
 import ResourcesDiscoveryApi from './api/ResourcesDiscoveryApi';
 
 
@@ -228,12 +230,6 @@ export {
      * @property {module:model/CartItem}
      */
     CartItem,
-
-    /**
-     * The CartItemDiscountsInner model constructor.
-     * @property {module:model/CartItemDiscountsInner}
-     */
-    CartItemDiscountsInner,
 
     /**
      * The CartSummary model constructor.
@@ -858,6 +854,24 @@ export {
     * @property {module:api/ResourcesCreatorApi}
     */
     ResourcesCreatorApi,
+
+    /**
+    * The ResourcesCreatorBundlesApi service constructor.
+    * @property {module:api/ResourcesCreatorBundlesApi}
+    */
+    ResourcesCreatorBundlesApi,
+
+    /**
+    * The ResourcesCreatorCouponsApi service constructor.
+    * @property {module:api/ResourcesCreatorCouponsApi}
+    */
+    ResourcesCreatorCouponsApi,
+
+    /**
+    * The ResourcesCreatorSaleEventsApi service constructor.
+    * @property {module:api/ResourcesCreatorSaleEventsApi}
+    */
+    ResourcesCreatorSaleEventsApi,
 
     /**
     * The ResourcesDiscoveryApi service constructor.

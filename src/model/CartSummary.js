@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Price from './Price';
 
 /**
  * The CartSummary model module.
@@ -22,15 +23,10 @@ class CartSummary {
     /**
      * Constructs a new <code>CartSummary</code>.
      * @alias module:model/CartSummary
-     * @param listPrice {Number} The combined listed price of all items in the cart (ie. the original prices without any discounts applied).
-     * @param listPriceFormatted {String} The list price formatted as a string using the given currency.  A list price of 5 would be formatted as `$5.00`.
-     * @param finalPrice {Number} The combined final price of all items in the cart (ie. with discounts applied). This is the subtotal the user would pay upon checkout initiation, minus any applicable sales tax.
-     * @param finalPriceFormatted {String} The final price formatted as a string using the given currency.  A final price of 5 would be formatted as `$5.00`.
-     * @param currency {String} The currency code (ISO 4217) of the prices in this summary.  Will be USD for all transactions through BuiltByBit.
      */
-    constructor(listPrice, listPriceFormatted, finalPrice, finalPriceFormatted, currency) { 
+    constructor() { 
         
-        CartSummary.initialize(this, listPrice, listPriceFormatted, finalPrice, finalPriceFormatted, currency);
+        CartSummary.initialize(this);
     }
 
     /**
@@ -38,12 +34,7 @@ class CartSummary {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, listPrice, listPriceFormatted, finalPrice, finalPriceFormatted, currency) { 
-        obj['list_price'] = listPrice;
-        obj['list_price_formatted'] = listPriceFormatted;
-        obj['final_price'] = finalPrice;
-        obj['final_price_formatted'] = finalPriceFormatted;
-        obj['currency'] = currency;
+    static initialize(obj) { 
     }
 
     /**
@@ -57,23 +48,14 @@ class CartSummary {
         if (data) {
             obj = obj || new CartSummary();
 
-            if (data.hasOwnProperty('list_price')) {
-                obj['list_price'] = ApiClient.convertToType(data['list_price'], 'Number');
-            }
-            if (data.hasOwnProperty('list_price_formatted')) {
-                obj['list_price_formatted'] = ApiClient.convertToType(data['list_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('final_price')) {
-                obj['final_price'] = ApiClient.convertToType(data['final_price'], 'Number');
-            }
-            if (data.hasOwnProperty('final_price_formatted')) {
-                obj['final_price_formatted'] = ApiClient.convertToType(data['final_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
-            }
             if (data.hasOwnProperty('notice')) {
                 obj['notice'] = ApiClient.convertToType(data['notice'], 'String');
+            }
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
+            }
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
             }
         }
         return obj;
@@ -85,27 +67,17 @@ class CartSummary {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CartSummary</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of CartSummary.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['list_price_formatted'] && !(typeof data['list_price_formatted'] === 'string' || data['list_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `list_price_formatted` to be a primitive type in the JSON string but got " + data['list_price_formatted']);
-        }
-        // ensure the json data is a string
-        if (data['final_price_formatted'] && !(typeof data['final_price_formatted'] === 'string' || data['final_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `final_price_formatted` to be a primitive type in the JSON string but got " + data['final_price_formatted']);
-        }
-        // ensure the json data is a string
-        if (data['currency'] && !(typeof data['currency'] === 'string' || data['currency'] instanceof String)) {
-            throw new Error("Expected the field `currency` to be a primitive type in the JSON string but got " + data['currency']);
-        }
         // ensure the json data is a string
         if (data['notice'] && !(typeof data['notice'] === 'string' || data['notice'] instanceof String)) {
             throw new Error("Expected the field `notice` to be a primitive type in the JSON string but got " + data['notice']);
+        }
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
+        }
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
 
         return true;
@@ -114,43 +86,23 @@ class CartSummary {
 
 }
 
-CartSummary.RequiredProperties = ["list_price", "list_price_formatted", "final_price", "final_price_formatted", "currency"];
 
-/**
- * The combined listed price of all items in the cart (ie. the original prices without any discounts applied).
- * @member {Number} list_price
- */
-CartSummary.prototype['list_price'] = undefined;
-
-/**
- * The list price formatted as a string using the given currency.  A list price of 5 would be formatted as `$5.00`.
- * @member {String} list_price_formatted
- */
-CartSummary.prototype['list_price_formatted'] = undefined;
-
-/**
- * The combined final price of all items in the cart (ie. with discounts applied). This is the subtotal the user would pay upon checkout initiation, minus any applicable sales tax.
- * @member {Number} final_price
- */
-CartSummary.prototype['final_price'] = undefined;
-
-/**
- * The final price formatted as a string using the given currency.  A final price of 5 would be formatted as `$5.00`.
- * @member {String} final_price_formatted
- */
-CartSummary.prototype['final_price_formatted'] = undefined;
-
-/**
- * The currency code (ISO 4217) of the prices in this summary.  Will be USD for all transactions through BuiltByBit.
- * @member {String} currency
- */
-CartSummary.prototype['currency'] = undefined;
 
 /**
  * A message to display to the user as a notice regarding their current cart items. We may use this to inform the user that they have a previous pending checkout which is yet to be fulfilled (either because the payment is still pending or because they closed out of the checkout).
  * @member {String} notice
  */
 CartSummary.prototype['notice'] = undefined;
+
+/**
+ * @member {module:model/Price} ListPrice
+ */
+CartSummary.prototype['ListPrice'] = undefined;
+
+/**
+ * @member {module:model/Price} FinalPrice
+ */
+CartSummary.prototype['FinalPrice'] = undefined;
 
 
 

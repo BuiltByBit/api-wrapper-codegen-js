@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import CartItemDiscountsInner from './CartItemDiscountsInner';
+import Price from './Price';
 
 /**
  * The CartItem model module.
@@ -66,20 +66,14 @@ class CartItem {
             if (data.hasOwnProperty('content_cover_image_url')) {
                 obj['content_cover_image_url'] = ApiClient.convertToType(data['content_cover_image_url'], 'String');
             }
-            if (data.hasOwnProperty('list_price')) {
-                obj['list_price'] = ApiClient.convertToType(data['list_price'], 'Number');
+            if (data.hasOwnProperty('ListPrice')) {
+                obj['ListPrice'] = Price.constructFromObject(data['ListPrice']);
             }
-            if (data.hasOwnProperty('list_price_formatted')) {
-                obj['list_price_formatted'] = ApiClient.convertToType(data['list_price_formatted'], 'String');
-            }
-            if (data.hasOwnProperty('final_price')) {
-                obj['final_price'] = ApiClient.convertToType(data['final_price'], 'Number');
-            }
-            if (data.hasOwnProperty('final_price_formatted')) {
-                obj['final_price_formatted'] = ApiClient.convertToType(data['final_price_formatted'], 'String');
+            if (data.hasOwnProperty('FinalPrice')) {
+                obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
             }
             if (data.hasOwnProperty('discounts')) {
-                obj['discounts'] = ApiClient.convertToType(data['discounts'], [CartItemDiscountsInner]);
+                obj['discounts'] = ApiClient.convertToType(data['discounts'], {'String': Price});
             }
         }
         return obj;
@@ -111,23 +105,13 @@ class CartItem {
         if (data['content_cover_image_url'] && !(typeof data['content_cover_image_url'] === 'string' || data['content_cover_image_url'] instanceof String)) {
             throw new Error("Expected the field `content_cover_image_url` to be a primitive type in the JSON string but got " + data['content_cover_image_url']);
         }
-        // ensure the json data is a string
-        if (data['list_price_formatted'] && !(typeof data['list_price_formatted'] === 'string' || data['list_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `list_price_formatted` to be a primitive type in the JSON string but got " + data['list_price_formatted']);
+        // validate the optional field `ListPrice`
+        if (data['ListPrice']) { // data not null
+          Price.validateJSON(data['ListPrice']);
         }
-        // ensure the json data is a string
-        if (data['final_price_formatted'] && !(typeof data['final_price_formatted'] === 'string' || data['final_price_formatted'] instanceof String)) {
-            throw new Error("Expected the field `final_price_formatted` to be a primitive type in the JSON string but got " + data['final_price_formatted']);
-        }
-        if (data['discounts']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['discounts'])) {
-                throw new Error("Expected the field `discounts` to be an array in the JSON data but got " + data['discounts']);
-            }
-            // validate the optional field `discounts` (array)
-            for (const item of data['discounts']) {
-                CartItemDiscountsInner.validateJSON(item);
-            };
+        // validate the optional field `FinalPrice`
+        if (data['FinalPrice']) { // data not null
+          Price.validateJSON(data['FinalPrice']);
         }
 
         return true;
@@ -169,27 +153,17 @@ CartItem.prototype['content_summary'] = undefined;
 CartItem.prototype['content_cover_image_url'] = undefined;
 
 /**
- * @member {Number} list_price
+ * @member {module:model/Price} ListPrice
  */
-CartItem.prototype['list_price'] = undefined;
+CartItem.prototype['ListPrice'] = undefined;
 
 /**
- * @member {String} list_price_formatted
+ * @member {module:model/Price} FinalPrice
  */
-CartItem.prototype['list_price_formatted'] = undefined;
+CartItem.prototype['FinalPrice'] = undefined;
 
 /**
- * @member {Number} final_price
- */
-CartItem.prototype['final_price'] = undefined;
-
-/**
- * @member {String} final_price_formatted
- */
-CartItem.prototype['final_price_formatted'] = undefined;
-
-/**
- * @member {Array.<module:model/CartItemDiscountsInner>} discounts
+ * @member {Object.<String, module:model/Price>} discounts
  */
 CartItem.prototype['discounts'] = undefined;
 

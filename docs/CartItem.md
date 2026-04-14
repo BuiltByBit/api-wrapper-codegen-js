@@ -10,10 +10,8 @@ Name | Type | Description | Notes
 **contentTitle** | **String** |  | [optional] 
 **contentSummary** | **String** |  | [optional] 
 **contentCoverImageUrl** | **String** |  | [optional] 
-**listPrice** | **Number** |  | [optional] 
-**listPriceFormatted** | **String** |  | [optional] 
-**finalPrice** | **Number** |  | [optional] 
-**finalPriceFormatted** | **String** |  | [optional] 
-**discounts** | [**[CartItemDiscountsInner]**](CartItemDiscountsInner.md) |  | [optional] 
+**listPrice** | [**Price**](Price.md) |  | [optional] 
+**finalPrice** | [**Price**](Price.md) |  | [optional] 
+**discounts** | [**{String: Price}**](Price.md) |  | [optional] 
 
 
