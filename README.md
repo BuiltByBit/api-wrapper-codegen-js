@@ -140,8 +140,6 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesBuyerApi* | [**getV2ResourcesBuyerLatest**](docs/ResourcesBuyerApi.md#getV2ResourcesBuyerLatest) | **GET** /v2/resources/buyer/latest | Fetches the latest versions &amp; license information
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorAddons**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorAddons) | **GET** /v2/resources/creator/addons | Fetch a list of your resources&#39; addons
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorBatch**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorBatch) | **GET** /v2/resources/creator/batch | Fetch a list of your batches edits
-*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorBundles**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorBundles) | **GET** /v2/resources/creator/bundles | Fetch a list of your bundles
-*BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorBundlesEntries**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorBundlesEntries) | **GET** /v2/resources/creator/bundles/entries | Fetch a list of your bundle entries
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorCoupons**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorCoupons) | **GET** /v2/resources/creator/coupons | Fetch a list of your coupons
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorCouponsEntries**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorCouponsEntries) | **GET** /v2/resources/creator/coupons/entries | Fetch a list of your coupon entries
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorLicenses**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorLicenses) | **GET** /v2/resources/creator/licenses | Fetch a list of your resources&#39; licenses

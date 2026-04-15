@@ -15,8 +15,6 @@
 import ApiClient from "../ApiClient";
 import GetV2ResourcesCreatorAddons200Response from '../model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorBatch200Response from '../model/GetV2ResourcesCreatorBatch200Response';
-import GetV2ResourcesCreatorBundles200Response from '../model/GetV2ResourcesCreatorBundles200Response';
-import GetV2ResourcesCreatorBundlesEntries200Response from '../model/GetV2ResourcesCreatorBundlesEntries200Response';
 import GetV2ResourcesCreatorCoupons200Response from '../model/GetV2ResourcesCreatorCoupons200Response';
 import GetV2ResourcesCreatorCouponsEntries200Response from '../model/GetV2ResourcesCreatorCouponsEntries200Response';
 import GetV2ResourcesCreatorLicenses200Response from '../model/GetV2ResourcesCreatorLicenses200Response';
@@ -129,86 +127,6 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorBatch200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/batch', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorBundles operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorBundles200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your bundles
-     * @param {Object} opts Optional parameters
-     * @param {Array} [bundleIds] A comma-separated list of bundle IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorBundles200Response}
-     */
-    getV2ResourcesCreatorBundles(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'bundle_ids': opts['bundleIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorBundles200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/bundles', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorBundlesEntries operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesEntriesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorBundlesEntries200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your bundle entries
-     * @param {Object} opts Optional parameters
-     * @param {Array} [bundleIds] A comma-separated list of bundle IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorBundlesEntriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorBundlesEntries200Response}
-     */
-    getV2ResourcesCreatorBundlesEntries(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'bundle_ids': opts['bundleIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorBundlesEntries200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/bundles/entries', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

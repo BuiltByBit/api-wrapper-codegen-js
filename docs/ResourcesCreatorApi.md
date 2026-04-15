@@ -6,8 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getV2ResourcesCreatorAddons**](ResourcesCreatorApi.md#getV2ResourcesCreatorAddons) | **GET** /v2/resources/creator/addons | Fetch a list of your resources&#39; addons
 [**getV2ResourcesCreatorBatch**](ResourcesCreatorApi.md#getV2ResourcesCreatorBatch) | **GET** /v2/resources/creator/batch | Fetch a list of your batches edits
-[**getV2ResourcesCreatorBundles**](ResourcesCreatorApi.md#getV2ResourcesCreatorBundles) | **GET** /v2/resources/creator/bundles | Fetch a list of your bundles
-[**getV2ResourcesCreatorBundlesEntries**](ResourcesCreatorApi.md#getV2ResourcesCreatorBundlesEntries) | **GET** /v2/resources/creator/bundles/entries | Fetch a list of your bundle entries
 [**getV2ResourcesCreatorCoupons**](ResourcesCreatorApi.md#getV2ResourcesCreatorCoupons) | **GET** /v2/resources/creator/coupons | Fetch a list of your coupons
 [**getV2ResourcesCreatorCouponsEntries**](ResourcesCreatorApi.md#getV2ResourcesCreatorCouponsEntries) | **GET** /v2/resources/creator/coupons/entries | Fetch a list of your coupon entries
 [**getV2ResourcesCreatorLicenses**](ResourcesCreatorApi.md#getV2ResourcesCreatorLicenses) | **GET** /v2/resources/creator/licenses | Fetch a list of your resources&#39; licenses
@@ -116,108 +114,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetV2ResourcesCreatorBatch200Response**](GetV2ResourcesCreatorBatch200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getV2ResourcesCreatorBundles
-
-> GetV2ResourcesCreatorBundles200Response getV2ResourcesCreatorBundles(opts)
-
-Fetch a list of your bundles
-
-### Example
-
-```javascript
-import BuiltByBitApi from 'built_by_bit_api';
-let defaultClient = BuiltByBitApi.ApiClient.instance;
-// Configure API key authorization: token
-let token = defaultClient.authentications['token'];
-token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.apiKeyPrefix = 'Token';
-
-let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
-let opts = {
-  'bundleIds': null // Array | A comma-separated list of bundle IDs to filter on. No filter is applied if empty.
-};
-apiInstance.getV2ResourcesCreatorBundles(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bundleIds** | [**Array**](.md)| A comma-separated list of bundle IDs to filter on. No filter is applied if empty. | [optional] 
-
-### Return type
-
-[**GetV2ResourcesCreatorBundles200Response**](GetV2ResourcesCreatorBundles200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getV2ResourcesCreatorBundlesEntries
-
-> GetV2ResourcesCreatorBundlesEntries200Response getV2ResourcesCreatorBundlesEntries(opts)
-
-Fetch a list of your bundle entries
-
-### Example
-
-```javascript
-import BuiltByBitApi from 'built_by_bit_api';
-let defaultClient = BuiltByBitApi.ApiClient.instance;
-// Configure API key authorization: token
-let token = defaultClient.authentications['token'];
-token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.apiKeyPrefix = 'Token';
-
-let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
-let opts = {
-  'bundleIds': null // Array | A comma-separated list of bundle IDs to filter on. No filter is applied if empty.
-};
-apiInstance.getV2ResourcesCreatorBundlesEntries(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bundleIds** | [**Array**](.md)| A comma-separated list of bundle IDs to filter on. No filter is applied if empty. | [optional] 
-
-### Return type
-
-[**GetV2ResourcesCreatorBundlesEntries200Response**](GetV2ResourcesCreatorBundlesEntries200Response.md)
 
 ### Authorization
 
