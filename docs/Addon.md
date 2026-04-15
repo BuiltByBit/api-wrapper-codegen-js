@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addonId** | **Number** |  | [optional] 
+**resourceId** | **Number** |  | [optional] 
 **title** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **_default** | **Boolean** |  | [optional] 
 **listPrice** | [**Price**](Price.md) |  | [optional] 
 **finalPrice** | [**Price**](Price.md) |  | [optional] 
+**resource** | [**Resource**](Resource.md) |  | [optional] 
 
 
 

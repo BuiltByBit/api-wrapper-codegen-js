@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Price from './Price';
+import Resource from './Resource';
 
 /**
  * The Addon model module.
@@ -22,6 +23,7 @@ import Price from './Price';
 class Addon {
     /**
      * Constructs a new <code>Addon</code>.
+     * Supported &#39;with&#39; hints: - Resource: the resource this addon belongs to
      * @alias module:model/Addon
      */
     constructor() { 
@@ -51,6 +53,9 @@ class Addon {
             if (data.hasOwnProperty('addon_id')) {
                 obj['addon_id'] = ApiClient.convertToType(data['addon_id'], 'Number');
             }
+            if (data.hasOwnProperty('resource_id')) {
+                obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'Number');
+            }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
@@ -74,6 +79,9 @@ class Addon {
             }
             if (data.hasOwnProperty('FinalPrice')) {
                 obj['FinalPrice'] = Price.constructFromObject(data['FinalPrice']);
+            }
+            if (data.hasOwnProperty('Resource')) {
+                obj['Resource'] = Resource.constructFromObject(data['Resource']);
             }
         }
         return obj;
@@ -109,6 +117,10 @@ class Addon {
         if (data['FinalPrice']) { // data not null
           Price.validateJSON(data['FinalPrice']);
         }
+        // validate the optional field `Resource`
+        if (data['Resource']) { // data not null
+          Resource.validateJSON(data['Resource']);
+        }
 
         return true;
     }
@@ -122,6 +134,11 @@ class Addon {
  * @member {Number} addon_id
  */
 Addon.prototype['addon_id'] = undefined;
+
+/**
+ * @member {Number} resource_id
+ */
+Addon.prototype['resource_id'] = undefined;
 
 /**
  * @member {String} title
@@ -162,6 +179,11 @@ Addon.prototype['ListPrice'] = undefined;
  * @member {module:model/Price} FinalPrice
  */
 Addon.prototype['FinalPrice'] = undefined;
+
+/**
+ * @member {module:model/Resource} Resource
+ */
+Addon.prototype['Resource'] = undefined;
 
 
 
