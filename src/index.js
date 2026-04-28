@@ -87,6 +87,10 @@ import GetV2ResourcesDiscoverLicenses200ResponseData from './model/GetV2Resource
 import License from './model/License';
 import ListStats from './model/ListStats';
 import Member from './model/Member';
+import PostV2DeploymentsUpgrade200Response from './model/PostV2DeploymentsUpgrade200Response';
+import PostV2DeploymentsUpgrade200ResponseData from './model/PostV2DeploymentsUpgrade200ResponseData';
+import PostV2DeploymentsUpgrade200ResponseDataPreauthorize from './model/PostV2DeploymentsUpgrade200ResponseDataPreauthorize';
+import PostV2DeploymentsUpgradeRequest from './model/PostV2DeploymentsUpgradeRequest';
 import PostV2EventsComplete200Response from './model/PostV2EventsComplete200Response';
 import PostV2EventsCompleteRequest from './model/PostV2EventsCompleteRequest';
 import PostV2ResourcesCreatorBatch200Response from './model/PostV2ResourcesCreatorBatch200Response';
@@ -122,6 +126,7 @@ import Store from './model/Store';
 import Update from './model/Update';
 import Version from './model/Version';
 import AnalyticsApi from './api/AnalyticsApi';
+import DeploymentsApi from './api/DeploymentsApi';
 import EventsApi from './api/EventsApi';
 import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
@@ -616,6 +621,30 @@ export {
     Member,
 
     /**
+     * The PostV2DeploymentsUpgrade200Response model constructor.
+     * @property {module:model/PostV2DeploymentsUpgrade200Response}
+     */
+    PostV2DeploymentsUpgrade200Response,
+
+    /**
+     * The PostV2DeploymentsUpgrade200ResponseData model constructor.
+     * @property {module:model/PostV2DeploymentsUpgrade200ResponseData}
+     */
+    PostV2DeploymentsUpgrade200ResponseData,
+
+    /**
+     * The PostV2DeploymentsUpgrade200ResponseDataPreauthorize model constructor.
+     * @property {module:model/PostV2DeploymentsUpgrade200ResponseDataPreauthorize}
+     */
+    PostV2DeploymentsUpgrade200ResponseDataPreauthorize,
+
+    /**
+     * The PostV2DeploymentsUpgradeRequest model constructor.
+     * @property {module:model/PostV2DeploymentsUpgradeRequest}
+     */
+    PostV2DeploymentsUpgradeRequest,
+
+    /**
      * The PostV2EventsComplete200Response model constructor.
      * @property {module:model/PostV2EventsComplete200Response}
      */
@@ -824,6 +853,12 @@ export {
     * @property {module:api/AnalyticsApi}
     */
     AnalyticsApi,
+
+    /**
+    * The DeploymentsApi service constructor.
+    * @property {module:api/DeploymentsApi}
+    */
+    DeploymentsApi,
 
     /**
     * The EventsApi service constructor.
