@@ -108,7 +108,9 @@ export default class ResourcesDiscoveryApi {
      * @param {String} [resourceIds] A comma-separated list of resource IDs to filter on.
      * @param {Number} [page = 1)] The page number to return.
      * @param {Number} [perPage = 25)] The number of resources to return per page.
-     * @param {Boolean} [noDependencies] 
+     * @param {Boolean} [noDependencies] Whether or not to exclude resources with dependencies listed.
+     * @param {String} [excludedResourceIds] A comma-separated list of resource IDs to exclude. No filter will be applied if empty.
+     * @param {String} [excludedCreatorIds] A comma-separated list of creator IDs to exclude. No filter will be applied if empty.
      * @param {module:api/ResourcesDiscoveryApi~getResourcesDiscoverResourcesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetResourcesDiscoverResources200Response}
      */
@@ -125,7 +127,9 @@ export default class ResourcesDiscoveryApi {
         'resource_ids': opts['resourceIds'],
         'page': opts['page'],
         'per_page': opts['perPage'],
-        'no_dependencies': opts['noDependencies']
+        'no_dependencies': opts['noDependencies'],
+        'excluded_resource_ids': opts['excludedResourceIds'],
+        'excluded_creator_ids': opts['excludedCreatorIds']
       };
       let headerParams = {
       };

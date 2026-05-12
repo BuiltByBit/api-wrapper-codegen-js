@@ -98,7 +98,9 @@ let opts = {
   'resourceIds': "resourceIds_example", // String | A comma-separated list of resource IDs to filter on.
   'page': 1, // Number | The page number to return.
   'perPage': 25, // Number | The number of resources to return per page.
-  'noDependencies': true // Boolean | 
+  'noDependencies': true, // Boolean | Whether or not to exclude resources with dependencies listed.
+  'excludedResourceIds': "excludedResourceIds_example", // String | A comma-separated list of resource IDs to exclude. No filter will be applied if empty.
+  'excludedCreatorIds': "excludedCreatorIds_example" // String | A comma-separated list of creator IDs to exclude. No filter will be applied if empty.
 };
 apiInstance.getResourcesDiscoverResources(opts, (error, data, response) => {
   if (error) {
@@ -120,7 +122,9 @@ Name | Type | Description  | Notes
  **resourceIds** | **String**| A comma-separated list of resource IDs to filter on. | [optional] 
  **page** | **Number**| The page number to return. | [optional] [default to 1]
  **perPage** | **Number**| The number of resources to return per page. | [optional] [default to 25]
- **noDependencies** | **Boolean**|  | [optional] 
+ **noDependencies** | **Boolean**| Whether or not to exclude resources with dependencies listed. | [optional] 
+ **excludedResourceIds** | **String**| A comma-separated list of resource IDs to exclude. No filter will be applied if empty. | [optional] 
+ **excludedCreatorIds** | **String**| A comma-separated list of creator IDs to exclude. No filter will be applied if empty. | [optional] 
 
 ### Return type
 
