@@ -132,10 +132,12 @@ import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
 import ResourcesBuyerApi from './api/ResourcesBuyerApi';
 import ResourcesCreatorApi from './api/ResourcesCreatorApi';
+import ResourcesCreatorBatchApi from './api/ResourcesCreatorBatchApi';
 import ResourcesCreatorBundlesApi from './api/ResourcesCreatorBundlesApi';
 import ResourcesCreatorCouponsApi from './api/ResourcesCreatorCouponsApi';
 import ResourcesCreatorSaleEventsApi from './api/ResourcesCreatorSaleEventsApi';
-import ResourcesDiscoveryApi from './api/ResourcesDiscoveryApi';
+import ResourcesDiscoverApi from './api/ResourcesDiscoverApi';
+import ResourcesDiscoverCartApi from './api/ResourcesDiscoverCartApi';
 
 
 /**
@@ -891,6 +893,12 @@ export {
     ResourcesCreatorApi,
 
     /**
+    * The ResourcesCreatorBatchApi service constructor.
+    * @property {module:api/ResourcesCreatorBatchApi}
+    */
+    ResourcesCreatorBatchApi,
+
+    /**
     * The ResourcesCreatorBundlesApi service constructor.
     * @property {module:api/ResourcesCreatorBundlesApi}
     */
@@ -909,8 +917,14 @@ export {
     ResourcesCreatorSaleEventsApi,
 
     /**
-    * The ResourcesDiscoveryApi service constructor.
-    * @property {module:api/ResourcesDiscoveryApi}
+    * The ResourcesDiscoverApi service constructor.
+    * @property {module:api/ResourcesDiscoverApi}
     */
-    ResourcesDiscoveryApi
+    ResourcesDiscoverApi,
+
+    /**
+    * The ResourcesDiscoverCartApi service constructor.
+    * @property {module:api/ResourcesDiscoverCartApi}
+    */
+    ResourcesDiscoverCartApi
 };

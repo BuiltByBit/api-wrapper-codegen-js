@@ -14,22 +14,13 @@
 
 import ApiClient from "../ApiClient";
 import GetV2ResourcesCreatorAddons200Response from '../model/GetV2ResourcesCreatorAddons200Response';
-import GetV2ResourcesCreatorBatch200Response from '../model/GetV2ResourcesCreatorBatch200Response';
-import GetV2ResourcesCreatorCoupons200Response from '../model/GetV2ResourcesCreatorCoupons200Response';
-import GetV2ResourcesCreatorCouponsEntries200Response from '../model/GetV2ResourcesCreatorCouponsEntries200Response';
 import GetV2ResourcesCreatorLicenses200Response from '../model/GetV2ResourcesCreatorLicenses200Response';
 import GetV2ResourcesCreatorPurchases200Response from '../model/GetV2ResourcesCreatorPurchases200Response';
 import GetV2ResourcesCreatorResources200Response from '../model/GetV2ResourcesCreatorResources200Response';
 import GetV2ResourcesCreatorReviews200Response from '../model/GetV2ResourcesCreatorReviews200Response';
-import GetV2ResourcesCreatorSaleEvents200Response from '../model/GetV2ResourcesCreatorSaleEvents200Response';
-import GetV2ResourcesCreatorSaleEventsEntries200Response from '../model/GetV2ResourcesCreatorSaleEventsEntries200Response';
 import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
 import GetV2ResourcesCreatorUpdates200Response from '../model/GetV2ResourcesCreatorUpdates200Response';
 import GetV2ResourcesCreatorVersions200Response from '../model/GetV2ResourcesCreatorVersions200Response';
-import PostV2ResourcesCreatorBatch200Response from '../model/PostV2ResourcesCreatorBatch200Response';
-import PostV2ResourcesCreatorBatchRequest from '../model/PostV2ResourcesCreatorBatchRequest';
-import PostV2ResourcesCreatorCoupons200Response from '../model/PostV2ResourcesCreatorCoupons200Response';
-import PostV2ResourcesCreatorCouponsRequest from '../model/PostV2ResourcesCreatorCouponsRequest';
 import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdateRequest from '../model/PostV2ResourcesCreatorUpdateRequest';
 
@@ -87,126 +78,6 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorAddons200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/addons', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorBatch operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorBatchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorBatch200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your batches edits
-     * @param {Object} opts Optional parameters
-     * @param {Array} [batchIds] A comma-separated list of batch IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorBatch200Response}
-     */
-    getV2ResourcesCreatorBatch(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'batch_ids': opts['batchIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorBatch200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/batch', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorCoupons operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your coupons
-     * @param {Object} opts Optional parameters
-     * @param {Array} [couponIds] A comma-separated list of coupon IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorCoupons200Response}
-     */
-    getV2ResourcesCreatorCoupons(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'coupon_ids': opts['couponIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorCoupons200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/coupons', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorCouponsEntries operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsEntriesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorCouponsEntries200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your coupon entries
-     * @param {Object} opts Optional parameters
-     * @param {Array} [couponIds] A comma-separated list of coupon IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorCouponsEntriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorCouponsEntries200Response}
-     */
-    getV2ResourcesCreatorCouponsEntries(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'coupon_ids': opts['couponIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorCouponsEntries200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/coupons/entries', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -377,86 +248,6 @@ export default class ResourcesCreatorApi {
     }
 
     /**
-     * Callback function to receive the result of the getV2ResourcesCreatorSaleEvents operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorSaleEvents200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your sale events
-     * @param {Object} opts Optional parameters
-     * @param {Array} [saleEventIds] A comma-separated list of sale event IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorSaleEvents200Response}
-     */
-    getV2ResourcesCreatorSaleEvents(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'sale_event_ids': opts['saleEventIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorSaleEvents200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/sale-events', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getV2ResourcesCreatorSaleEventsEntries operation.
-     * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsEntriesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorSaleEventsEntries200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Fetch a list of your sale event entries
-     * @param {Object} opts Optional parameters
-     * @param {Array} [saleEventIds] A comma-separated list of sale event IDs to filter on. No filter is applied if empty.
-     * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorSaleEventsEntriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorSaleEventsEntries200Response}
-     */
-    getV2ResourcesCreatorSaleEventsEntries(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'sale_event_ids': opts['saleEventIds']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorSaleEventsEntries200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/sale-events/entries', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getV2ResourcesCreatorStores operation.
      * @callback module:api/ResourcesCreatorApi~getV2ResourcesCreatorStoresCallback
      * @param {String} error Error message, if any.
@@ -567,86 +358,6 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorVersions200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/versions', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postV2ResourcesCreatorBatch operation.
-     * @callback module:api/ResourcesCreatorApi~postV2ResourcesCreatorBatchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostV2ResourcesCreatorBatch200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a new batch edit
-     * Batch edits will be processed in the background meaning a successful call to this endpoint does not guarantee that the edits have been completed. You will instead receive an identifier to a batch edit which you can then use to fetch the status of via the below endpoint. This is not an atomic operation meaning some resources may be edited successfully and others may not be due to an error. You may only batch edit resources you own currently.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2ResourcesCreatorBatchRequest} [postV2ResourcesCreatorBatchRequest] 
-     * @param {module:api/ResourcesCreatorApi~postV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2ResourcesCreatorBatch200Response}
-     */
-    postV2ResourcesCreatorBatch(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2ResourcesCreatorBatchRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = PostV2ResourcesCreatorBatch200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/batch', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postV2ResourcesCreatorCoupons operation.
-     * @callback module:api/ResourcesCreatorApi~postV2ResourcesCreatorCouponsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostV2ResourcesCreatorCoupons200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create a new coupon
-     * This endpoint is currently limited to percent-based coupons with a maximum discount of 50%.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2ResourcesCreatorCouponsRequest} [postV2ResourcesCreatorCouponsRequest] 
-     * @param {module:api/ResourcesCreatorApi~postV2ResourcesCreatorCouponsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2ResourcesCreatorCoupons200Response}
-     */
-    postV2ResourcesCreatorCoupons(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2ResourcesCreatorCouponsRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = PostV2ResourcesCreatorCoupons200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/coupons', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
