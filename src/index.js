@@ -27,6 +27,8 @@ import CartSummary from './model/CartSummary';
 import Category from './model/Category';
 import Coupon from './model/Coupon';
 import CouponEntry from './model/CouponEntry';
+import DownloadRequest from './model/DownloadRequest';
+import DownloadStatus from './model/DownloadStatus';
 import Event from './model/Event';
 import Filter from './model/Filter';
 import FilterChoice from './model/FilterChoice';
@@ -48,8 +50,6 @@ import GetV2AnalyticsSingle200ResponseDataPeriod from './model/GetV2AnalyticsSin
 import GetV2Events200Response from './model/GetV2Events200Response';
 import GetV2Events200ResponseData from './model/GetV2Events200ResponseData';
 import GetV2Health200Response from './model/GetV2Health200Response';
-import GetV2ResourcesBuyerLatest200Response from './model/GetV2ResourcesBuyerLatest200Response';
-import GetV2ResourcesBuyerLatest200ResponseData from './model/GetV2ResourcesBuyerLatest200ResponseData';
 import GetV2ResourcesCreatorAddons200Response from './model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorAddons200ResponseData from './model/GetV2ResourcesCreatorAddons200ResponseData';
 import GetV2ResourcesCreatorBatch200Response from './model/GetV2ResourcesCreatorBatch200Response';
@@ -84,6 +84,10 @@ import GetV2ResourcesDiscoverCartView200Response from './model/GetV2ResourcesDis
 import GetV2ResourcesDiscoverCartView200ResponseData from './model/GetV2ResourcesDiscoverCartView200ResponseData';
 import GetV2ResourcesDiscoverLicenses200Response from './model/GetV2ResourcesDiscoverLicenses200Response';
 import GetV2ResourcesDiscoverLicenses200ResponseData from './model/GetV2ResourcesDiscoverLicenses200ResponseData';
+import GetV2ResourcesEmbedDownload200Response from './model/GetV2ResourcesEmbedDownload200Response';
+import GetV2ResourcesEmbedDownload200ResponseData from './model/GetV2ResourcesEmbedDownload200ResponseData';
+import GetV2ResourcesEmbedLatest200Response from './model/GetV2ResourcesEmbedLatest200Response';
+import GetV2ResourcesEmbedLatest200ResponseData from './model/GetV2ResourcesEmbedLatest200ResponseData';
 import License from './model/License';
 import ListStats from './model/ListStats';
 import Member from './model/Member';
@@ -115,6 +119,9 @@ import PostV2ResourcesDiscoverCartCouponRemove200Response from './model/PostV2Re
 import PostV2ResourcesDiscoverCartCouponRemoveRequest from './model/PostV2ResourcesDiscoverCartCouponRemoveRequest';
 import PostV2ResourcesDiscoverCartRemove200Response from './model/PostV2ResourcesDiscoverCartRemove200Response';
 import PostV2ResourcesDiscoverCartRemoveRequest from './model/PostV2ResourcesDiscoverCartRemoveRequest';
+import PostV2ResourcesEmbedDownload200Response from './model/PostV2ResourcesEmbedDownload200Response';
+import PostV2ResourcesEmbedDownload200ResponseData from './model/PostV2ResourcesEmbedDownload200ResponseData';
+import PostV2ResourcesEmbedDownloadRequest from './model/PostV2ResourcesEmbedDownloadRequest';
 import Price from './model/Price';
 import Purchase from './model/Purchase';
 import Resource from './model/Resource';
@@ -130,7 +137,6 @@ import DeploymentsApi from './api/DeploymentsApi';
 import EventsApi from './api/EventsApi';
 import HealthApi from './api/HealthApi';
 import Oauth2Api from './api/Oauth2Api';
-import ResourcesBuyerApi from './api/ResourcesBuyerApi';
 import ResourcesCreatorApi from './api/ResourcesCreatorApi';
 import ResourcesCreatorBatchApi from './api/ResourcesCreatorBatchApi';
 import ResourcesCreatorBundlesApi from './api/ResourcesCreatorBundlesApi';
@@ -138,6 +144,7 @@ import ResourcesCreatorCouponsApi from './api/ResourcesCreatorCouponsApi';
 import ResourcesCreatorSaleEventsApi from './api/ResourcesCreatorSaleEventsApi';
 import ResourcesDiscoverApi from './api/ResourcesDiscoverApi';
 import ResourcesDiscoverCartApi from './api/ResourcesDiscoverCartApi';
+import ResourcesEmbedApi from './api/ResourcesEmbedApi';
 
 
 /**
@@ -261,6 +268,18 @@ export {
      * @property {module:model/CouponEntry}
      */
     CouponEntry,
+
+    /**
+     * The DownloadRequest model constructor.
+     * @property {module:model/DownloadRequest}
+     */
+    DownloadRequest,
+
+    /**
+     * The DownloadStatus model constructor.
+     * @property {module:model/DownloadStatus}
+     */
+    DownloadStatus,
 
     /**
      * The Event model constructor.
@@ -387,18 +406,6 @@ export {
      * @property {module:model/GetV2Health200Response}
      */
     GetV2Health200Response,
-
-    /**
-     * The GetV2ResourcesBuyerLatest200Response model constructor.
-     * @property {module:model/GetV2ResourcesBuyerLatest200Response}
-     */
-    GetV2ResourcesBuyerLatest200Response,
-
-    /**
-     * The GetV2ResourcesBuyerLatest200ResponseData model constructor.
-     * @property {module:model/GetV2ResourcesBuyerLatest200ResponseData}
-     */
-    GetV2ResourcesBuyerLatest200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorAddons200Response model constructor.
@@ -605,6 +612,30 @@ export {
     GetV2ResourcesDiscoverLicenses200ResponseData,
 
     /**
+     * The GetV2ResourcesEmbedDownload200Response model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownload200Response}
+     */
+    GetV2ResourcesEmbedDownload200Response,
+
+    /**
+     * The GetV2ResourcesEmbedDownload200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownload200ResponseData}
+     */
+    GetV2ResourcesEmbedDownload200ResponseData,
+
+    /**
+     * The GetV2ResourcesEmbedLatest200Response model constructor.
+     * @property {module:model/GetV2ResourcesEmbedLatest200Response}
+     */
+    GetV2ResourcesEmbedLatest200Response,
+
+    /**
+     * The GetV2ResourcesEmbedLatest200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesEmbedLatest200ResponseData}
+     */
+    GetV2ResourcesEmbedLatest200ResponseData,
+
+    /**
      * The License model constructor.
      * @property {module:model/License}
      */
@@ -791,6 +822,24 @@ export {
     PostV2ResourcesDiscoverCartRemoveRequest,
 
     /**
+     * The PostV2ResourcesEmbedDownload200Response model constructor.
+     * @property {module:model/PostV2ResourcesEmbedDownload200Response}
+     */
+    PostV2ResourcesEmbedDownload200Response,
+
+    /**
+     * The PostV2ResourcesEmbedDownload200ResponseData model constructor.
+     * @property {module:model/PostV2ResourcesEmbedDownload200ResponseData}
+     */
+    PostV2ResourcesEmbedDownload200ResponseData,
+
+    /**
+     * The PostV2ResourcesEmbedDownloadRequest model constructor.
+     * @property {module:model/PostV2ResourcesEmbedDownloadRequest}
+     */
+    PostV2ResourcesEmbedDownloadRequest,
+
+    /**
      * The Price model constructor.
      * @property {module:model/Price}
      */
@@ -881,12 +930,6 @@ export {
     Oauth2Api,
 
     /**
-    * The ResourcesBuyerApi service constructor.
-    * @property {module:api/ResourcesBuyerApi}
-    */
-    ResourcesBuyerApi,
-
-    /**
     * The ResourcesCreatorApi service constructor.
     * @property {module:api/ResourcesCreatorApi}
     */
@@ -926,5 +969,11 @@ export {
     * The ResourcesDiscoverCartApi service constructor.
     * @property {module:api/ResourcesDiscoverCartApi}
     */
-    ResourcesDiscoverCartApi
+    ResourcesDiscoverCartApi,
+
+    /**
+    * The ResourcesEmbedApi service constructor.
+    * @property {module:api/ResourcesEmbedApi}
+    */
+    ResourcesEmbedApi
 };
