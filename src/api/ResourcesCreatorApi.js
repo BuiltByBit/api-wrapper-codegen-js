@@ -95,6 +95,7 @@ export default class ResourcesCreatorApi {
      * Fetch a list of your resources' licenses
      * @param {Object} opts Optional parameters
      * @param {Array} [resourceIds] A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+     * @param {Array} [buyerIds] A comma-separated list of buyer IDs to filter on. No filter is applied if empty.
      * @param {module:api/ResourcesCreatorApi~getV2ResourcesCreatorLicensesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetV2ResourcesCreatorLicenses200Response}
      */
@@ -105,7 +106,8 @@ export default class ResourcesCreatorApi {
       let pathParams = {
       };
       let queryParams = {
-        'resource_ids': opts['resourceIds']
+        'resource_ids': opts['resourceIds'],
+        'buyer_ids': opts['buyerIds']
       };
       let headerParams = {
       };

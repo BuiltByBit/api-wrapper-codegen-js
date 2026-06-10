@@ -86,7 +86,8 @@ token.apiKey = 'YOUR API KEY';
 
 let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
 let opts = {
-  'resourceIds': null // Array | A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+  'resourceIds': null, // Array | A comma-separated list of resource IDs to filter on. No filter is applied if empty.
+  'buyerIds': null // Array | A comma-separated list of buyer IDs to filter on. No filter is applied if empty.
 };
 apiInstance.getV2ResourcesCreatorLicenses(opts, (error, data, response) => {
   if (error) {
@@ -103,6 +104,7 @@ apiInstance.getV2ResourcesCreatorLicenses(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resourceIds** | [**Array**](.md)| A comma-separated list of resource IDs to filter on. No filter is applied if empty. | [optional] 
+ **buyerIds** | [**Array**](.md)| A comma-separated list of buyer IDs to filter on. No filter is applied if empty. | [optional] 
 
 ### Return type
 
