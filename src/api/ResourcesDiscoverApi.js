@@ -16,6 +16,8 @@ import ApiClient from "../ApiClient";
 import GetResourcesDiscoverCategories200Response from '../model/GetResourcesDiscoverCategories200Response';
 import GetResourcesDiscoverResources200Response from '../model/GetResourcesDiscoverResources200Response';
 import GetResourcesDiscoverResources4XXResponse from '../model/GetResourcesDiscoverResources4XXResponse';
+import GetV2ResourcesDiscoverDownloadDirectInitiate200Response from '../model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response';
+import GetV2ResourcesDiscoverDownloadDirectPoll200Response from '../model/GetV2ResourcesDiscoverDownloadDirectPoll200Response';
 import GetV2ResourcesDiscoverLicenses200Response from '../model/GetV2ResourcesDiscoverLicenses200Response';
 
 /**
@@ -132,6 +134,96 @@ export default class ResourcesDiscoverApi {
       let returnType = GetResourcesDiscoverResources200Response;
       return this.apiClient.callApi(
         '/v2/resources/discover/resources', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesDiscoverDownloadDirectInitiate operation.
+     * @callback module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadDirectInitiateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Initiate a direct download request
+     * See: https://builtbybit.com/help/developers/discovery-api/downloading-and-one-click/
+     * @param {String} contentType Either 'resource' or 'resource_version'
+     * @param {Number} contentId 
+     * @param {module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadDirectInitiateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response}
+     */
+    getV2ResourcesDiscoverDownloadDirectInitiate(contentType, contentId, callback) {
+      let postBody = null;
+      // verify the required parameter 'contentType' is set
+      if (contentType === undefined || contentType === null) {
+        throw new Error("Missing the required parameter 'contentType' when calling getV2ResourcesDiscoverDownloadDirectInitiate");
+      }
+      // verify the required parameter 'contentId' is set
+      if (contentId === undefined || contentId === null) {
+        throw new Error("Missing the required parameter 'contentId' when calling getV2ResourcesDiscoverDownloadDirectInitiate");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'content_type': contentType,
+        'content_id': contentId
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesDiscoverDownloadDirectInitiate200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/discover/download/direct/initiate', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesDiscoverDownloadDirectPoll operation.
+     * @callback module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadDirectPollCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesDiscoverDownloadDirectPoll200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch the status of a direct download request
+     * See: https://builtbybit.com/help/developers/discovery-api/downloading-and-one-click/
+     * @param {Object} opts Optional parameters
+     * @param {String} [token] The download request token returned from an initiate request.
+     * @param {module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadDirectPollCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesDiscoverDownloadDirectPoll200Response}
+     */
+    getV2ResourcesDiscoverDownloadDirectPoll(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'token': opts['token']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesDiscoverDownloadDirectPoll200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/discover/download/direct/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -13,10 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
-import GetV2ResourcesEmbedDownload200Response from '../model/GetV2ResourcesEmbedDownload200Response';
+import GetV2ResourcesEmbedDownloadInitiate200Response from '../model/GetV2ResourcesEmbedDownloadInitiate200Response';
+import GetV2ResourcesEmbedDownloadStatus200Response from '../model/GetV2ResourcesEmbedDownloadStatus200Response';
 import GetV2ResourcesEmbedLatest200Response from '../model/GetV2ResourcesEmbedLatest200Response';
-import PostV2ResourcesEmbedDownload200Response from '../model/PostV2ResourcesEmbedDownload200Response';
-import PostV2ResourcesEmbedDownloadRequest from '../model/PostV2ResourcesEmbedDownloadRequest';
 
 /**
 * ResourcesEmbed service.
@@ -38,30 +37,43 @@ export default class ResourcesEmbedApi {
 
 
     /**
-     * Callback function to receive the result of the getV2ResourcesEmbedDownload operation.
-     * @callback module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadCallback
+     * Callback function to receive the result of the getV2ResourcesEmbedDownloadInitiate operation.
+     * @callback module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadInitiateCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesEmbedDownload200Response} data The data returned by the service call.
+     * @param {module:model/GetV2ResourcesEmbedDownloadInitiate200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Fetch the status of a download request
-     * @param {String} token The token provided when submitting a download request.
-     * @param {module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesEmbedDownload200Response}
+     * Initiate a download request
+     * See: https://builtbybit.com/help/developers/resource-apis/embed/
+     * @param {String} contentType Either 'resource', 'resource_version', 'api_asset'
+     * @param {Number} contentId 
+     * @param {String} nonce 32 character hash provided by an anti-piracy placeholder of the NONCE type. Must be from a resource download (cannot be an addon download’s nonce, etc).
+     * @param {module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadInitiateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesEmbedDownloadInitiate200Response}
      */
-    getV2ResourcesEmbedDownload(token, callback) {
+    getV2ResourcesEmbedDownloadInitiate(contentType, contentId, nonce, callback) {
       let postBody = null;
-      // verify the required parameter 'token' is set
-      if (token === undefined || token === null) {
-        throw new Error("Missing the required parameter 'token' when calling getV2ResourcesEmbedDownload");
+      // verify the required parameter 'contentType' is set
+      if (contentType === undefined || contentType === null) {
+        throw new Error("Missing the required parameter 'contentType' when calling getV2ResourcesEmbedDownloadInitiate");
+      }
+      // verify the required parameter 'contentId' is set
+      if (contentId === undefined || contentId === null) {
+        throw new Error("Missing the required parameter 'contentId' when calling getV2ResourcesEmbedDownloadInitiate");
+      }
+      // verify the required parameter 'nonce' is set
+      if (nonce === undefined || nonce === null) {
+        throw new Error("Missing the required parameter 'nonce' when calling getV2ResourcesEmbedDownloadInitiate");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'token': token
+        'content_type': contentType,
+        'content_id': contentId,
+        'nonce': nonce
       };
       let headerParams = {
       };
@@ -71,9 +83,50 @@ export default class ResourcesEmbedApi {
       let authNames = ['token'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetV2ResourcesEmbedDownload200Response;
+      let returnType = GetV2ResourcesEmbedDownloadInitiate200Response;
       return this.apiClient.callApi(
-        '/v2/resources/embed/download', 'GET',
+        '/v2/resources/embed/download/initiate', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesEmbedDownloadStatus operation.
+     * @callback module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadStatusCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesEmbedDownloadStatus200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch the status of a download request
+     * See: https://builtbybit.com/help/developers/resource-apis/embed/
+     * @param {Object} opts Optional parameters
+     * @param {String} [token] The download request token returned from an initiate request.
+     * @param {module:api/ResourcesEmbedApi~getV2ResourcesEmbedDownloadStatusCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesEmbedDownloadStatus200Response}
+     */
+    getV2ResourcesEmbedDownloadStatus(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'token': opts['token']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesEmbedDownloadStatus200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/embed/download/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -89,6 +142,7 @@ export default class ResourcesEmbedApi {
 
     /**
      * Fetches the latest versions & license information
+     * See: https://builtbybit.com/help/developers/resource-apis/embed/
      * @param {Object} opts Optional parameters
      * @param {String} [nonce] 32 character hash provided by an anti-piracy placeholder of the NONCE type. Must be from a resource download (cannot be an addon download’s nonce, etc).
      * @param {module:api/ResourcesEmbedApi~getV2ResourcesEmbedLatestCallback} callback The callback function, accepting three arguments: error, data, response
@@ -114,46 +168,6 @@ export default class ResourcesEmbedApi {
       let returnType = GetV2ResourcesEmbedLatest200Response;
       return this.apiClient.callApi(
         '/v2/resources/embed/latest', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postV2ResourcesEmbedDownload operation.
-     * @callback module:api/ResourcesEmbedApi~postV2ResourcesEmbedDownloadCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostV2ResourcesEmbedDownload200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a new download request
-     * Supported content types:  - 'resource_version'  - 'api_asset'
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2ResourcesEmbedDownloadRequest} [postV2ResourcesEmbedDownloadRequest] 
-     * @param {module:api/ResourcesEmbedApi~postV2ResourcesEmbedDownloadCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2ResourcesEmbedDownload200Response}
-     */
-    postV2ResourcesEmbedDownload(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2ResourcesEmbedDownloadRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['token'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = PostV2ResourcesEmbedDownload200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/embed/download', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

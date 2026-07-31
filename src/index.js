@@ -82,10 +82,16 @@ import GetV2ResourcesCreatorVersions200Response from './model/GetV2ResourcesCrea
 import GetV2ResourcesCreatorVersions200ResponseData from './model/GetV2ResourcesCreatorVersions200ResponseData';
 import GetV2ResourcesDiscoverCartView200Response from './model/GetV2ResourcesDiscoverCartView200Response';
 import GetV2ResourcesDiscoverCartView200ResponseData from './model/GetV2ResourcesDiscoverCartView200ResponseData';
+import GetV2ResourcesDiscoverDownloadDirectInitiate200Response from './model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response';
+import GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData from './model/GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData';
+import GetV2ResourcesDiscoverDownloadDirectPoll200Response from './model/GetV2ResourcesDiscoverDownloadDirectPoll200Response';
+import GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData from './model/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData';
 import GetV2ResourcesDiscoverLicenses200Response from './model/GetV2ResourcesDiscoverLicenses200Response';
 import GetV2ResourcesDiscoverLicenses200ResponseData from './model/GetV2ResourcesDiscoverLicenses200ResponseData';
-import GetV2ResourcesEmbedDownload200Response from './model/GetV2ResourcesEmbedDownload200Response';
-import GetV2ResourcesEmbedDownload200ResponseData from './model/GetV2ResourcesEmbedDownload200ResponseData';
+import GetV2ResourcesEmbedDownloadInitiate200Response from './model/GetV2ResourcesEmbedDownloadInitiate200Response';
+import GetV2ResourcesEmbedDownloadInitiate200ResponseData from './model/GetV2ResourcesEmbedDownloadInitiate200ResponseData';
+import GetV2ResourcesEmbedDownloadStatus200Response from './model/GetV2ResourcesEmbedDownloadStatus200Response';
+import GetV2ResourcesEmbedDownloadStatus200ResponseData from './model/GetV2ResourcesEmbedDownloadStatus200ResponseData';
 import GetV2ResourcesEmbedLatest200Response from './model/GetV2ResourcesEmbedLatest200Response';
 import GetV2ResourcesEmbedLatest200ResponseData from './model/GetV2ResourcesEmbedLatest200ResponseData';
 import License from './model/License';
@@ -119,9 +125,6 @@ import PostV2ResourcesDiscoverCartCouponRemove200Response from './model/PostV2Re
 import PostV2ResourcesDiscoverCartCouponRemoveRequest from './model/PostV2ResourcesDiscoverCartCouponRemoveRequest';
 import PostV2ResourcesDiscoverCartRemove200Response from './model/PostV2ResourcesDiscoverCartRemove200Response';
 import PostV2ResourcesDiscoverCartRemoveRequest from './model/PostV2ResourcesDiscoverCartRemoveRequest';
-import PostV2ResourcesEmbedDownload200Response from './model/PostV2ResourcesEmbedDownload200Response';
-import PostV2ResourcesEmbedDownload200ResponseData from './model/PostV2ResourcesEmbedDownload200ResponseData';
-import PostV2ResourcesEmbedDownloadRequest from './model/PostV2ResourcesEmbedDownloadRequest';
 import Price from './model/Price';
 import Purchase from './model/Purchase';
 import Resource from './model/Resource';
@@ -600,6 +603,30 @@ export {
     GetV2ResourcesDiscoverCartView200ResponseData,
 
     /**
+     * The GetV2ResourcesDiscoverDownloadDirectInitiate200Response model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response}
+     */
+    GetV2ResourcesDiscoverDownloadDirectInitiate200Response,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData}
+     */
+    GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadDirectPoll200Response model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadDirectPoll200Response}
+     */
+    GetV2ResourcesDiscoverDownloadDirectPoll200Response,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData}
+     */
+    GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData,
+
+    /**
      * The GetV2ResourcesDiscoverLicenses200Response model constructor.
      * @property {module:model/GetV2ResourcesDiscoverLicenses200Response}
      */
@@ -612,16 +639,28 @@ export {
     GetV2ResourcesDiscoverLicenses200ResponseData,
 
     /**
-     * The GetV2ResourcesEmbedDownload200Response model constructor.
-     * @property {module:model/GetV2ResourcesEmbedDownload200Response}
+     * The GetV2ResourcesEmbedDownloadInitiate200Response model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownloadInitiate200Response}
      */
-    GetV2ResourcesEmbedDownload200Response,
+    GetV2ResourcesEmbedDownloadInitiate200Response,
 
     /**
-     * The GetV2ResourcesEmbedDownload200ResponseData model constructor.
-     * @property {module:model/GetV2ResourcesEmbedDownload200ResponseData}
+     * The GetV2ResourcesEmbedDownloadInitiate200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownloadInitiate200ResponseData}
      */
-    GetV2ResourcesEmbedDownload200ResponseData,
+    GetV2ResourcesEmbedDownloadInitiate200ResponseData,
+
+    /**
+     * The GetV2ResourcesEmbedDownloadStatus200Response model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownloadStatus200Response}
+     */
+    GetV2ResourcesEmbedDownloadStatus200Response,
+
+    /**
+     * The GetV2ResourcesEmbedDownloadStatus200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesEmbedDownloadStatus200ResponseData}
+     */
+    GetV2ResourcesEmbedDownloadStatus200ResponseData,
 
     /**
      * The GetV2ResourcesEmbedLatest200Response model constructor.
@@ -820,24 +859,6 @@ export {
      * @property {module:model/PostV2ResourcesDiscoverCartRemoveRequest}
      */
     PostV2ResourcesDiscoverCartRemoveRequest,
-
-    /**
-     * The PostV2ResourcesEmbedDownload200Response model constructor.
-     * @property {module:model/PostV2ResourcesEmbedDownload200Response}
-     */
-    PostV2ResourcesEmbedDownload200Response,
-
-    /**
-     * The PostV2ResourcesEmbedDownload200ResponseData model constructor.
-     * @property {module:model/PostV2ResourcesEmbedDownload200ResponseData}
-     */
-    PostV2ResourcesEmbedDownload200ResponseData,
-
-    /**
-     * The PostV2ResourcesEmbedDownloadRequest model constructor.
-     * @property {module:model/PostV2ResourcesEmbedDownloadRequest}
-     */
-    PostV2ResourcesEmbedDownloadRequest,
 
     /**
      * The Price model constructor.

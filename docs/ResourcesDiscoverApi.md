@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getResourcesDiscoverCategories**](ResourcesDiscoverApi.md#getResourcesDiscoverCategories) | **GET** /v2/resources/discover/categories | Fetch a list of categories
 [**getResourcesDiscoverResources**](ResourcesDiscoverApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
+[**getV2ResourcesDiscoverDownloadDirectInitiate**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectInitiate) | **GET** /v2/resources/discover/download/direct/initiate | Initiate a direct download request
+[**getV2ResourcesDiscoverDownloadDirectPoll**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectPoll) | **GET** /v2/resources/discover/download/direct/status | Fetch the status of a direct download request
 [**getV2ResourcesDiscoverLicenses**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverLicenses) | **GET** /v2/resources/discover/licenses | Fetch a list of the user&#39;s licenses
 
 
@@ -127,6 +129,108 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getV2ResourcesDiscoverDownloadDirectInitiate
+
+> GetV2ResourcesDiscoverDownloadDirectInitiate200Response getV2ResourcesDiscoverDownloadDirectInitiate(contentType, contentId)
+
+Initiate a direct download request
+
+See: https://builtbybit.com/help/developers/discovery-api/downloading-and-one-click/
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new BuiltByBitApi.ResourcesDiscoverApi();
+let contentType = "contentType_example"; // String | Either 'resource' or 'resource_version'
+let contentId = 56; // Number | 
+apiInstance.getV2ResourcesDiscoverDownloadDirectInitiate(contentType, contentId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**| Either &#39;resource&#39; or &#39;resource_version&#39; | 
+ **contentId** | **Number**|  | 
+
+### Return type
+
+[**GetV2ResourcesDiscoverDownloadDirectInitiate200Response**](GetV2ResourcesDiscoverDownloadDirectInitiate200Response.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getV2ResourcesDiscoverDownloadDirectPoll
+
+> GetV2ResourcesDiscoverDownloadDirectPoll200Response getV2ResourcesDiscoverDownloadDirectPoll(opts)
+
+Fetch the status of a direct download request
+
+See: https://builtbybit.com/help/developers/discovery-api/downloading-and-one-click/
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new BuiltByBitApi.ResourcesDiscoverApi();
+let opts = {
+  'token': "token_example" // String | The download request token returned from an initiate request.
+};
+apiInstance.getV2ResourcesDiscoverDownloadDirectPoll(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **String**| The download request token returned from an initiate request. | [optional] 
+
+### Return type
+
+[**GetV2ResourcesDiscoverDownloadDirectPoll200Response**](GetV2ResourcesDiscoverDownloadDirectPoll200Response.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

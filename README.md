@@ -158,6 +158,8 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesCreatorSaleEventsApi* | [**getV2ResourcesCreatorSaleEventsEntries**](docs/ResourcesCreatorSaleEventsApi.md#getV2ResourcesCreatorSaleEventsEntries) | **GET** /v2/resources/creator/sale-events/entries | Fetch a list of your sale event entries
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getResourcesDiscoverCategories**](docs/ResourcesDiscoverApi.md#getResourcesDiscoverCategories) | **GET** /v2/resources/discover/categories | Fetch a list of categories
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getResourcesDiscoverResources**](docs/ResourcesDiscoverApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
+*BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverDownloadDirectInitiate**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectInitiate) | **GET** /v2/resources/discover/download/direct/initiate | Initiate a direct download request
+*BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverDownloadDirectPoll**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectPoll) | **GET** /v2/resources/discover/download/direct/status | Fetch the status of a direct download request
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverLicenses**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverLicenses) | **GET** /v2/resources/discover/licenses | Fetch a list of the user&#39;s licenses
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**getV2ResourcesDiscoverCartView**](docs/ResourcesDiscoverCartApi.md#getV2ResourcesDiscoverCartView) | **GET** /v2/resources/discover/cart/view | View the user&#39;s cart items
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**postV2ResourcesDiscoverCartAdd**](docs/ResourcesDiscoverCartApi.md#postV2ResourcesDiscoverCartAdd) | **POST** /v2/resources/discover/cart/add | Add items to a user&#39;s cart
@@ -165,9 +167,9 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**postV2ResourcesDiscoverCartCouponAdd**](docs/ResourcesDiscoverCartApi.md#postV2ResourcesDiscoverCartCouponAdd) | **POST** /v2/resources/discover/cart/coupon/add | Add a coupon to the user&#39;s cart
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**postV2ResourcesDiscoverCartCouponRemove**](docs/ResourcesDiscoverCartApi.md#postV2ResourcesDiscoverCartCouponRemove) | **POST** /v2/resources/discover/cart/coupon/remove | Remove a coupon from the user&#39;s cart
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**postV2ResourcesDiscoverCartRemove**](docs/ResourcesDiscoverCartApi.md#postV2ResourcesDiscoverCartRemove) | **POST** /v2/resources/discover/cart/remove | Remove an item from the user&#39;s cart
-*BuiltByBitApi.ResourcesEmbedApi* | [**getV2ResourcesEmbedDownload**](docs/ResourcesEmbedApi.md#getV2ResourcesEmbedDownload) | **GET** /v2/resources/embed/download | Fetch the status of a download request
+*BuiltByBitApi.ResourcesEmbedApi* | [**getV2ResourcesEmbedDownloadInitiate**](docs/ResourcesEmbedApi.md#getV2ResourcesEmbedDownloadInitiate) | **GET** /v2/resources/embed/download/initiate | Initiate a download request
+*BuiltByBitApi.ResourcesEmbedApi* | [**getV2ResourcesEmbedDownloadStatus**](docs/ResourcesEmbedApi.md#getV2ResourcesEmbedDownloadStatus) | **GET** /v2/resources/embed/download/status | Fetch the status of a download request
 *BuiltByBitApi.ResourcesEmbedApi* | [**getV2ResourcesEmbedLatest**](docs/ResourcesEmbedApi.md#getV2ResourcesEmbedLatest) | **GET** /v2/resources/embed/latest | Fetches the latest versions &amp; license information
-*BuiltByBitApi.ResourcesEmbedApi* | [**postV2ResourcesEmbedDownload**](docs/ResourcesEmbedApi.md#postV2ResourcesEmbedDownload) | **POST** /v2/resources/embed/download | Submit a new download request
 
 
 ## Documentation for Models
@@ -241,10 +243,16 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.GetV2ResourcesCreatorVersions200ResponseData](docs/GetV2ResourcesCreatorVersions200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverCartView200Response](docs/GetV2ResourcesDiscoverCartView200Response.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverCartView200ResponseData](docs/GetV2ResourcesDiscoverCartView200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectInitiate200Response](docs/GetV2ResourcesDiscoverDownloadDirectInitiate200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData](docs/GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectPoll200Response](docs/GetV2ResourcesDiscoverDownloadDirectPoll200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData](docs/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverLicenses200Response](docs/GetV2ResourcesDiscoverLicenses200Response.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverLicenses200ResponseData](docs/GetV2ResourcesDiscoverLicenses200ResponseData.md)
- - [BuiltByBitApi.GetV2ResourcesEmbedDownload200Response](docs/GetV2ResourcesEmbedDownload200Response.md)
- - [BuiltByBitApi.GetV2ResourcesEmbedDownload200ResponseData](docs/GetV2ResourcesEmbedDownload200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesEmbedDownloadInitiate200Response](docs/GetV2ResourcesEmbedDownloadInitiate200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesEmbedDownloadInitiate200ResponseData](docs/GetV2ResourcesEmbedDownloadInitiate200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesEmbedDownloadStatus200Response](docs/GetV2ResourcesEmbedDownloadStatus200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesEmbedDownloadStatus200ResponseData](docs/GetV2ResourcesEmbedDownloadStatus200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesEmbedLatest200Response](docs/GetV2ResourcesEmbedLatest200Response.md)
  - [BuiltByBitApi.GetV2ResourcesEmbedLatest200ResponseData](docs/GetV2ResourcesEmbedLatest200ResponseData.md)
  - [BuiltByBitApi.License](docs/License.md)
@@ -278,9 +286,6 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartCouponRemoveRequest](docs/PostV2ResourcesDiscoverCartCouponRemoveRequest.md)
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartRemove200Response](docs/PostV2ResourcesDiscoverCartRemove200Response.md)
  - [BuiltByBitApi.PostV2ResourcesDiscoverCartRemoveRequest](docs/PostV2ResourcesDiscoverCartRemoveRequest.md)
- - [BuiltByBitApi.PostV2ResourcesEmbedDownload200Response](docs/PostV2ResourcesEmbedDownload200Response.md)
- - [BuiltByBitApi.PostV2ResourcesEmbedDownload200ResponseData](docs/PostV2ResourcesEmbedDownload200ResponseData.md)
- - [BuiltByBitApi.PostV2ResourcesEmbedDownloadRequest](docs/PostV2ResourcesEmbedDownloadRequest.md)
  - [BuiltByBitApi.Price](docs/Price.md)
  - [BuiltByBitApi.Purchase](docs/Purchase.md)
  - [BuiltByBitApi.Resource](docs/Resource.md)

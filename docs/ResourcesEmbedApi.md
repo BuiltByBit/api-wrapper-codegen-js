@@ -4,17 +4,19 @@ All URIs are relative to *https://api.builtbybit.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getV2ResourcesEmbedDownload**](ResourcesEmbedApi.md#getV2ResourcesEmbedDownload) | **GET** /v2/resources/embed/download | Fetch the status of a download request
+[**getV2ResourcesEmbedDownloadInitiate**](ResourcesEmbedApi.md#getV2ResourcesEmbedDownloadInitiate) | **GET** /v2/resources/embed/download/initiate | Initiate a download request
+[**getV2ResourcesEmbedDownloadStatus**](ResourcesEmbedApi.md#getV2ResourcesEmbedDownloadStatus) | **GET** /v2/resources/embed/download/status | Fetch the status of a download request
 [**getV2ResourcesEmbedLatest**](ResourcesEmbedApi.md#getV2ResourcesEmbedLatest) | **GET** /v2/resources/embed/latest | Fetches the latest versions &amp; license information
-[**postV2ResourcesEmbedDownload**](ResourcesEmbedApi.md#postV2ResourcesEmbedDownload) | **POST** /v2/resources/embed/download | Submit a new download request
 
 
 
-## getV2ResourcesEmbedDownload
+## getV2ResourcesEmbedDownloadInitiate
 
-> GetV2ResourcesEmbedDownload200Response getV2ResourcesEmbedDownload(token)
+> GetV2ResourcesEmbedDownloadInitiate200Response getV2ResourcesEmbedDownloadInitiate(contentType, contentId, nonce)
 
-Fetch the status of a download request
+Initiate a download request
+
+See: https://builtbybit.com/help/developers/resource-apis/embed/
 
 ### Example
 
@@ -28,8 +30,10 @@ token.apiKey = 'YOUR API KEY';
 //token.apiKeyPrefix = 'Token';
 
 let apiInstance = new BuiltByBitApi.ResourcesEmbedApi();
-let token = "token_example"; // String | The token provided when submitting a download request.
-apiInstance.getV2ResourcesEmbedDownload(token, (error, data, response) => {
+let contentType = "contentType_example"; // String | Either 'resource', 'resource_version', 'api_asset'
+let contentId = 56; // Number | 
+let nonce = "nonce_example"; // String | 32 character hash provided by an anti-piracy placeholder of the NONCE type. Must be from a resource download (cannot be an addon download’s nonce, etc).
+apiInstance.getV2ResourcesEmbedDownloadInitiate(contentType, contentId, nonce, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -43,11 +47,66 @@ apiInstance.getV2ResourcesEmbedDownload(token, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | **String**| The token provided when submitting a download request. | 
+ **contentType** | **String**| Either &#39;resource&#39;, &#39;resource_version&#39;, &#39;api_asset&#39; | 
+ **contentId** | **Number**|  | 
+ **nonce** | **String**| 32 character hash provided by an anti-piracy placeholder of the NONCE type. Must be from a resource download (cannot be an addon download’s nonce, etc). | 
 
 ### Return type
 
-[**GetV2ResourcesEmbedDownload200Response**](GetV2ResourcesEmbedDownload200Response.md)
+[**GetV2ResourcesEmbedDownloadInitiate200Response**](GetV2ResourcesEmbedDownloadInitiate200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getV2ResourcesEmbedDownloadStatus
+
+> GetV2ResourcesEmbedDownloadStatus200Response getV2ResourcesEmbedDownloadStatus(opts)
+
+Fetch the status of a download request
+
+See: https://builtbybit.com/help/developers/resource-apis/embed/
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
+
+let apiInstance = new BuiltByBitApi.ResourcesEmbedApi();
+let opts = {
+  'token': "token_example" // String | The download request token returned from an initiate request.
+};
+apiInstance.getV2ResourcesEmbedDownloadStatus(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **String**| The download request token returned from an initiate request. | [optional] 
+
+### Return type
+
+[**GetV2ResourcesEmbedDownloadStatus200Response**](GetV2ResourcesEmbedDownloadStatus200Response.md)
 
 ### Authorization
 
@@ -64,6 +123,8 @@ Name | Type | Description  | Notes
 > GetV2ResourcesEmbedLatest200Response getV2ResourcesEmbedLatest(opts)
 
 Fetches the latest versions &amp; license information
+
+See: https://builtbybit.com/help/developers/resource-apis/embed/
 
 ### Example
 
@@ -107,58 +168,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## postV2ResourcesEmbedDownload
-
-> PostV2ResourcesEmbedDownload200Response postV2ResourcesEmbedDownload(opts)
-
-Submit a new download request
-
-Supported content types:  - &#39;resource_version&#39;  - &#39;api_asset&#39;
-
-### Example
-
-```javascript
-import BuiltByBitApi from 'built_by_bit_api';
-let defaultClient = BuiltByBitApi.ApiClient.instance;
-// Configure API key authorization: token
-let token = defaultClient.authentications['token'];
-token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.apiKeyPrefix = 'Token';
-
-let apiInstance = new BuiltByBitApi.ResourcesEmbedApi();
-let opts = {
-  'postV2ResourcesEmbedDownloadRequest': new BuiltByBitApi.PostV2ResourcesEmbedDownloadRequest() // PostV2ResourcesEmbedDownloadRequest | 
-};
-apiInstance.postV2ResourcesEmbedDownload(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **postV2ResourcesEmbedDownloadRequest** | [**PostV2ResourcesEmbedDownloadRequest**](PostV2ResourcesEmbedDownloadRequest.md)|  | [optional] 
-
-### Return type
-
-[**PostV2ResourcesEmbedDownload200Response**](PostV2ResourcesEmbedDownload200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
