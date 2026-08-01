@@ -21,6 +21,8 @@ import GetV2ResourcesCreatorReviews200Response from '../model/GetV2ResourcesCrea
 import GetV2ResourcesCreatorStores200Response from '../model/GetV2ResourcesCreatorStores200Response';
 import GetV2ResourcesCreatorUpdates200Response from '../model/GetV2ResourcesCreatorUpdates200Response';
 import GetV2ResourcesCreatorVersions200Response from '../model/GetV2ResourcesCreatorVersions200Response';
+import PostV2ResourcesCreatorAddonsUpdateRequest from '../model/PostV2ResourcesCreatorAddonsUpdateRequest';
+import PostV2ResourcesCreatorApiAssetsUpdateRequest from '../model/PostV2ResourcesCreatorApiAssetsUpdateRequest';
 import PostV2ResourcesCreatorUpdate200Response from '../model/PostV2ResourcesCreatorUpdate200Response';
 import PostV2ResourcesCreatorUpdateRequest from '../model/PostV2ResourcesCreatorUpdateRequest';
 
@@ -360,6 +362,82 @@ export default class ResourcesCreatorApi {
       let returnType = GetV2ResourcesCreatorVersions200Response;
       return this.apiClient.callApi(
         '/v2/resources/creator/versions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postV2ResourcesCreatorAddonsUpdate operation.
+     * @callback module:api/ResourcesCreatorApi~postV2ResourcesCreatorAddonsUpdateCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post an addon update
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostV2ResourcesCreatorAddonsUpdateRequest} [postV2ResourcesCreatorAddonsUpdateRequest] Creates a new version for the addon. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses.
+     * @param {module:api/ResourcesCreatorApi~postV2ResourcesCreatorAddonsUpdateCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postV2ResourcesCreatorAddonsUpdate(opts, callback) {
+      opts = opts || {};
+      let postBody = opts['postV2ResourcesCreatorAddonsUpdateRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/addons/update', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postV2ResourcesCreatorApiAssetsUpdate operation.
+     * @callback module:api/ResourcesCreatorApi~postV2ResourcesCreatorApiAssetsUpdateCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post an API asset update
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PostV2ResourcesCreatorApiAssetsUpdateRequest} [postV2ResourcesCreatorApiAssetsUpdateRequest] Creates a new version for the API asset. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses.
+     * @param {module:api/ResourcesCreatorApi~postV2ResourcesCreatorApiAssetsUpdateCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postV2ResourcesCreatorApiAssetsUpdate(opts, callback) {
+      opts = opts || {};
+      let postBody = opts['postV2ResourcesCreatorApiAssetsUpdateRequest'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v2/resources/creator/api-assets/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

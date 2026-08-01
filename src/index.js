@@ -103,6 +103,10 @@ import PostV2DeploymentsUpgrade200ResponseDataPreauthorize from './model/PostV2D
 import PostV2DeploymentsUpgradeRequest from './model/PostV2DeploymentsUpgradeRequest';
 import PostV2EventsComplete200Response from './model/PostV2EventsComplete200Response';
 import PostV2EventsCompleteRequest from './model/PostV2EventsCompleteRequest';
+import PostV2ResourcesCreatorAddonsUpdateRequest from './model/PostV2ResourcesCreatorAddonsUpdateRequest';
+import PostV2ResourcesCreatorAddonsUpdateRequestFile from './model/PostV2ResourcesCreatorAddonsUpdateRequestFile';
+import PostV2ResourcesCreatorApiAssetsUpdateRequest from './model/PostV2ResourcesCreatorApiAssetsUpdateRequest';
+import PostV2ResourcesCreatorApiAssetsUpdateRequestFile from './model/PostV2ResourcesCreatorApiAssetsUpdateRequestFile';
 import PostV2ResourcesCreatorBatch200Response from './model/PostV2ResourcesCreatorBatch200Response';
 import PostV2ResourcesCreatorBatch200ResponseData from './model/PostV2ResourcesCreatorBatch200ResponseData';
 import PostV2ResourcesCreatorBatchRequest from './model/PostV2ResourcesCreatorBatchRequest';
@@ -727,6 +731,30 @@ export {
      * @property {module:model/PostV2EventsCompleteRequest}
      */
     PostV2EventsCompleteRequest,
+
+    /**
+     * The PostV2ResourcesCreatorAddonsUpdateRequest model constructor.
+     * @property {module:model/PostV2ResourcesCreatorAddonsUpdateRequest}
+     */
+    PostV2ResourcesCreatorAddonsUpdateRequest,
+
+    /**
+     * The PostV2ResourcesCreatorAddonsUpdateRequestFile model constructor.
+     * @property {module:model/PostV2ResourcesCreatorAddonsUpdateRequestFile}
+     */
+    PostV2ResourcesCreatorAddonsUpdateRequestFile,
+
+    /**
+     * The PostV2ResourcesCreatorApiAssetsUpdateRequest model constructor.
+     * @property {module:model/PostV2ResourcesCreatorApiAssetsUpdateRequest}
+     */
+    PostV2ResourcesCreatorApiAssetsUpdateRequest,
+
+    /**
+     * The PostV2ResourcesCreatorApiAssetsUpdateRequestFile model constructor.
+     * @property {module:model/PostV2ResourcesCreatorApiAssetsUpdateRequestFile}
+     */
+    PostV2ResourcesCreatorApiAssetsUpdateRequestFile,
 
     /**
      * The PostV2ResourcesCreatorBatch200Response model constructor.

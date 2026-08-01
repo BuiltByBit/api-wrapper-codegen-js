@@ -146,6 +146,8 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorStores**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorStores) | **GET** /v2/resources/creator/stores | Fetch a list of your stores
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorUpdates**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorUpdates) | **GET** /v2/resources/creator/updates | Fetch a list of your resource&#39;s updates
 *BuiltByBitApi.ResourcesCreatorApi* | [**getV2ResourcesCreatorVersions**](docs/ResourcesCreatorApi.md#getV2ResourcesCreatorVersions) | **GET** /v2/resources/creator/versions | Fetch a list of your resources&#39; versions
+*BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorAddonsUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorAddonsUpdate) | **POST** /v2/resources/creator/addons/update | Post an addon update
+*BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorApiAssetsUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorApiAssetsUpdate) | **POST** /v2/resources/creator/api-assets/update | Post an API asset update
 *BuiltByBitApi.ResourcesCreatorApi* | [**postV2ResourcesCreatorUpdate**](docs/ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
 *BuiltByBitApi.ResourcesCreatorBatchApi* | [**getV2ResourcesCreatorBatch**](docs/ResourcesCreatorBatchApi.md#getV2ResourcesCreatorBatch) | **GET** /v2/resources/creator/batch | Fetch a list of your batches edits
 *BuiltByBitApi.ResourcesCreatorBatchApi* | [**postV2ResourcesCreatorBatch**](docs/ResourcesCreatorBatchApi.md#postV2ResourcesCreatorBatch) | **POST** /v2/resources/creator/batch | Submit a new batch edit
@@ -264,6 +266,10 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.PostV2DeploymentsUpgradeRequest](docs/PostV2DeploymentsUpgradeRequest.md)
  - [BuiltByBitApi.PostV2EventsComplete200Response](docs/PostV2EventsComplete200Response.md)
  - [BuiltByBitApi.PostV2EventsCompleteRequest](docs/PostV2EventsCompleteRequest.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorAddonsUpdateRequest](docs/PostV2ResourcesCreatorAddonsUpdateRequest.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorAddonsUpdateRequestFile](docs/PostV2ResourcesCreatorAddonsUpdateRequestFile.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorApiAssetsUpdateRequest](docs/PostV2ResourcesCreatorApiAssetsUpdateRequest.md)
+ - [BuiltByBitApi.PostV2ResourcesCreatorApiAssetsUpdateRequestFile](docs/PostV2ResourcesCreatorApiAssetsUpdateRequestFile.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorBatch200Response](docs/PostV2ResourcesCreatorBatch200Response.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorBatch200ResponseData](docs/PostV2ResourcesCreatorBatch200ResponseData.md)
  - [BuiltByBitApi.PostV2ResourcesCreatorBatchRequest](docs/PostV2ResourcesCreatorBatchRequest.md)

@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**getV2ResourcesCreatorStores**](ResourcesCreatorApi.md#getV2ResourcesCreatorStores) | **GET** /v2/resources/creator/stores | Fetch a list of your stores
 [**getV2ResourcesCreatorUpdates**](ResourcesCreatorApi.md#getV2ResourcesCreatorUpdates) | **GET** /v2/resources/creator/updates | Fetch a list of your resource&#39;s updates
 [**getV2ResourcesCreatorVersions**](ResourcesCreatorApi.md#getV2ResourcesCreatorVersions) | **GET** /v2/resources/creator/versions | Fetch a list of your resources&#39; versions
+[**postV2ResourcesCreatorAddonsUpdate**](ResourcesCreatorApi.md#postV2ResourcesCreatorAddonsUpdate) | **POST** /v2/resources/creator/addons/update | Post an addon update
+[**postV2ResourcesCreatorApiAssetsUpdate**](ResourcesCreatorApi.md#postV2ResourcesCreatorApiAssetsUpdate) | **POST** /v2/resources/creator/api-assets/update | Post an API asset update
 [**postV2ResourcesCreatorUpdate**](ResourcesCreatorApi.md#postV2ResourcesCreatorUpdate) | **POST** /v2/resources/creator/update | Post a resource update
 
 
@@ -416,6 +418,108 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## postV2ResourcesCreatorAddonsUpdate
+
+> postV2ResourcesCreatorAddonsUpdate(opts)
+
+Post an addon update
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
+
+let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
+let opts = {
+  'postV2ResourcesCreatorAddonsUpdateRequest': new BuiltByBitApi.PostV2ResourcesCreatorAddonsUpdateRequest() // PostV2ResourcesCreatorAddonsUpdateRequest | Creates a new version for the addon. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses.
+};
+apiInstance.postV2ResourcesCreatorAddonsUpdate(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postV2ResourcesCreatorAddonsUpdateRequest** | [**PostV2ResourcesCreatorAddonsUpdateRequest**](PostV2ResourcesCreatorAddonsUpdateRequest.md)| Creates a new version for the addon. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses. | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## postV2ResourcesCreatorApiAssetsUpdate
+
+> postV2ResourcesCreatorApiAssetsUpdate(opts)
+
+Post an API asset update
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
+
+let apiInstance = new BuiltByBitApi.ResourcesCreatorApi();
+let opts = {
+  'postV2ResourcesCreatorApiAssetsUpdateRequest': new BuiltByBitApi.PostV2ResourcesCreatorApiAssetsUpdateRequest() // PostV2ResourcesCreatorApiAssetsUpdateRequest | Creates a new version for the API asset. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses.
+};
+apiInstance.postV2ResourcesCreatorApiAssetsUpdate(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postV2ResourcesCreatorApiAssetsUpdateRequest** | [**PostV2ResourcesCreatorApiAssetsUpdateRequest**](PostV2ResourcesCreatorApiAssetsUpdateRequest.md)| Creates a new version for the API asset. The uploaded file must be encoded using base64 as part of the JSON request body shown below.  The request body (including the base64 encoded file data) cannot exceed 100MB. This roughly equates to a 67MB upload limit for the raw file when taking into account base64 encoding losses. | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## postV2ResourcesCreatorUpdate
