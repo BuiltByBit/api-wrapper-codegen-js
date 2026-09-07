@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getResourcesDiscoverResources**](ResourcesDiscoverApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
 [**getV2ResourcesDiscoverDownloadDirectInitiate**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectInitiate) | **GET** /v2/resources/discover/download/direct/initiate | Initiate a direct download request
 [**getV2ResourcesDiscoverDownloadDirectPoll**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectPoll) | **GET** /v2/resources/discover/download/direct/status | Fetch the status of a direct download request
+[**getV2ResourcesDiscoverDownloadPlan**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadPlan) | **GET** /v2/resources/discover/download/plan | Fetch a download plan
 [**getV2ResourcesDiscoverLicenses**](ResourcesDiscoverApi.md#getV2ResourcesDiscoverLicenses) | **GET** /v2/resources/discover/licenses | Fetch a list of the user&#39;s licenses
 
 
@@ -231,6 +232,65 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getV2ResourcesDiscoverDownloadPlan
+
+> GetV2ResourcesDiscoverDownloadPlan200Response getV2ResourcesDiscoverDownloadPlan(contentType, contentId, opts)
+
+Fetch a download plan
+
+### Example
+
+```javascript
+import BuiltByBitApi from 'built_by_bit_api';
+let defaultClient = BuiltByBitApi.ApiClient.instance;
+// Configure API key authorization: token
+let token = defaultClient.authentications['token'];
+token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.apiKeyPrefix = 'Token';
+
+let apiInstance = new BuiltByBitApi.ResourcesDiscoverApi();
+let contentType = "contentType_example"; // String | Only 'resource' is currently supported.
+let contentId = 56; // Number | 
+let opts = {
+  'supported': "supported_example", // String | A comma-separated list of supported features (like archive formats).
+  'currentServerSofware': "currentServerSofware_example", // String | 
+  'currentServerVersion': "currentServerVersion_example" // String | 
+};
+apiInstance.getV2ResourcesDiscoverDownloadPlan(contentType, contentId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**| Only &#39;resource&#39; is currently supported. | 
+ **contentId** | **Number**|  | 
+ **supported** | **String**| A comma-separated list of supported features (like archive formats). | [optional] 
+ **currentServerSofware** | **String**|  | [optional] 
+ **currentServerVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**GetV2ResourcesDiscoverDownloadPlan200Response**](GetV2ResourcesDiscoverDownloadPlan200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
 
 ### HTTP request headers
 

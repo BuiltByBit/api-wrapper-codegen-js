@@ -27,6 +27,9 @@ import CartSummary from './model/CartSummary';
 import Category from './model/Category';
 import Coupon from './model/Coupon';
 import CouponEntry from './model/CouponEntry';
+import DownloadPlan from './model/DownloadPlan';
+import DownloadPlanAction from './model/DownloadPlanAction';
+import DownloadPlanNotice from './model/DownloadPlanNotice';
 import DownloadRequest from './model/DownloadRequest';
 import DownloadStatus from './model/DownloadStatus';
 import Event from './model/Event';
@@ -86,6 +89,8 @@ import GetV2ResourcesDiscoverDownloadDirectInitiate200Response from './model/Get
 import GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData from './model/GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData';
 import GetV2ResourcesDiscoverDownloadDirectPoll200Response from './model/GetV2ResourcesDiscoverDownloadDirectPoll200Response';
 import GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData from './model/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData';
+import GetV2ResourcesDiscoverDownloadPlan200Response from './model/GetV2ResourcesDiscoverDownloadPlan200Response';
+import GetV2ResourcesDiscoverDownloadPlan200ResponseData from './model/GetV2ResourcesDiscoverDownloadPlan200ResponseData';
 import GetV2ResourcesDiscoverLicenses200Response from './model/GetV2ResourcesDiscoverLicenses200Response';
 import GetV2ResourcesDiscoverLicenses200ResponseData from './model/GetV2ResourcesDiscoverLicenses200ResponseData';
 import GetV2ResourcesEmbedDownloadInitiate200Response from './model/GetV2ResourcesEmbedDownloadInitiate200Response';
@@ -275,6 +280,24 @@ export {
      * @property {module:model/CouponEntry}
      */
     CouponEntry,
+
+    /**
+     * The DownloadPlan model constructor.
+     * @property {module:model/DownloadPlan}
+     */
+    DownloadPlan,
+
+    /**
+     * The DownloadPlanAction model constructor.
+     * @property {module:model/DownloadPlanAction}
+     */
+    DownloadPlanAction,
+
+    /**
+     * The DownloadPlanNotice model constructor.
+     * @property {module:model/DownloadPlanNotice}
+     */
+    DownloadPlanNotice,
 
     /**
      * The DownloadRequest model constructor.
@@ -629,6 +652,18 @@ export {
      * @property {module:model/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData}
      */
     GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlan200Response model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlan200Response}
+     */
+    GetV2ResourcesDiscoverDownloadPlan200Response,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlan200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlan200ResponseData}
+     */
+    GetV2ResourcesDiscoverDownloadPlan200ResponseData,
 
     /**
      * The GetV2ResourcesDiscoverLicenses200Response model constructor.

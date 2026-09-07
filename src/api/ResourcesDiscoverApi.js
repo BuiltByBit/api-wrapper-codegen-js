@@ -18,6 +18,7 @@ import GetResourcesDiscoverResources200Response from '../model/GetResourcesDisco
 import GetResourcesDiscoverResources4XXResponse from '../model/GetResourcesDiscoverResources4XXResponse';
 import GetV2ResourcesDiscoverDownloadDirectInitiate200Response from '../model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response';
 import GetV2ResourcesDiscoverDownloadDirectPoll200Response from '../model/GetV2ResourcesDiscoverDownloadDirectPoll200Response';
+import GetV2ResourcesDiscoverDownloadPlan200Response from '../model/GetV2ResourcesDiscoverDownloadPlan200Response';
 import GetV2ResourcesDiscoverLicenses200Response from '../model/GetV2ResourcesDiscoverLicenses200Response';
 
 /**
@@ -224,6 +225,62 @@ export default class ResourcesDiscoverApi {
       let returnType = GetV2ResourcesDiscoverDownloadDirectPoll200Response;
       return this.apiClient.callApi(
         '/v2/resources/discover/download/direct/status', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesDiscoverDownloadPlan operation.
+     * @callback module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadPlanCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesDiscoverDownloadPlan200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Fetch a download plan
+     * @param {String} contentType Only 'resource' is currently supported.
+     * @param {Number} contentId 
+     * @param {Object} opts Optional parameters
+     * @param {String} [supported] A comma-separated list of supported features (like archive formats).
+     * @param {String} [currentServerSofware] 
+     * @param {String} [currentServerVersion] 
+     * @param {module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadPlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesDiscoverDownloadPlan200Response}
+     */
+    getV2ResourcesDiscoverDownloadPlan(contentType, contentId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'contentType' is set
+      if (contentType === undefined || contentType === null) {
+        throw new Error("Missing the required parameter 'contentType' when calling getV2ResourcesDiscoverDownloadPlan");
+      }
+      // verify the required parameter 'contentId' is set
+      if (contentId === undefined || contentId === null) {
+        throw new Error("Missing the required parameter 'contentId' when calling getV2ResourcesDiscoverDownloadPlan");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'content_type': contentType,
+        'content_id': contentId,
+        'supported': opts['supported'],
+        'current_server_sofware': opts['currentServerSofware'],
+        'current_server_version': opts['currentServerVersion']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesDiscoverDownloadPlan200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/discover/download/plan', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

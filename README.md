@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getResourcesDiscoverResources**](docs/ResourcesDiscoverApi.md#getResourcesDiscoverResources) | **GET** /v2/resources/discover/resources | Fetch a list of resources
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverDownloadDirectInitiate**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectInitiate) | **GET** /v2/resources/discover/download/direct/initiate | Initiate a direct download request
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverDownloadDirectPoll**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadDirectPoll) | **GET** /v2/resources/discover/download/direct/status | Fetch the status of a direct download request
+*BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverDownloadPlan**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverDownloadPlan) | **GET** /v2/resources/discover/download/plan | Fetch a download plan
 *BuiltByBitApi.ResourcesDiscoverApi* | [**getV2ResourcesDiscoverLicenses**](docs/ResourcesDiscoverApi.md#getV2ResourcesDiscoverLicenses) | **GET** /v2/resources/discover/licenses | Fetch a list of the user&#39;s licenses
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**getV2ResourcesDiscoverCartView**](docs/ResourcesDiscoverCartApi.md#getV2ResourcesDiscoverCartView) | **GET** /v2/resources/discover/cart/view | View the user&#39;s cart items
 *BuiltByBitApi.ResourcesDiscoverCartApi* | [**postV2ResourcesDiscoverCartAdd**](docs/ResourcesDiscoverCartApi.md#postV2ResourcesDiscoverCartAdd) | **POST** /v2/resources/discover/cart/add | Add items to a user&#39;s cart
@@ -190,6 +191,9 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.Category](docs/Category.md)
  - [BuiltByBitApi.Coupon](docs/Coupon.md)
  - [BuiltByBitApi.CouponEntry](docs/CouponEntry.md)
+ - [BuiltByBitApi.DownloadPlan](docs/DownloadPlan.md)
+ - [BuiltByBitApi.DownloadPlanAction](docs/DownloadPlanAction.md)
+ - [BuiltByBitApi.DownloadPlanNotice](docs/DownloadPlanNotice.md)
  - [BuiltByBitApi.DownloadRequest](docs/DownloadRequest.md)
  - [BuiltByBitApi.DownloadStatus](docs/DownloadStatus.md)
  - [BuiltByBitApi.Event](docs/Event.md)
@@ -249,6 +253,8 @@ Class | Method | HTTP request | Description
  - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData](docs/GetV2ResourcesDiscoverDownloadDirectInitiate200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectPoll200Response](docs/GetV2ResourcesDiscoverDownloadDirectPoll200Response.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData](docs/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadPlan200Response](docs/GetV2ResourcesDiscoverDownloadPlan200Response.md)
+ - [BuiltByBitApi.GetV2ResourcesDiscoverDownloadPlan200ResponseData](docs/GetV2ResourcesDiscoverDownloadPlan200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverLicenses200Response](docs/GetV2ResourcesDiscoverLicenses200Response.md)
  - [BuiltByBitApi.GetV2ResourcesDiscoverLicenses200ResponseData](docs/GetV2ResourcesDiscoverLicenses200ResponseData.md)
  - [BuiltByBitApi.GetV2ResourcesEmbedDownloadInitiate200Response](docs/GetV2ResourcesEmbedDownloadInitiate200Response.md)
