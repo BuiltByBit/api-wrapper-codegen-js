@@ -58,6 +58,9 @@ class DownloadPlanAction {
             if (data.hasOwnProperty('dst')) {
                 obj['dst'] = ApiClient.convertToType(data['dst'], 'String');
             }
+            if (data.hasOwnProperty('actions')) {
+                obj['actions'] = ApiClient.convertToType(data['actions'], [DownloadPlanAction]);
+            }
         }
         return obj;
     }
@@ -86,6 +89,16 @@ class DownloadPlanAction {
         if (data['dst'] && !(typeof data['dst'] === 'string' || data['dst'] instanceof String)) {
             throw new Error("Expected the field `dst` to be a primitive type in the JSON string but got " + data['dst']);
         }
+        if (data['actions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['actions'])) {
+                throw new Error("Expected the field `actions` to be an array in the JSON data but got " + data['actions']);
+            }
+            // validate the optional field `actions` (array)
+            for (const item of data['actions']) {
+                DownloadPlanAction.validateJSON(item);
+            };
+        }
 
         return true;
     }
@@ -111,6 +124,12 @@ DownloadPlanAction.prototype['src'] = undefined;
  * @member {String} dst
  */
 DownloadPlanAction.prototype['dst'] = undefined;
+
+/**
+ * A set of subactions to execute in the context of this action.
+ * @member {Array.<module:model/DownloadPlanAction>} actions
+ */
+DownloadPlanAction.prototype['actions'] = undefined;
 
 
 
