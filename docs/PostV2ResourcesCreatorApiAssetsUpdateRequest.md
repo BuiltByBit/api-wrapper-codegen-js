@@ -6,5 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiAssetId** | **String** |  | 
 **file** | [**PostV2ResourcesCreatorApiAssetsUpdateRequestFile**](PostV2ResourcesCreatorApiAssetsUpdateRequestFile.md) |  | 
+**versionString** | **String** |  | 
+**description** | **String** |  | [optional] 
+**oldestResourceVersionId** | **Number** |  | 
 
 

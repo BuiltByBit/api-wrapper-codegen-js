@@ -25,10 +25,12 @@ class PostV2ResourcesCreatorApiAssetsUpdateRequest {
      * @alias module:model/PostV2ResourcesCreatorApiAssetsUpdateRequest
      * @param apiAssetId {String} 
      * @param file {module:model/PostV2ResourcesCreatorApiAssetsUpdateRequestFile} 
+     * @param versionString {String} 
+     * @param oldestResourceVersionId {Number} 
      */
-    constructor(apiAssetId, file) { 
+    constructor(apiAssetId, file, versionString, oldestResourceVersionId) { 
         
-        PostV2ResourcesCreatorApiAssetsUpdateRequest.initialize(this, apiAssetId, file);
+        PostV2ResourcesCreatorApiAssetsUpdateRequest.initialize(this, apiAssetId, file, versionString, oldestResourceVersionId);
     }
 
     /**
@@ -36,9 +38,11 @@ class PostV2ResourcesCreatorApiAssetsUpdateRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, apiAssetId, file) { 
+    static initialize(obj, apiAssetId, file, versionString, oldestResourceVersionId) { 
         obj['api_asset_id'] = apiAssetId;
         obj['file'] = file;
+        obj['version_string'] = versionString;
+        obj['oldest_resource_version_id'] = oldestResourceVersionId;
     }
 
     /**
@@ -57,6 +61,15 @@ class PostV2ResourcesCreatorApiAssetsUpdateRequest {
             }
             if (data.hasOwnProperty('file')) {
                 obj['file'] = PostV2ResourcesCreatorApiAssetsUpdateRequestFile.constructFromObject(data['file']);
+            }
+            if (data.hasOwnProperty('version_string')) {
+                obj['version_string'] = ApiClient.convertToType(data['version_string'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('oldest_resource_version_id')) {
+                obj['oldest_resource_version_id'] = ApiClient.convertToType(data['oldest_resource_version_id'], 'Number');
             }
         }
         return obj;
@@ -82,6 +95,14 @@ class PostV2ResourcesCreatorApiAssetsUpdateRequest {
         if (data['file']) { // data not null
           PostV2ResourcesCreatorApiAssetsUpdateRequestFile.validateJSON(data['file']);
         }
+        // ensure the json data is a string
+        if (data['version_string'] && !(typeof data['version_string'] === 'string' || data['version_string'] instanceof String)) {
+            throw new Error("Expected the field `version_string` to be a primitive type in the JSON string but got " + data['version_string']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
 
         return true;
     }
@@ -89,7 +110,7 @@ class PostV2ResourcesCreatorApiAssetsUpdateRequest {
 
 }
 
-PostV2ResourcesCreatorApiAssetsUpdateRequest.RequiredProperties = ["api_asset_id", "file"];
+PostV2ResourcesCreatorApiAssetsUpdateRequest.RequiredProperties = ["api_asset_id", "file", "version_string", "oldest_resource_version_id"];
 
 /**
  * @member {String} api_asset_id
@@ -100,6 +121,21 @@ PostV2ResourcesCreatorApiAssetsUpdateRequest.prototype['api_asset_id'] = undefin
  * @member {module:model/PostV2ResourcesCreatorApiAssetsUpdateRequestFile} file
  */
 PostV2ResourcesCreatorApiAssetsUpdateRequest.prototype['file'] = undefined;
+
+/**
+ * @member {String} version_string
+ */
+PostV2ResourcesCreatorApiAssetsUpdateRequest.prototype['version_string'] = undefined;
+
+/**
+ * @member {String} description
+ */
+PostV2ResourcesCreatorApiAssetsUpdateRequest.prototype['description'] = undefined;
+
+/**
+ * @member {Number} oldest_resource_version_id
+ */
+PostV2ResourcesCreatorApiAssetsUpdateRequest.prototype['oldest_resource_version_id'] = undefined;
 
 
 
