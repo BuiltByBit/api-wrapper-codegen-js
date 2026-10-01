@@ -29,7 +29,7 @@ import Version from './Version';
 class Resource {
     /**
      * Constructs a new <code>Resource</code>.
-     * Supported &#39;with&#39; hints: - &#39;Creator&#39;: the resource creator/owner - &#39;Category&#39;: the resource category  - &#39;Description&#39;: the resource description (rendered HTML and BBCode) - &#39;LatestReviews&#39;: list of the 10 latest reviews - &#39;Filter values&#39;: filter values set by the creator
+     * Supported &#39;with&#39; hints: - &#39;Creator&#39;: the resource creator/owner - &#39;Category&#39;: the resource category  - &#39;Description&#39;: the resource description (rendered HTML and BBCode) - &#39;Dependencies&#39;: the resource dependencies section (rendered HTML and BBCode) - &#39;LatestReviews&#39;: list of the 10 latest reviews - &#39;FilterValues&#39;: filter values set by the creator
      * @alias module:model/Resource
      */
     constructor() { 
@@ -125,6 +125,9 @@ class Resource {
             if (data.hasOwnProperty('Addons')) {
                 obj['Addons'] = ApiClient.convertToType(data['Addons'], {'String': [Addon]});
             }
+            if (data.hasOwnProperty('Dependencies')) {
+                obj['Dependencies'] = RichText.constructFromObject(data['Dependencies']);
+            }
         }
         return obj;
     }
@@ -196,6 +199,10 @@ class Resource {
         // validate the optional field `Category`
         if (data['Category']) { // data not null
           Category.validateJSON(data['Category']);
+        }
+        // validate the optional field `Dependencies`
+        if (data['Dependencies']) { // data not null
+          RichText.validateJSON(data['Dependencies']);
         }
 
         return true;
@@ -320,6 +327,11 @@ Resource.prototype['Category'] = undefined;
  * @member {Object.<String, Array.<module:model/Addon>>} Addons
  */
 Resource.prototype['Addons'] = undefined;
+
+/**
+ * @member {module:model/RichText} Dependencies
+ */
+Resource.prototype['Dependencies'] = undefined;
 
 
 

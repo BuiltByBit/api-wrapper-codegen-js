@@ -27,5 +27,6 @@ Name | Type | Description | Notes
 **description** | [**RichText**](RichText.md) |  | [optional] 
 **category** | [**Category**](Category.md) |  | [optional] 
 **addons** | **{String: [Addon]}** |  | [optional] 
+**dependencies** | [**RichText**](RichText.md) |  | [optional] 
 
 
