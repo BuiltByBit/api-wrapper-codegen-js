@@ -91,6 +91,10 @@ import GetV2ResourcesDiscoverDownloadDirectPoll200Response from './model/GetV2Re
 import GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData from './model/GetV2ResourcesDiscoverDownloadDirectPoll200ResponseData';
 import GetV2ResourcesDiscoverDownloadPlan200Response from './model/GetV2ResourcesDiscoverDownloadPlan200Response';
 import GetV2ResourcesDiscoverDownloadPlan200ResponseData from './model/GetV2ResourcesDiscoverDownloadPlan200ResponseData';
+import GetV2ResourcesDiscoverDownloadPlanBatch200Response from './model/GetV2ResourcesDiscoverDownloadPlanBatch200Response';
+import GetV2ResourcesDiscoverDownloadPlanBatch200ResponseData from './model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseData';
+import GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInner from './model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInner';
+import GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInnerError from './model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInnerError';
 import GetV2ResourcesDiscoverLicenses200Response from './model/GetV2ResourcesDiscoverLicenses200Response';
 import GetV2ResourcesDiscoverLicenses200ResponseData from './model/GetV2ResourcesDiscoverLicenses200ResponseData';
 import GetV2ResourcesEmbedDownloadInitiate200Response from './model/GetV2ResourcesEmbedDownloadInitiate200Response';
@@ -664,6 +668,30 @@ export {
      * @property {module:model/GetV2ResourcesDiscoverDownloadPlan200ResponseData}
      */
     GetV2ResourcesDiscoverDownloadPlan200ResponseData,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlanBatch200Response model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlanBatch200Response}
+     */
+    GetV2ResourcesDiscoverDownloadPlanBatch200Response,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlanBatch200ResponseData model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseData}
+     */
+    GetV2ResourcesDiscoverDownloadPlanBatch200ResponseData,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInner model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInner}
+     */
+    GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInner,
+
+    /**
+     * The GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInnerError model constructor.
+     * @property {module:model/GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInnerError}
+     */
+    GetV2ResourcesDiscoverDownloadPlanBatch200ResponseDataPlansInnerError,
 
     /**
      * The GetV2ResourcesDiscoverLicenses200Response model constructor.

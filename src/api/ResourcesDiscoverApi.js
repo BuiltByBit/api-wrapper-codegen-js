@@ -19,6 +19,7 @@ import GetResourcesDiscoverResources4XXResponse from '../model/GetResourcesDisco
 import GetV2ResourcesDiscoverDownloadDirectInitiate200Response from '../model/GetV2ResourcesDiscoverDownloadDirectInitiate200Response';
 import GetV2ResourcesDiscoverDownloadDirectPoll200Response from '../model/GetV2ResourcesDiscoverDownloadDirectPoll200Response';
 import GetV2ResourcesDiscoverDownloadPlan200Response from '../model/GetV2ResourcesDiscoverDownloadPlan200Response';
+import GetV2ResourcesDiscoverDownloadPlanBatch200Response from '../model/GetV2ResourcesDiscoverDownloadPlanBatch200Response';
 import GetV2ResourcesDiscoverLicenses200Response from '../model/GetV2ResourcesDiscoverLicenses200Response';
 
 /**
@@ -244,7 +245,7 @@ export default class ResourcesDiscoverApi {
      * @param {Number} contentId 
      * @param {Object} opts Optional parameters
      * @param {String} [supported] A comma-separated list of supported features (like archive formats).
-     * @param {String} [currentServerSofware] 
+     * @param {String} [currentServerSoftware] 
      * @param {String} [currentServerVersion] 
      * @param {module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadPlanCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetV2ResourcesDiscoverDownloadPlan200Response}
@@ -267,7 +268,7 @@ export default class ResourcesDiscoverApi {
         'content_type': contentType,
         'content_id': contentId,
         'supported': opts['supported'],
-        'current_server_sofware': opts['currentServerSofware'],
+        'current_server_software': opts['currentServerSoftware'],
         'current_server_version': opts['currentServerVersion']
       };
       let headerParams = {
@@ -281,6 +282,56 @@ export default class ResourcesDiscoverApi {
       let returnType = GetV2ResourcesDiscoverDownloadPlan200Response;
       return this.apiClient.callApi(
         '/v2/resources/discover/download/plan', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getV2ResourcesDiscoverDownloadPlanBatch operation.
+     * @callback module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadPlanBatchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetV2ResourcesDiscoverDownloadPlanBatch200Response} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Batch fetch download plans
+     * @param {String} contentPairs A comma-separated list of content pairs. A content pair is a content_type and content_id separated by a : (colon).
+     * @param {Object} opts Optional parameters
+     * @param {String} [supported] A comma-separated list of supported features (like archive formats).
+     * @param {String} [currentServerSoftware] 
+     * @param {String} [currentServerVersion] 
+     * @param {module:api/ResourcesDiscoverApi~getV2ResourcesDiscoverDownloadPlanBatchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2ResourcesDiscoverDownloadPlanBatch200Response}
+     */
+    getV2ResourcesDiscoverDownloadPlanBatch(contentPairs, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'contentPairs' is set
+      if (contentPairs === undefined || contentPairs === null) {
+        throw new Error("Missing the required parameter 'contentPairs' when calling getV2ResourcesDiscoverDownloadPlanBatch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'content_pairs': contentPairs,
+        'supported': opts['supported'],
+        'current_server_software': opts['currentServerSoftware'],
+        'current_server_version': opts['currentServerVersion']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['token'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetV2ResourcesDiscoverDownloadPlanBatch200Response;
+      return this.apiClient.callApi(
+        '/v2/resources/discover/download/plan/batch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
