@@ -105,6 +105,7 @@ export default class ResourcesDiscoverApi {
      * @param {Boolean} [noDependencies] Whether or not to exclude resources with dependencies listed.
      * @param {String} [excludedResourceIds] A comma-separated list of resource IDs to exclude. No filter will be applied if empty.
      * @param {String} [excludedCreatorIds] A comma-separated list of creator IDs to exclude. No filter will be applied if empty.
+     * @param {Number} [minReferrerRate] A minimum referral rate (percent) to filter on. Defaults to 0%.
      * @param {module:api/ResourcesDiscoverApi~getResourcesDiscoverResourcesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetResourcesDiscoverResources200Response}
      */
@@ -123,7 +124,8 @@ export default class ResourcesDiscoverApi {
         'per_page': opts['perPage'],
         'no_dependencies': opts['noDependencies'],
         'excluded_resource_ids': opts['excludedResourceIds'],
-        'excluded_creator_ids': opts['excludedCreatorIds']
+        'excluded_creator_ids': opts['excludedCreatorIds'],
+        'min_referrer_rate': opts['minReferrerRate']
       };
       let headerParams = {
       };

@@ -98,7 +98,8 @@ let opts = {
   'perPage': 25, // Number | The number of resources to return per page.
   'noDependencies': true, // Boolean | Whether or not to exclude resources with dependencies listed.
   'excludedResourceIds': "excludedResourceIds_example", // String | A comma-separated list of resource IDs to exclude. No filter will be applied if empty.
-  'excludedCreatorIds': "excludedCreatorIds_example" // String | A comma-separated list of creator IDs to exclude. No filter will be applied if empty.
+  'excludedCreatorIds': "excludedCreatorIds_example", // String | A comma-separated list of creator IDs to exclude. No filter will be applied if empty.
+  'minReferrerRate': 56 // Number | A minimum referral rate (percent) to filter on. Defaults to 0%.
 };
 apiInstance.getResourcesDiscoverResources(opts, (error, data, response) => {
   if (error) {
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **noDependencies** | **Boolean**| Whether or not to exclude resources with dependencies listed. | [optional] 
  **excludedResourceIds** | **String**| A comma-separated list of resource IDs to exclude. No filter will be applied if empty. | [optional] 
  **excludedCreatorIds** | **String**| A comma-separated list of creator IDs to exclude. No filter will be applied if empty. | [optional] 
+ **minReferrerRate** | **Number**| A minimum referral rate (percent) to filter on. Defaults to 0%. | [optional] 
 
 ### Return type
 

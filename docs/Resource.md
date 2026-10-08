@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **title** | **String** |  | [optional] 
 **summary** | **String** |  | [optional] 
 **url** | **String** |  | [optional] 
+**referrerUrl** | **String** |  | [optional] 
+**referrerRate** | **Number** |  | [optional] 
 **creatorId** | **Number** |  | [optional] 
 **publishedAt** | **Number** |  | [optional] 
 **lastUpdatedAt** | **Number** |  | [optional] 

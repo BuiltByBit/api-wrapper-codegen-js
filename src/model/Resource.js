@@ -68,6 +68,12 @@ class Resource {
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            if (data.hasOwnProperty('referrer_url')) {
+                obj['referrer_url'] = ApiClient.convertToType(data['referrer_url'], 'String');
+            }
+            if (data.hasOwnProperty('referrer_rate')) {
+                obj['referrer_rate'] = ApiClient.convertToType(data['referrer_rate'], 'Number');
+            }
             if (data.hasOwnProperty('creator_id')) {
                 obj['creator_id'] = ApiClient.convertToType(data['creator_id'], 'Number');
             }
@@ -151,6 +157,10 @@ class Resource {
             throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
         }
         // ensure the json data is a string
+        if (data['referrer_url'] && !(typeof data['referrer_url'] === 'string' || data['referrer_url'] instanceof String)) {
+            throw new Error("Expected the field `referrer_url` to be a primitive type in the JSON string but got " + data['referrer_url']);
+        }
+        // ensure the json data is a string
         if (data['cover_image_url'] && !(typeof data['cover_image_url'] === 'string' || data['cover_image_url'] instanceof String)) {
             throw new Error("Expected the field `cover_image_url` to be a primitive type in the JSON string but got " + data['cover_image_url']);
         }
@@ -232,6 +242,16 @@ Resource.prototype['summary'] = undefined;
  * @member {String} url
  */
 Resource.prototype['url'] = undefined;
+
+/**
+ * @member {String} referrer_url
+ */
+Resource.prototype['referrer_url'] = undefined;
+
+/**
+ * @member {Number} referrer_rate
+ */
+Resource.prototype['referrer_rate'] = undefined;
 
 /**
  * @member {Number} creator_id
