@@ -50,14 +50,29 @@ class Member {
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
             }
+            if (data.hasOwnProperty('user_url')) {
+                obj['user_url'] = ApiClient.convertToType(data['user_url'], 'String');
+            }
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
             if (data.hasOwnProperty('registered_at')) {
                 obj['registered_at'] = ApiClient.convertToType(data['registered_at'], 'String');
             }
-            if (data.hasOwnProperty('avatar_url')) {
-                obj['avatar_url'] = ApiClient.convertToType(data['avatar_url'], 'String');
+            if (data.hasOwnProperty('avatar_url_large')) {
+                obj['avatar_url_large'] = ApiClient.convertToType(data['avatar_url_large'], 'String');
+            }
+            if (data.hasOwnProperty('avatar_url_medium')) {
+                obj['avatar_url_medium'] = ApiClient.convertToType(data['avatar_url_medium'], 'String');
+            }
+            if (data.hasOwnProperty('avatar_url_small')) {
+                obj['avatar_url_small'] = ApiClient.convertToType(data['avatar_url_small'], 'String');
+            }
+            if (data.hasOwnProperty('banned')) {
+                obj['banned'] = ApiClient.convertToType(data['banned'], 'Boolean');
+            }
+            if (data.hasOwnProperty('discord_id')) {
+                obj['discord_id'] = ApiClient.convertToType(data['discord_id'], 'String');
             }
         }
         return obj;
@@ -74,6 +89,10 @@ class Member {
             throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
         }
         // ensure the json data is a string
+        if (data['user_url'] && !(typeof data['user_url'] === 'string' || data['user_url'] instanceof String)) {
+            throw new Error("Expected the field `user_url` to be a primitive type in the JSON string but got " + data['user_url']);
+        }
+        // ensure the json data is a string
         if (data['username'] && !(typeof data['username'] === 'string' || data['username'] instanceof String)) {
             throw new Error("Expected the field `username` to be a primitive type in the JSON string but got " + data['username']);
         }
@@ -82,8 +101,20 @@ class Member {
             throw new Error("Expected the field `registered_at` to be a primitive type in the JSON string but got " + data['registered_at']);
         }
         // ensure the json data is a string
-        if (data['avatar_url'] && !(typeof data['avatar_url'] === 'string' || data['avatar_url'] instanceof String)) {
-            throw new Error("Expected the field `avatar_url` to be a primitive type in the JSON string but got " + data['avatar_url']);
+        if (data['avatar_url_large'] && !(typeof data['avatar_url_large'] === 'string' || data['avatar_url_large'] instanceof String)) {
+            throw new Error("Expected the field `avatar_url_large` to be a primitive type in the JSON string but got " + data['avatar_url_large']);
+        }
+        // ensure the json data is a string
+        if (data['avatar_url_medium'] && !(typeof data['avatar_url_medium'] === 'string' || data['avatar_url_medium'] instanceof String)) {
+            throw new Error("Expected the field `avatar_url_medium` to be a primitive type in the JSON string but got " + data['avatar_url_medium']);
+        }
+        // ensure the json data is a string
+        if (data['avatar_url_small'] && !(typeof data['avatar_url_small'] === 'string' || data['avatar_url_small'] instanceof String)) {
+            throw new Error("Expected the field `avatar_url_small` to be a primitive type in the JSON string but got " + data['avatar_url_small']);
+        }
+        // ensure the json data is a string
+        if (data['discord_id'] && !(typeof data['discord_id'] === 'string' || data['discord_id'] instanceof String)) {
+            throw new Error("Expected the field `discord_id` to be a primitive type in the JSON string but got " + data['discord_id']);
         }
 
         return true;
@@ -100,6 +131,11 @@ class Member {
 Member.prototype['user_id'] = undefined;
 
 /**
+ * @member {String} user_url
+ */
+Member.prototype['user_url'] = undefined;
+
+/**
  * @member {String} username
  */
 Member.prototype['username'] = undefined;
@@ -110,9 +146,29 @@ Member.prototype['username'] = undefined;
 Member.prototype['registered_at'] = undefined;
 
 /**
- * @member {String} avatar_url
+ * @member {String} avatar_url_large
  */
-Member.prototype['avatar_url'] = undefined;
+Member.prototype['avatar_url_large'] = undefined;
+
+/**
+ * @member {String} avatar_url_medium
+ */
+Member.prototype['avatar_url_medium'] = undefined;
+
+/**
+ * @member {String} avatar_url_small
+ */
+Member.prototype['avatar_url_small'] = undefined;
+
+/**
+ * @member {Boolean} banned
+ */
+Member.prototype['banned'] = undefined;
+
+/**
+ * @member {String} discord_id
+ */
+Member.prototype['discord_id'] = undefined;
 
 
 

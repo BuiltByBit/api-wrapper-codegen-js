@@ -13,9 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import GetV2ResourcesCreatorBatch200Response from '../model/GetV2ResourcesCreatorBatch200Response';
-import PostV2ResourcesCreatorBatch200Response from '../model/PostV2ResourcesCreatorBatch200Response';
-import PostV2ResourcesCreatorBatchRequest from '../model/PostV2ResourcesCreatorBatchRequest';
+import GetV2MembersSelf200Response from '../model/GetV2MembersSelf200Response';
 
 /**
 * Default service.
@@ -37,80 +35,37 @@ export default class DefaultApi {
 
 
     /**
-     * Callback function to receive the result of the getV2ResourcesCreatorBatch operation.
-     * @callback module:api/DefaultApi~getV2ResourcesCreatorBatchCallback
+     * Callback function to receive the result of the getV2MembersSelf operation.
+     * @callback module:api/DefaultApi~getV2MembersSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetV2ResourcesCreatorBatch200Response} data The data returned by the service call.
+     * @param {module:model/GetV2MembersSelf200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Fetch a list of your batches edits
-     * @param {Object} opts Optional parameters
-     * @param {Array} [batchIds] A comma-separated list of batch IDs to filter on. No filter is applied if empty.
-     * @param {module:api/DefaultApi~getV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetV2ResourcesCreatorBatch200Response}
+     * Fetch self member information
+     * See: https://builtbybit.com/help/developers/global-apis/members/
+     * @param {module:api/DefaultApi~getV2MembersSelfCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetV2MembersSelf200Response}
      */
-    getV2ResourcesCreatorBatch(opts, callback) {
-      opts = opts || {};
+    getV2MembersSelf(callback) {
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
-        'batch_ids': opts['batchIds']
       };
       let headerParams = {
       };
       let formParams = {
       };
 
-      let authNames = ['token'];
+      let authNames = ['oauth2', 'token'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetV2ResourcesCreatorBatch200Response;
+      let returnType = GetV2MembersSelf200Response;
       return this.apiClient.callApi(
-        '/v2/resources/creator/batch', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postV2ResourcesCreatorBatch operation.
-     * @callback module:api/DefaultApi~postV2ResourcesCreatorBatchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostV2ResourcesCreatorBatch200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a new batch edit
-     * Batch edits will be processed in the background meaning a successful call to this endpoint does not guarantee that the edits have been completed. You will instead receive an identifier to a batch edit which you can then use to fetch the status of via the below endpoint. This is not an atomic operation meaning some resources may be edited successfully and others may not be due to an error. You may only batch edit resources you own currently.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostV2ResourcesCreatorBatchRequest} [postV2ResourcesCreatorBatchRequest] 
-     * @param {module:api/DefaultApi~postV2ResourcesCreatorBatchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostV2ResourcesCreatorBatch200Response}
-     */
-    postV2ResourcesCreatorBatch(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['postV2ResourcesCreatorBatchRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = PostV2ResourcesCreatorBatch200Response;
-      return this.apiClient.callApi(
-        '/v2/resources/creator/batch', 'POST',
+        '/v2/members/self', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

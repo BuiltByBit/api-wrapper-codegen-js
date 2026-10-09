@@ -53,6 +53,8 @@ import GetV2AnalyticsSingle200ResponseDataPeriod from './model/GetV2AnalyticsSin
 import GetV2Events200Response from './model/GetV2Events200Response';
 import GetV2Events200ResponseData from './model/GetV2Events200ResponseData';
 import GetV2Health200Response from './model/GetV2Health200Response';
+import GetV2MembersSelf200Response from './model/GetV2MembersSelf200Response';
+import GetV2MembersSelf200ResponseData from './model/GetV2MembersSelf200ResponseData';
 import GetV2ResourcesCreatorAddons200Response from './model/GetV2ResourcesCreatorAddons200Response';
 import GetV2ResourcesCreatorAddons200ResponseData from './model/GetV2ResourcesCreatorAddons200ResponseData';
 import GetV2ResourcesCreatorBatch200Response from './model/GetV2ResourcesCreatorBatch200Response';
@@ -149,6 +151,7 @@ import Store from './model/Store';
 import Update from './model/Update';
 import Version from './model/Version';
 import AnalyticsApi from './api/AnalyticsApi';
+import DefaultApi from './api/DefaultApi';
 import DeploymentsApi from './api/DeploymentsApi';
 import EventsApi from './api/EventsApi';
 import HealthApi from './api/HealthApi';
@@ -440,6 +443,18 @@ export {
      * @property {module:model/GetV2Health200Response}
      */
     GetV2Health200Response,
+
+    /**
+     * The GetV2MembersSelf200Response model constructor.
+     * @property {module:model/GetV2MembersSelf200Response}
+     */
+    GetV2MembersSelf200Response,
+
+    /**
+     * The GetV2MembersSelf200ResponseData model constructor.
+     * @property {module:model/GetV2MembersSelf200ResponseData}
+     */
+    GetV2MembersSelf200ResponseData,
 
     /**
      * The GetV2ResourcesCreatorAddons200Response model constructor.
@@ -1016,6 +1031,12 @@ export {
     * @property {module:api/AnalyticsApi}
     */
     AnalyticsApi,
+
+    /**
+    * The DefaultApi service constructor.
+    * @property {module:api/DefaultApi}
+    */
+    DefaultApi,
 
     /**
     * The DeploymentsApi service constructor.
